@@ -7,15 +7,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
+class SearchViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -24,5 +16,29 @@ class SearchViewController: UIViewController {
     private func setup() {
         view.backgroundColor = .white
         title = NSLocalizedString("title_search", comment: "")
+        
+        let resultsViewcontroller = SearchResultsViewController()
+        let searchController = UISearchController(searchResultsController: resultsViewcontroller)
+        searchController.searchResultsUpdater = self
+        
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = false
+        } else {
+            tableView.tableHeaderView = searchController.searchBar
+        }
+        
+        definesPresentationContext = true
+    }
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let resultsViewController = searchController.searchResultsController as? SearchResultsViewController else {
+            return
+        }
+        
+        resultsViewController.results = ["John Lennon"]
+        resultsViewController.tableView.reloadData()
     }
 }
