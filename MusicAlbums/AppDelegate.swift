@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let viewController = ViewController(nibName: nil, bundle: nil)
+        let viewController = MainViewController(nibName: nil, bundle: nil)
         window?.rootViewController = viewController
         
         return true
