@@ -14,6 +14,7 @@
 		E618B26A22B4FAE60077D029 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618B26922B4FAE60077D029 /* ArtistViewController.swift */; };
 		E618B26D22B4FC930077D029 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618B26C22B4FC930077D029 /* Album.swift */; };
 		E618B27022B4FD4B0077D029 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618B26F22B4FD4B0077D029 /* AlbumDetailsViewController.swift */; };
+		E618B27222B502960077D029 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = E618B27122B502960077D029 /* Keys.plist */; };
 		E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDD21322B4E702002BFA61 /* AppDelegate.swift */; };
 		E6DDD21B22B4E703002BFA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21A22B4E703002BFA61 /* Assets.xcassets */; };
 		E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */; };
@@ -38,6 +39,7 @@
 		E618B26922B4FAE60077D029 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		E618B26C22B4FC930077D029 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E618B26F22B4FD4B0077D029 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
+		E618B27122B502960077D029 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		E6DDD21022B4E702002BFA61 /* MusicAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DDD21322B4E702002BFA61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6DDD21A22B4E703002BFA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */,
 				E6DDD21F22B4E703002BFA61 /* Info.plist */,
 				E618B25F22B4EBFA0077D029 /* Localizable.strings */,
+				E618B27122B502960077D029 /* Keys.plist */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E618B27222B502960077D029 /* Keys.plist in Resources */,
 				E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */,
 				E618B26122B4EBFA0077D029 /* Localizable.strings in Resources */,
 				E6DDD21B22B4E703002BFA61 /* Assets.xcassets in Resources */,
