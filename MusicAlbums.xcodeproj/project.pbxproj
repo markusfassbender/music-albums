@@ -21,6 +21,7 @@
 		E6548C7722B5761100626B9C /* Artist+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7622B5761100626B9C /* Artist+Resource.swift */; };
 		E6548C7922B5782700626B9C /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7822B5782700626B9C /* NetworkConfig.swift */; };
 		E6548C7B22B57FAD00626B9C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7A22B57FAD00626B9C /* Artist.swift */; };
+		E6548C7D22B5867F00626B9C /* Album+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7C22B5867F00626B9C /* Album+Resource.swift */; };
 		E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDD21322B4E702002BFA61 /* AppDelegate.swift */; };
 		E6DDD21B22B4E703002BFA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21A22B4E703002BFA61 /* Assets.xcassets */; };
 		E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */; };
@@ -52,6 +53,7 @@
 		E6548C7622B5761100626B9C /* Artist+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+Resource.swift"; sourceTree = "<group>"; };
 		E6548C7822B5782700626B9C /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		E6548C7A22B57FAD00626B9C /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		E6548C7C22B5867F00626B9C /* Album+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+Resource.swift"; sourceTree = "<group>"; };
 		E6DDD21022B4E702002BFA61 /* MusicAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DDD21322B4E702002BFA61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6DDD21A22B4E703002BFA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				E618B26922B4FAE60077D029 /* ArtistViewController.swift */,
+				E6548C7C22B5867F00626B9C /* Album+Resource.swift */,
 			);
 			name = Artist;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				E618B26722B4F1E40077D029 /* SearchResultsViewController.swift in Sources */,
 				E6548C7722B5761100626B9C /* Artist+Resource.swift in Sources */,
 				E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */,
+				E6548C7D22B5867F00626B9C /* Album+Resource.swift in Sources */,
 				E618B26A22B4FAE60077D029 /* ArtistViewController.swift in Sources */,
 				E6548C7222B5717100626B9C /* CancelToken.swift in Sources */,
 				E618B26D22B4FC930077D029 /* Album.swift in Sources */,

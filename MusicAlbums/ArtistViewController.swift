@@ -8,9 +8,11 @@
 import UIKit
 
 class ArtistViewController: UICollectionViewController {
-    private let artist: String
+    private let artist: Artist
     
-    init(artist: String) {
+    private var albumCancelToken: CancelToken?
+    
+    init(artist: Artist) {
         self.artist = artist
         
         let layout = UICollectionViewFlowLayout()
@@ -21,13 +23,36 @@ class ArtistViewController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    deinit {
+        albumCancelToken?.cancel()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        loadAlbums()
     }
     
     private func setup() {
         view.backgroundColor = .white
-        title = artist
+        title = artist.name
+    }
+    
+    private func loadAlbums() {
+        albumCancelToken?.cancel()
+        
+        let resource = Album.top(for: artist)
+        let token = CancelToken()
+        albumCancelToken = token
+        
+        Webservice.shared.load(resource: resource, token: token) { result in
+            switch result {
+            case .success(let albums):
+                print(albums)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

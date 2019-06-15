@@ -10,6 +10,4 @@ import Foundation
 struct Album {
     let title: String
     let artist: String
-    let tracks: [String]
-    let imageURL: URL
 }
