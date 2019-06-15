@@ -15,6 +15,9 @@
 		E618B26D22B4FC930077D029 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618B26C22B4FC930077D029 /* Album.swift */; };
 		E618B27022B4FD4B0077D029 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618B26F22B4FD4B0077D029 /* AlbumDetailsViewController.swift */; };
 		E618B27222B502960077D029 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = E618B27122B502960077D029 /* Keys.plist */; };
+		E6548C7122B5717100626B9C /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C6E22B5717100626B9C /* Webservice.swift */; };
+		E6548C7222B5717100626B9C /* CancelToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C6F22B5717100626B9C /* CancelToken.swift */; };
+		E6548C7322B5717100626B9C /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7022B5717100626B9C /* Resource.swift */; };
 		E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDD21322B4E702002BFA61 /* AppDelegate.swift */; };
 		E6DDD21B22B4E703002BFA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21A22B4E703002BFA61 /* Assets.xcassets */; };
 		E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */; };
@@ -40,6 +43,9 @@
 		E618B26C22B4FC930077D029 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E618B26F22B4FD4B0077D029 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
 		E618B27122B502960077D029 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		E6548C6E22B5717100626B9C /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		E6548C6F22B5717100626B9C /* CancelToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelToken.swift; sourceTree = "<group>"; };
+		E6548C7022B5717100626B9C /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		E6DDD21022B4E702002BFA61 /* MusicAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DDD21322B4E702002BFA61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6DDD21A22B4E703002BFA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +137,16 @@
 			name = AlbumDetails;
 			sourceTree = "<group>";
 		};
+		E6548C6D22B5716000626B9C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E6548C6F22B5717100626B9C /* CancelToken.swift */,
+				E6548C7022B5717100626B9C /* Resource.swift */,
+				E6548C6E22B5717100626B9C /* Webservice.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		E6DDD20722B4E702002BFA61 = {
 			isa = PBXGroup;
 			children = (
@@ -152,10 +168,11 @@
 		E6DDD21222B4E702002BFA61 /* MusicAlbums */ = {
 			isa = PBXGroup;
 			children = (
-				E618B26B22B4FC860077D029 /* Models */,
-				E618B25B22B4EAF90077D029 /* Scenes */,
 				E6DDD21322B4E702002BFA61 /* AppDelegate.swift */,
 				E6DDD21A22B4E703002BFA61 /* Assets.xcassets */,
+				E618B26B22B4FC860077D029 /* Models */,
+				E6548C6D22B5716000626B9C /* Network */,
+				E618B25B22B4EAF90077D029 /* Scenes */,
 				E618B26222B4EC0E0077D029 /* Support */,
 			);
 			path = MusicAlbums;
@@ -273,9 +290,12 @@
 			files = (
 				E618B26522B4EF710077D029 /* SearchViewController.swift in Sources */,
 				E618B25A22B4EAF10077D029 /* MainViewController.swift in Sources */,
+				E6548C7122B5717100626B9C /* Webservice.swift in Sources */,
+				E6548C7322B5717100626B9C /* Resource.swift in Sources */,
 				E618B26722B4F1E40077D029 /* SearchResultsViewController.swift in Sources */,
 				E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */,
 				E618B26A22B4FAE60077D029 /* ArtistViewController.swift in Sources */,
+				E6548C7222B5717100626B9C /* CancelToken.swift in Sources */,
 				E618B26D22B4FC930077D029 /* Album.swift in Sources */,
 				E618B27022B4FD4B0077D029 /* AlbumDetailsViewController.swift in Sources */,
 			);
