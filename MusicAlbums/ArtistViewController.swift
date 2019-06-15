@@ -8,7 +8,7 @@
 import UIKit
 
 class ArtistViewController: UICollectionViewController {
-    let artist: String
+    private let artist: String
     
     init(artist: String) {
         self.artist = artist
