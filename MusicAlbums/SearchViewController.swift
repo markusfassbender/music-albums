@@ -8,6 +8,12 @@
 import UIKit
 
 class SearchViewController: UITableViewController {
+    private var searchCancelToken: CancelToken?
+    
+    deinit {
+        searchCancelToken?.cancel()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -48,8 +54,13 @@ extension SearchViewController: UISearchResultsUpdating {
     }
     
     private func updateSearchResults(on viewController: SearchResultsViewController, for input: String) {
+        searchCancelToken?.cancel()
+        
         let resource = Artist.all(for: input)
-        Webservice.shared.load(resource: resource) { result in
+        let cancelToken = CancelToken()
+        searchCancelToken = cancelToken
+        
+        Webservice.shared.load(resource: resource, token: cancelToken) { result in
             switch result {
             case .success(let artists):
                 viewController.results = artists
