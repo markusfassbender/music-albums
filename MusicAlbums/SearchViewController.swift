@@ -36,19 +36,38 @@ class SearchViewController: UITableViewController {
 
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let resultsViewController = searchController.searchResultsController as? SearchResultsViewController else {
+        guard
+            let viewController = searchController.searchResultsController as? SearchResultsViewController,
+            let input = searchController.searchBar.text?.trimmingCharacters(in: .whitespaces),
+            !input.isEmpty
+        else {
             return
         }
         
-        resultsViewController.results = ["John Lennon"]
-        resultsViewController.tableView.reloadData()
+        updateSearchResults(on: viewController, for: input)
+    }
+    
+    private func updateSearchResults(on viewController: SearchResultsViewController, for input: String) {
+        let resource = Artist.all(for: input)
+        Webservice.shared.load(resource: resource) { result in
+            switch result {
+            case .success(let artists):
+                viewController.results = artists
+                
+                DispatchQueue.main.async {
+                    viewController.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                break;
+            }
+        }
     }
 }
 
 extension SearchViewController: SearchResultsDelegate {
-    func didSelectItem(_ item: String) {
-        let artist = item
-        let artistViewController = ArtistViewController(artist: artist)
+    func didSelectItem(_ item: Artist) {
+        let artistViewController = ArtistViewController(artist: item.name)
         
         navigationController?.pushViewController(artistViewController, animated: true)
     }

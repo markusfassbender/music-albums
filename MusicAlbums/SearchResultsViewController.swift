@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SearchResultsDelegate: class {
-    func didSelectItem(_ item: String)
+    func didSelectItem(_ item: Artist)
 }
 
 class SearchResultsViewController: UITableViewController {
@@ -16,7 +16,7 @@ class SearchResultsViewController: UITableViewController {
         static let reuseIdentifier = "SearchResultsViewController.reuseIdentifier"
     }
     
-    var results: [String] = []
+    var results: [Artist] = []
     weak var delegate: SearchResultsDelegate?
     
     override func viewDidLoad() {
@@ -28,8 +28,10 @@ class SearchResultsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let artist = results[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.reuseIdentifier, for: indexPath)
-        cell.textLabel?.text = results[indexPath.row]
+        
+        cell.textLabel?.text = artist.name
         
         return cell
     }

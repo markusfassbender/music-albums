@@ -18,6 +18,9 @@
 		E6548C7122B5717100626B9C /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C6E22B5717100626B9C /* Webservice.swift */; };
 		E6548C7222B5717100626B9C /* CancelToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C6F22B5717100626B9C /* CancelToken.swift */; };
 		E6548C7322B5717100626B9C /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7022B5717100626B9C /* Resource.swift */; };
+		E6548C7722B5761100626B9C /* Artist+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7622B5761100626B9C /* Artist+Resource.swift */; };
+		E6548C7922B5782700626B9C /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7822B5782700626B9C /* NetworkConfig.swift */; };
+		E6548C7B22B57FAD00626B9C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7A22B57FAD00626B9C /* Artist.swift */; };
 		E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDD21322B4E702002BFA61 /* AppDelegate.swift */; };
 		E6DDD21B22B4E703002BFA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21A22B4E703002BFA61 /* Assets.xcassets */; };
 		E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */; };
@@ -46,6 +49,9 @@
 		E6548C6E22B5717100626B9C /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		E6548C6F22B5717100626B9C /* CancelToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelToken.swift; sourceTree = "<group>"; };
 		E6548C7022B5717100626B9C /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		E6548C7622B5761100626B9C /* Artist+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+Resource.swift"; sourceTree = "<group>"; };
+		E6548C7822B5782700626B9C /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		E6548C7A22B57FAD00626B9C /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		E6DDD21022B4E702002BFA61 /* MusicAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DDD21322B4E702002BFA61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6DDD21A22B4E703002BFA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 			children = (
 				E618B26422B4EF710077D029 /* SearchViewController.swift */,
 				E618B26622B4F1E40077D029 /* SearchResultsViewController.swift */,
+				E6548C7622B5761100626B9C /* Artist+Resource.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -125,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				E618B26C22B4FC930077D029 /* Album.swift */,
+				E6548C7A22B57FAD00626B9C /* Artist.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -140,6 +148,7 @@
 		E6548C6D22B5716000626B9C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E6548C7822B5782700626B9C /* NetworkConfig.swift */,
 				E6548C6F22B5717100626B9C /* CancelToken.swift */,
 				E6548C7022B5717100626B9C /* Resource.swift */,
 				E6548C6E22B5717100626B9C /* Webservice.swift */,
@@ -289,10 +298,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E618B26522B4EF710077D029 /* SearchViewController.swift in Sources */,
+				E6548C7922B5782700626B9C /* NetworkConfig.swift in Sources */,
 				E618B25A22B4EAF10077D029 /* MainViewController.swift in Sources */,
 				E6548C7122B5717100626B9C /* Webservice.swift in Sources */,
 				E6548C7322B5717100626B9C /* Resource.swift in Sources */,
+				E6548C7B22B57FAD00626B9C /* Artist.swift in Sources */,
 				E618B26722B4F1E40077D029 /* SearchResultsViewController.swift in Sources */,
+				E6548C7722B5761100626B9C /* Artist+Resource.swift in Sources */,
 				E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */,
 				E618B26A22B4FAE60077D029 /* ArtistViewController.swift in Sources */,
 				E6548C7222B5717100626B9C /* CancelToken.swift in Sources */,
