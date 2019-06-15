@@ -18,7 +18,7 @@ extension Artist {
 
         return Resource(path: "/2.0/", queryItems: queryItems, parse: { data in
             let decoder = JSONDecoder()
-            let wrapper = try decoder.decode(SearchResultWrapper.self, from: data)
+            let wrapper = try decoder.decode(ArtistAllWrapper.self, from: data)
             return wrapper.results.artistmatches.artist.map {
                 let name = $0.name
                 let image = $0.image?.first(where: { $0.size == .medium })
@@ -31,7 +31,7 @@ extension Artist {
 
 // MARK: Decodable API Wrapper
 
-fileprivate struct SearchResultWrapper: Decodable {
+fileprivate struct ArtistAllWrapper: Decodable {
     fileprivate let results: Results
     
     fileprivate struct Results: Decodable {
