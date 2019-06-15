@@ -12,5 +12,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        title = NSLocalizedString("title_main", comment: "")
     }
 }

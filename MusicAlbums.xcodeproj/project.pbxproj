@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E618B25A22B4EAF10077D029 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618B25922B4EAF10077D029 /* MainViewController.swift */; };
+		E618B26122B4EBFA0077D029 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E618B25F22B4EBFA0077D029 /* Localizable.strings */; };
 		E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDD21322B4E702002BFA61 /* AppDelegate.swift */; };
 		E6DDD21B22B4E703002BFA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21A22B4E703002BFA61 /* Assets.xcassets */; };
 		E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		E618B25922B4EAF10077D029 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E618B26022B4EBFA0077D029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = MusicAlbums/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E6DDD21022B4E702002BFA61 /* MusicAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DDD21322B4E702002BFA61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6DDD21A22B4E703002BFA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +72,16 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
+		E618B26222B4EC0E0077D029 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */,
+				E6DDD21F22B4E703002BFA61 /* Info.plist */,
+				E618B25F22B4EBFA0077D029 /* Localizable.strings */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		E6DDD20722B4E702002BFA61 = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +106,7 @@
 				E618B25B22B4EAF90077D029 /* Scenes */,
 				E6DDD21322B4E702002BFA61 /* AppDelegate.swift */,
 				E6DDD21A22B4E703002BFA61 /* Assets.xcassets */,
-				E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */,
-				E6DDD21F22B4E703002BFA61 /* Info.plist */,
+				E618B26222B4EC0E0077D029 /* Support */,
 			);
 			path = MusicAlbums;
 			sourceTree = "<group>";
@@ -190,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */,
+				E618B26122B4EBFA0077D029 /* Localizable.strings in Resources */,
 				E6DDD21B22B4E703002BFA61 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +244,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		E618B25F22B4EBFA0077D029 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E618B26022B4EBFA0077D029 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -247,6 +267,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -308,6 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
