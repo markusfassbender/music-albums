@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol SearchResultsDelegate: class {
+    func didSelectItem(_ item: String)
+}
+
 class SearchResultsViewController: UITableViewController {
     private struct Constant {
         static let reuseIdentifier = "SearchResultsViewController.reuseIdentifier"
     }
     
     var results: [String] = []
+    weak var delegate: SearchResultsDelegate?
     
     override func viewDidLoad() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constant.reuseIdentifier)
@@ -27,5 +32,10 @@ class SearchResultsViewController: UITableViewController {
         cell.textLabel?.text = results[indexPath.row]
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = results[indexPath.row]
+        delegate?.didSelectItem(item)
     }
 }
