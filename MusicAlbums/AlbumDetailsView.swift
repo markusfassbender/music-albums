@@ -39,6 +39,7 @@ final class AlbumDetailsView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .darkGray
         self.imageView = imageView
         
         let titleLabel = UILabel()
@@ -87,7 +88,7 @@ final class AlbumDetailsView: UIView {
 // MARK: View Model
 
 protocol AlbumDetailsViewModel {
-    var image: UIImage { get }
+    var image: UIImage? { get }
     var title: String { get }
     var artistName: String { get }
     var tracks: [AlbumTrackViewModel] { get }
@@ -95,7 +96,7 @@ protocol AlbumDetailsViewModel {
 
 extension AlbumDetailsView {
     struct ViewModel: AlbumDetailsViewModel {
-        let image: UIImage
+        let image: UIImage?
         let title: String
         let artistName: String
         let tracks: [AlbumTrackViewModel]

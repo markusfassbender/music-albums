@@ -86,14 +86,12 @@ class AlbumDetailsViewController: UIViewController {
     }
     
     private func displayDetails(of album: Album) {
-        let image = UIImage(named: "image_placeholder")!
-        
         let trackViewModels = album.tracks.enumerated().map { index, title -> AlbumTrackViewModel in
             let rank = index + 1
             return AlbumTracksView.ViewModel(rank: rank, title: title)
         }
         
-        let viewModel = AlbumDetailsView.ViewModel(image: image,
+        let viewModel = AlbumDetailsView.ViewModel(image: nil,
                                                    title: album.title,
                                                    artistName: album.artist.name,
                                                    tracks: trackViewModels)
