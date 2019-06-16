@@ -26,6 +26,7 @@ final class AlbumCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .darkGray
         self.imageView = imageView
         
         let titleLabel = UILabel()
@@ -49,7 +50,7 @@ final class AlbumCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
             
             labelLayoutGuide.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: systemSpacing),
             labelLayoutGuide.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: systemSpacing),
@@ -79,14 +80,14 @@ final class AlbumCell: UICollectionViewCell {
 // MARK: View Model
 
 protocol AlbumCellViewModel {
-    var image: UIImage { get }
+    var image: UIImage? { get }
     var title: String { get }
     var artistName: String { get }
 }
 
 extension AlbumCell {
     struct ViewModel: AlbumCellViewModel {
-        let image: UIImage
+        let image: UIImage?
         let title: String
         let artistName: String
     }

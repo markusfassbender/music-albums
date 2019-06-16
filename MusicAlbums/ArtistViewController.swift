@@ -88,10 +88,9 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
             return cell
         }
         
-        let image = UIImage(named: "image_placeholder")!
         let name = albumNames[indexPath.row]
         let artistName = artist.name
-        let viewModel = AlbumCell.ViewModel(image: image, title: name, artistName: artistName)
+        let viewModel = AlbumCell.ViewModel(image: nil, title: name, artistName: artistName)
         albumCell.configure(with: viewModel)
         
         return albumCell
