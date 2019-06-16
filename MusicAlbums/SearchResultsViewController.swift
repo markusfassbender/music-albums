@@ -20,7 +20,8 @@ class SearchResultsViewController: UITableViewController {
     weak var delegate: SearchResultsDelegate?
     
     override func viewDidLoad() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constant.reuseIdentifier)
+        super.viewDidLoad()
+        tableView.register(ArtistCell.self, forCellReuseIdentifier: Constant.reuseIdentifier)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,7 +32,10 @@ class SearchResultsViewController: UITableViewController {
         let artist = results[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.reuseIdentifier, for: indexPath)
         
-        cell.textLabel?.text = artist.name
+        if let cell = cell as? ArtistCell {
+            let viewModel = ArtistCell.ViewModel(image: nil, artistName: artist.name)
+            cell.configure(with: viewModel)
+        }
         
         return cell
     }
