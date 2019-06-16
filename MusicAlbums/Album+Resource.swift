@@ -36,7 +36,7 @@ extension Album {
             let wrapper = try decoder.decode(AlbumDetailWrapper.self, from: data)
             let tracks: [Album.Track] = wrapper.album.tracks.track.map { $0.name }
             
-            return Album(title: albumName, artist: artist, tracks: tracks)
+            return Album(title: albumName, artist: artist, image: nil, imageURL: nil, tracks: tracks)
         })
     }
 }

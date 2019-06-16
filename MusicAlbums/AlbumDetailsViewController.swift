@@ -86,7 +86,7 @@ class AlbumDetailsViewController: UIViewController {
     }
     
     private func displayDetails(of album: Album) {
-        let trackViewModels = album.tracks.enumerated().map { index, title -> AlbumTrackViewModel in
+        let trackViewModels = album.tracks?.enumerated().map { index, title -> AlbumTrackViewModel in
             let rank = index + 1
             return AlbumTracksView.ViewModel(rank: rank, title: title)
         }

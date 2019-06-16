@@ -81,7 +81,11 @@ final class AlbumDetailsView: UIView {
         titleLabel?.text = viewModel.title
         artistLabel?.text = viewModel.artistName
         
-        tracksView?.configure(with: viewModel.tracks)
+        if let tracks = viewModel.tracks {
+            tracksView?.configure(with: tracks)
+        } else {
+            // TODO: hide view?
+        }
     }
 }
 
@@ -91,7 +95,7 @@ protocol AlbumDetailsViewModel {
     var image: UIImage? { get }
     var title: String { get }
     var artistName: String { get }
-    var tracks: [AlbumTrackViewModel] { get }
+    var tracks: [AlbumTrackViewModel]? { get }
 }
 
 extension AlbumDetailsView {
@@ -99,6 +103,6 @@ extension AlbumDetailsView {
         let image: UIImage?
         let title: String
         let artistName: String
-        let tracks: [AlbumTrackViewModel]
+        let tracks: [AlbumTrackViewModel]?
     }
 }

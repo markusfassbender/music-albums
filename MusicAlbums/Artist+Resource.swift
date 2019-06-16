@@ -21,7 +21,7 @@ extension Artist {
                 let name = $0.name
                 let image = $0.image?.first(where: { $0.size == .medium })
                 let imageURL = image?.url
-                return Artist(name: name, imageURL: imageURL)
+                return Artist(name: name, image: nil, imageURL: imageURL)
             }
         })
     }
