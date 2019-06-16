@@ -13,7 +13,7 @@ final class AlbumDetailsView: UIView {
     private weak var imageView: UIImageView?
     private weak var titleLabel: UILabel?
     private weak var artistLabel: UILabel?
-    private weak var tracksStackView: UIStackView?
+    private weak var tracksView: AlbumTracksView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,26 +43,25 @@ final class AlbumDetailsView: UIView {
         
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = .preferredFont(forTextStyle: .title2)
         self.titleLabel = titleLabel
         
         let artistLabel = UILabel()
         artistLabel.translatesAutoresizingMaskIntoConstraints = false
+        artistLabel.font = .preferredFont(forTextStyle: .title3)
+        artistLabel.textColor = .darkGray
         self.artistLabel = artistLabel
         
-        let tracksStackView = UIStackView()
-        tracksStackView.translatesAutoresizingMaskIntoConstraints = false
-        tracksStackView.axis = .vertical
-        tracksStackView.alignment = .fill
-        tracksStackView.distribution = .equalSpacing
-        tracksStackView.spacing = systemSpacing
-        self.tracksStackView = tracksStackView
+        let tracksView = AlbumTracksView()
+        tracksView.translatesAutoresizingMaskIntoConstraints = false
+        self.tracksView = tracksView
         
         addSubview(stackView)
         
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(artistLabel)
-        stackView.addArrangedSubview(tracksStackView)
+        stackView.addArrangedSubview(tracksView)
         
         let constraints: [NSLayoutConstraint] = [
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
@@ -80,7 +79,8 @@ final class AlbumDetailsView: UIView {
         imageView?.image = viewModel.image
         titleLabel?.text = viewModel.title
         artistLabel?.text = viewModel.artistName
-        // TODO: update track list
+        
+        tracksView?.configure(with: viewModel.tracks)
     }
 }
 
@@ -90,7 +90,7 @@ protocol AlbumDetailsViewModel {
     var image: UIImage { get }
     var title: String { get }
     var artistName: String { get }
-    var tracks: [String] { get }
+    var tracks: [AlbumTrackViewModel] { get }
 }
 
 extension AlbumDetailsView {
@@ -98,6 +98,6 @@ extension AlbumDetailsView {
         let image: UIImage
         let title: String
         let artistName: String
-        let tracks: [String]
+        let tracks: [AlbumTrackViewModel]
     }
 }

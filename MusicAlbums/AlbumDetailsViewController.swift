@@ -13,6 +13,8 @@ class AlbumDetailsViewController: UIViewController {
     
     private weak var detailsView: AlbumDetailsView?
     
+    private var cancelToken: CancelToken?
+    
     init(albumName: String, artist: Artist) {
         self.albumName = albumName
         self.artist = artist
@@ -22,6 +24,10 @@ class AlbumDetailsViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("not implemented")
+    }
+    
+    deinit {
+        cancelToken?.cancel()
     }
     
     override func viewDidLoad() {
@@ -61,16 +67,36 @@ class AlbumDetailsViewController: UIViewController {
     }
     
     private func loadDetails() {
-        let album = Album(title: albumName, artist: artist, tracks: []) // TODO: download track list
-        displayDetails(of: album)
+        cancelToken?.cancel()
+        
+        let resource = Album.album(for: albumName, of: artist)
+        let token = CancelToken()
+        cancelToken = token
+        
+        Webservice.shared.load(resource: resource, token: token) {
+            switch $0 {
+            case .success(let album):
+                DispatchQueue.main.async {
+                    self.displayDetails(of: album)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     private func displayDetails(of album: Album) {
         let image = UIImage(named: "image_placeholder")!
+        
+        let trackViewModels = album.tracks.enumerated().map { index, title -> AlbumTrackViewModel in
+            let rank = index + 1
+            return AlbumTracksView.ViewModel(rank: rank, title: title)
+        }
+        
         let viewModel = AlbumDetailsView.ViewModel(image: image,
                                                    title: album.title,
                                                    artistName: album.artist.name,
-                                                   tracks: album.tracks)
+                                                   tracks: trackViewModels)
         detailsView?.configure(with: viewModel)
     }
 }
