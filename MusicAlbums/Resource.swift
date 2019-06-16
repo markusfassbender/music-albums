@@ -7,32 +7,27 @@
 
 import Foundation
 
-private struct ResourceConstant {
-    static let scheme = "https"
-    static let host = "ws.audioscrobbler.com"
-}
-
-struct Resource<M> {
+class Resource<M> {
     let parse: (Data) throws -> M
     
-    let queryItems: [URLQueryItem]
+    let baseURL: URL
     let path: String
+    let queryItems: [URLQueryItem]
     
     var url: URL {
         var components = URLComponents()
-        components.scheme = ResourceConstant.scheme
-        components.host = ResourceConstant.host
         components.path = path
         components.queryItems = queryItems
         
-        guard let url = components.url else {
-            fatalError("Unable to create URL components from \(components)")
+        guard let url = components.url(relativeTo: baseURL) else {
+            fatalError("URL creation from components \(components) to baseURL \(baseURL) failed!")
         }
         
         return url
     }
     
-    init(path: String, queryItems: [URLQueryItem], parse: @escaping (Data) throws -> M) {
+    init(baseURL: URL, path: String, queryItems: [URLQueryItem], parse: @escaping (Data) throws -> M) {
+        self.baseURL = baseURL
         self.path = path
         self.queryItems = queryItems
         self.parse = parse

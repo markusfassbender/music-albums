@@ -9,14 +9,12 @@ import Foundation
 
 extension Artist {
     static func all(for input: String) -> Resource<[Artist]> {
-        let queryItems: [URLQueryItem] = [
+        let queryItems = [
             URLQueryItem(name: "method", value: "artist.search"),
-            URLQueryItem(name: "artist", value: input),
-            URLQueryItem(name: "format", value: "json"),
-            URLQueryItem(name: "api_key", value: NetworkConfig.shared.APIKey)
+            URLQueryItem(name: "artist", value: input)
         ]
 
-        return Resource(path: "/2.0/", queryItems: queryItems, parse: { data in
+        return LastFM.Resource(queryItems: queryItems, parse: { data in
             let decoder = JSONDecoder()
             let wrapper = try decoder.decode(ArtistAllWrapper.self, from: data)
             return wrapper.results.artistmatches.artist.map {

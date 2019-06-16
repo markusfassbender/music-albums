@@ -9,15 +9,13 @@ import Foundation
 
 extension Album {
     static func top(for artist: Artist) -> Resource<[Album]> {
-        let queryItems: [URLQueryItem] = [
+        let queryItems = [
             URLQueryItem(name: "method", value: "artist.gettopalbums"),
             URLQueryItem(name: "artist", value: artist.name),
-            URLQueryItem(name: "autocorrect", value: "0"),
-            URLQueryItem(name: "format", value: "json"),
-            URLQueryItem(name: "api_key", value: NetworkConfig.shared.APIKey)
+            URLQueryItem(name: "autocorrect", value: "0")
         ]
         
-        return Resource(path: "/2.0/", queryItems: queryItems, parse: { data in
+        return LastFM.Resource(queryItems: queryItems, parse: { data in
             let decoder = JSONDecoder()
             let wrapper = try decoder.decode(AlbumTopWrapper.self, from: data)
             return wrapper.topalbums.album.map {

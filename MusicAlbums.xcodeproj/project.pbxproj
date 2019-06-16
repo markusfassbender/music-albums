@@ -25,6 +25,8 @@
 		E6548C7F22B622C300626B9C /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7E22B622C300626B9C /* AlbumCell.swift */; };
 		E6548C8222B624EB00626B9C /* UIView+SystemSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C8122B624EB00626B9C /* UIView+SystemSpacing.swift */; };
 		E6548C8422B63A5500626B9C /* AlbumDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C8322B63A5500626B9C /* AlbumDetailsView.swift */; };
+		E6548C8922B6417100626B9C /* LastFM+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C8822B6417100626B9C /* LastFM+Resource.swift */; };
+		E6548C8C22B6440D00626B9C /* LastFM+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C8B22B6440D00626B9C /* LastFM+Constants.swift */; };
 		E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDD21322B4E702002BFA61 /* AppDelegate.swift */; };
 		E6DDD21B22B4E703002BFA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21A22B4E703002BFA61 /* Assets.xcassets */; };
 		E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */; };
@@ -60,6 +62,8 @@
 		E6548C7E22B622C300626B9C /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		E6548C8122B624EB00626B9C /* UIView+SystemSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SystemSpacing.swift"; sourceTree = "<group>"; };
 		E6548C8322B63A5500626B9C /* AlbumDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsView.swift; sourceTree = "<group>"; };
+		E6548C8822B6417100626B9C /* LastFM+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LastFM+Resource.swift"; sourceTree = "<group>"; };
+		E6548C8B22B6440D00626B9C /* LastFM+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LastFM+Constants.swift"; sourceTree = "<group>"; };
 		E6DDD21022B4E702002BFA61 /* MusicAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DDD21322B4E702002BFA61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6DDD21A22B4E703002BFA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,7 +127,6 @@
 			children = (
 				E618B26422B4EF710077D029 /* SearchViewController.swift */,
 				E618B26622B4F1E40077D029 /* SearchResultsViewController.swift */,
-				E6548C7622B5761100626B9C /* Artist+Resource.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -132,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				E618B26922B4FAE60077D029 /* ArtistViewController.swift */,
-				E6548C7C22B5867F00626B9C /* Album+Resource.swift */,
 			);
 			name = Artist;
 			sourceTree = "<group>";
@@ -158,10 +160,11 @@
 		E6548C6D22B5716000626B9C /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				E6548C7822B5782700626B9C /* NetworkConfig.swift */,
 				E6548C6F22B5717100626B9C /* CancelToken.swift */,
+				E6548C7822B5782700626B9C /* NetworkConfig.swift */,
 				E6548C7022B5717100626B9C /* Resource.swift */,
 				E6548C6E22B5717100626B9C /* Webservice.swift */,
+				E6548C8522B63ED500626B9C /* LastFM */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -173,6 +176,17 @@
 				E6548C8122B624EB00626B9C /* UIView+SystemSpacing.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		E6548C8522B63ED500626B9C /* LastFM */ = {
+			isa = PBXGroup;
+			children = (
+				E6548C8B22B6440D00626B9C /* LastFM+Constants.swift */,
+				E6548C8822B6417100626B9C /* LastFM+Resource.swift */,
+				E6548C7C22B5867F00626B9C /* Album+Resource.swift */,
+				E6548C7622B5761100626B9C /* Artist+Resource.swift */,
+			);
+			name = LastFM;
 			sourceTree = "<group>";
 		};
 		E6DDD20722B4E702002BFA61 = {
@@ -328,7 +342,9 @@
 				E618B26722B4F1E40077D029 /* SearchResultsViewController.swift in Sources */,
 				E6548C7722B5761100626B9C /* Artist+Resource.swift in Sources */,
 				E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */,
+				E6548C8922B6417100626B9C /* LastFM+Resource.swift in Sources */,
 				E6548C7F22B622C300626B9C /* AlbumCell.swift in Sources */,
+				E6548C8C22B6440D00626B9C /* LastFM+Constants.swift in Sources */,
 				E6548C7D22B5867F00626B9C /* Album+Resource.swift in Sources */,
 				E618B26A22B4FAE60077D029 /* ArtistViewController.swift in Sources */,
 				E6548C7222B5717100626B9C /* CancelToken.swift in Sources */,
