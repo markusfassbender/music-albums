@@ -10,6 +10,8 @@ import UIKit
 class AlbumDetailsViewController: UIViewController {
     private let album: Album
     
+    private weak var detailsView: AlbumDetailsView?
+    
     init(album: Album) {
         self.album = album
         
@@ -23,36 +25,45 @@ class AlbumDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup(with: album)
+        displayDetails(of: album)
     }
     
     private func setup(with album: Album) {
         title = album.title
         view.backgroundColor = .white
         
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.distribution = .fillEqually
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         
-        let titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = album.title
+        let detailsView = AlbumDetailsView()
+        detailsView.translatesAutoresizingMaskIntoConstraints = false
+        self.detailsView = detailsView
         
-        let artistLabel = UILabel()
-        artistLabel.translatesAutoresizingMaskIntoConstraints = false
-        artistLabel.text = album.artist
-        
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(artistLabel)
-        
-        view.addSubview(stackView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(detailsView)
         
         let constraints: [NSLayoutConstraint] = [
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            detailsView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            detailsView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            detailsView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            detailsView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            detailsView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ]
         
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    private func displayDetails(of album: Album) {
+        let image = UIImage(named: "image_placeholder")!
+        let viewModel = AlbumDetailsView.ViewModel(image: image,
+                                                   title: album.title,
+                                                   artist: album.artist,
+                                                   trackList: [])
+        detailsView?.configure(with: viewModel)
     }
 }
