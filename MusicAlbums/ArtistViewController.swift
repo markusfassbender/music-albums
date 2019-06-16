@@ -7,9 +7,12 @@
 
 import UIKit
 
-class ArtistViewController: UICollectionViewController {
+class ArtistViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private struct Constant {
         static let reuseIdentifier: String = "ArtistViewController.reuseIdentifier"
+        static let layoutSpacing: CGFloat = 8
+        static let numberOfCellsInRow: Int = 2
+        static let cellHeightRatio: CGFloat = 1.5
     }
     
     private let artist: Artist
@@ -21,6 +24,9 @@ class ArtistViewController: UICollectionViewController {
         self.artist = artist
         
         let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = Constant.layoutSpacing
+        layout.minimumLineSpacing = Constant.layoutSpacing
+        layout.sectionInset = UIEdgeInsets(top: Constant.layoutSpacing, left: Constant.layoutSpacing, bottom: Constant.layoutSpacing, right: Constant.layoutSpacing)
         super.init(collectionViewLayout: layout)
     }
     
@@ -40,7 +46,7 @@ class ArtistViewController: UICollectionViewController {
     }
     
     private func setup() {
-        view.backgroundColor = .white
+        collectionView.backgroundColor = .white
         title = artist.name
         
         collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: Constant.reuseIdentifier)
@@ -88,5 +94,20 @@ class ArtistViewController: UICollectionViewController {
         albumCell.configure(with: viewModel)
         
         return albumCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else {
+            assertionFailure("layout must conform UICollectionViewFlowLayout")
+            return .zero
+        }
+        
+        let layoutInteritemSpacing = CGFloat(Constant.numberOfCellsInRow-1) * layout.minimumInteritemSpacing
+        let layoutRowSpaces = layout.sectionInset.left + layout.sectionInset.right + layoutInteritemSpacing
+        let collectionCellSize = collectionView.frame.size.width - layoutRowSpaces
+        let width = collectionCellSize / CGFloat(Constant.numberOfCellsInRow)
+        let height = width * Constant.cellHeightRatio
+        
+        return CGSize(width: width, height: height)
     }
 }
