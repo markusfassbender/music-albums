@@ -110,4 +110,11 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
         
         return CGSize(width: width, height: height)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let album = albums[indexPath.row]
+        let viewController = AlbumDetailsViewController(album: album)
+        
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
