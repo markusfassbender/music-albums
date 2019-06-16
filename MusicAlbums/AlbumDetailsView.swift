@@ -79,7 +79,7 @@ final class AlbumDetailsView: UIView {
     func configure(with viewModel: AlbumDetailsViewModel) {
         imageView?.image = viewModel.image
         titleLabel?.text = viewModel.title
-        artistLabel?.text = viewModel.artist
+        artistLabel?.text = viewModel.artistName
         // TODO: update track list
     }
 }
@@ -89,15 +89,15 @@ final class AlbumDetailsView: UIView {
 protocol AlbumDetailsViewModel {
     var image: UIImage { get }
     var title: String { get }
-    var artist: String { get }
-    var trackList: [String] { get }
+    var artistName: String { get }
+    var tracks: [String] { get }
 }
 
 extension AlbumDetailsView {
     struct ViewModel: AlbumDetailsViewModel {
         let image: UIImage
         let title: String
-        let artist: String
-        let trackList: [String]
+        let artistName: String
+        let tracks: [String]
     }
 }

@@ -72,7 +72,7 @@ final class AlbumCell: UICollectionViewCell {
     func configure(with viewModel: AlbumCellViewModel) {
         imageView?.image = viewModel.image
         titleLabel?.text = viewModel.title
-        artistLabel?.text = viewModel.artist
+        artistLabel?.text = viewModel.artistName
     }
 }
 
@@ -81,13 +81,13 @@ final class AlbumCell: UICollectionViewCell {
 protocol AlbumCellViewModel {
     var image: UIImage { get }
     var title: String { get }
-    var artist: String { get }
+    var artistName: String { get }
 }
 
 extension AlbumCell {
     struct ViewModel: AlbumCellViewModel {
         let image: UIImage
         let title: String
-        let artist: String
+        let artistName: String
     }
 }

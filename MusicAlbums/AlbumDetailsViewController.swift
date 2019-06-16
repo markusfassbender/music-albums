@@ -8,12 +8,14 @@
 import UIKit
 
 class AlbumDetailsViewController: UIViewController {
-    private let album: Album
+    private let albumName: String
+    private let artist: Artist
     
     private weak var detailsView: AlbumDetailsView?
     
-    init(album: Album) {
-        self.album = album
+    init(albumName: String, artist: Artist) {
+        self.albumName = albumName
+        self.artist = artist
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,12 +26,12 @@ class AlbumDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup(with: album)
-        displayDetails(of: album)
+        setup()
+        loadDetails()
     }
     
-    private func setup(with album: Album) {
-        title = album.title
+    private func setup() {
+        title = albumName
         view.backgroundColor = .white
         
         let scrollView = UIScrollView()
@@ -58,12 +60,17 @@ class AlbumDetailsViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
     
+    private func loadDetails() {
+        let album = Album(title: albumName, artist: artist, tracks: []) // TODO: download track list
+        displayDetails(of: album)
+    }
+    
     private func displayDetails(of album: Album) {
         let image = UIImage(named: "image_placeholder")!
         let viewModel = AlbumDetailsView.ViewModel(image: image,
                                                    title: album.title,
-                                                   artist: album.artist,
-                                                   trackList: [])
+                                                   artistName: album.artist.name,
+                                                   tracks: album.tracks)
         detailsView?.configure(with: viewModel)
     }
 }

@@ -8,21 +8,35 @@
 import Foundation
 
 extension Album {
-    static func top(for artist: Artist) -> Resource<[Album]> {
+    static func topAlbums(of artistName: String) -> Resource<[String]> {
         let queryItems = [
             URLQueryItem(name: "method", value: "artist.gettopalbums"),
+            URLQueryItem(name: "artist", value: artistName),
+            URLQueryItem(name: "autocorrect", value: "0")
+        ]
+        
+        return LastFM.Resource(queryItems: queryItems) { data in
+            let decoder = JSONDecoder()
+            let wrapper = try decoder.decode(AlbumTopWrapper.self, from: data)
+            
+            return wrapper.topalbums.album.map { $0.name }
+        }
+    }
+    
+    static func album(for albumName: String, of artist: Artist) -> Resource<Album> {
+        let queryItems = [
+            URLQueryItem(name: "method", value: "album.getInfo"),
             URLQueryItem(name: "artist", value: artist.name),
+            URLQueryItem(name: "album", value: albumName),
             URLQueryItem(name: "autocorrect", value: "0")
         ]
         
         return LastFM.Resource(queryItems: queryItems, parse: { data in
             let decoder = JSONDecoder()
-            let wrapper = try decoder.decode(AlbumTopWrapper.self, from: data)
-            return wrapper.topalbums.album.map {
-                let title = $0.name
-                let artist = $0.artist.name
-                return Album(title: title, artist: artist)
-            }
+            let wrapper = try decoder.decode(AlbumDetailWrapper.self, from: data)
+            let tracks: [Album.Track] = wrapper.album.tracks.track.map { $0.name }
+            
+            return Album(title: albumName, artist: artist, tracks: tracks)
         })
     }
 }
@@ -37,9 +51,20 @@ fileprivate struct AlbumTopWrapper: Decodable {
         
         fileprivate struct Album: Decodable {
             let name: String
-            let artist: Artist
+        }
+    }
+}
+
+fileprivate struct AlbumDetailWrapper: Decodable {
+    fileprivate let album: Album
+    
+    fileprivate struct Album: Decodable {
+        let tracks: Tracks
+        
+        fileprivate struct Tracks: Decodable {
+            let track: [Track]
             
-            fileprivate struct Artist: Decodable {
+            fileprivate struct Track: Decodable {
                 let name: String
             }
         }
