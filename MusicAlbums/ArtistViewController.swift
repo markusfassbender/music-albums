@@ -16,9 +16,9 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
     }
     
     private let artist: Artist
-    private var albumNames: [String] = []
+    private var albums: [Album] = []
     
-    private var albumNamesCancelToken: CancelToken?
+    private var albumsCancelToken: CancelToken?
     
     init(artist: Artist) {
         self.artist = artist
@@ -36,7 +36,7 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
     
     
     deinit {
-        albumNamesCancelToken?.cancel()
+        albumsCancelToken?.cancel()
     }
     
     override func viewDidLoad() {
@@ -53,16 +53,16 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
     }
     
     private func loadAlbums() {
-        albumNamesCancelToken?.cancel()
+        albumsCancelToken?.cancel()
         
-        let resource = Album.topAlbums(of: artist.name)
+        let resource = Album.topAlbums(of: artist)
         let token = CancelToken()
-        albumNamesCancelToken = token
+        albumsCancelToken = token
         
         Webservice.shared.load(resource: resource, token: token) { result in
             switch result {
-            case .success(let albumNames):
-                self.albumNames = albumNames
+            case .success(let albums):
+                self.albums = albums
                 
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
@@ -78,7 +78,7 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return albumNames.count
+        return albums.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -88,9 +88,8 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
             return cell
         }
         
-        let name = albumNames[indexPath.row]
-        let artistName = artist.name
-        let viewModel = AlbumCell.ViewModel(image: nil, title: name, artistName: artistName)
+        let album = albums[indexPath.row]
+        let viewModel = AlbumCell.ViewModel(image: nil, title: album.title, artistName: album.artist.name)
         albumCell.configure(with: viewModel)
         
         return albumCell
@@ -112,8 +111,8 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let albumName = albumNames[indexPath.row]
-        let viewController = AlbumDetailsViewController(albumName: albumName, artist: artist)
+        let album = albums[indexPath.row]
+        let viewController = AlbumDetailsViewController(albumName: album.title, artist: artist) // TODO: init with album
         
         navigationController?.pushViewController(viewController, animated: true)
     }

@@ -8,10 +8,10 @@
 import Foundation
 
 extension Album {
-    static func topAlbums(of artistName: String) -> Resource<[String]> {
+    static func topAlbums(of artist: Artist) -> Resource<[Album]> {
         let queryItems = [
             URLQueryItem(name: "method", value: "artist.gettopalbums"),
-            URLQueryItem(name: "artist", value: artistName),
+            URLQueryItem(name: "artist", value: artist.name),
             URLQueryItem(name: "autocorrect", value: "0")
         ]
         
@@ -19,7 +19,9 @@ extension Album {
             let decoder = JSONDecoder()
             let wrapper = try decoder.decode(AlbumTopWrapper.self, from: data)
             
-            return wrapper.topalbums.album.map { $0.name }
+            return wrapper.topalbums.album.map {
+                Album(title: $0.name, artist: artist)
+            }
         }
     }
     
