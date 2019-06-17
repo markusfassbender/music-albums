@@ -24,4 +24,9 @@ class Resource<M> {
         
         self.url = url
     }
+    
+    init(url: URL, parse: @escaping (Data) throws -> M) {
+        self.url = url
+        self.parse = parse
+    }
 }
