@@ -54,7 +54,7 @@ final class AlbumTracksView: UIView {
         NSLayoutConstraint.activate(constraints)
     }
     
-    func configure(with viewModels: [AlbumTrackViewModel]) {
+    func configure(with viewModels: [AlbumTrackViewModel]?) {
         titleLabel?.text = NSLocalizedString("tracks", comment: "")
         
         stackView?.arrangedSubviews.forEach {
@@ -62,7 +62,7 @@ final class AlbumTracksView: UIView {
             $0.removeFromSuperview()
         }
         
-        viewModels.forEach {
+        viewModels?.forEach {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
             label.font = .preferredFont(forTextStyle: .body)

@@ -80,12 +80,7 @@ final class AlbumDetailsView: UIView {
         imageView?.image = viewModel.image
         titleLabel?.text = viewModel.title
         artistLabel?.text = viewModel.artistName
-        
-        if let tracks = viewModel.tracks {
-            tracksView?.configure(with: tracks)
-        } else {
-            // TODO: hide view?
-        }
+        tracksView?.configure(with: viewModel.tracks)
     }
 }
 

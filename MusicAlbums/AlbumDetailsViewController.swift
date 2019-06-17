@@ -30,7 +30,15 @@ class AlbumDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        loadDetails()
+        displayAlbum(album)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if album.tracks == nil {
+            loadDetails()
+        }
     }
     
     private func setup() {
@@ -74,7 +82,7 @@ class AlbumDetailsViewController: UIViewController {
             switch $0 {
             case .success(let album):
                 DispatchQueue.main.async {
-                    self.displayDetails(of: album)
+                    self.displayAlbum(album)
                 }
             case .failure(let error):
                 print(error)
@@ -82,13 +90,13 @@ class AlbumDetailsViewController: UIViewController {
         }
     }
     
-    private func displayDetails(of album: Album) {
+    private func displayAlbum(_ album: Album) {
         let trackViewModels = album.tracks?.enumerated().map { index, title -> AlbumTrackViewModel in
             let rank = index + 1
             return AlbumTracksView.ViewModel(rank: rank, title: title)
         }
         
-        let viewModel = AlbumDetailsView.ViewModel(image: nil,
+        let viewModel = AlbumDetailsView.ViewModel(image: album.image,
                                                    title: album.title,
                                                    artistName: album.artist.name,
                                                    tracks: trackViewModels)
