@@ -19,7 +19,7 @@ extension Artist {
             let wrapper = try decoder.decode(ArtistAllWrapper.self, from: data)
             return wrapper.results.artistmatches.artist.map {
                 let name = $0.name
-                let image = $0.image?.first(where: { $0.size == .medium })
+                let image = $0.image?.first(where: { $0.size == .medium }) ?? $0.image?.last
                 let imageURL = image?.url
                 return Artist(name: name, image: nil, imageURL: imageURL)
             }
@@ -40,21 +40,7 @@ fileprivate struct ArtistAllWrapper: Decodable {
             
             fileprivate struct Artist: Decodable {
                 let name: String
-                let image: [Image]?
-                
-                fileprivate struct Image: Decodable {
-                    let url: URL
-                    let size: Size
-                    
-                    enum CodingKeys: String, CodingKey {
-                        case url = "#text"
-                        case size
-                    }
-                    
-                    fileprivate enum Size: String, Decodable {
-                        case small, medium, large, extralarge, mega
-                    }
-                }
+                let image: [LastFM.Image]?
             }
         }
     }

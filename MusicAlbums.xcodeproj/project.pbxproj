@@ -34,6 +34,7 @@
 		E6DDD21B22B4E703002BFA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21A22B4E703002BFA61 /* Assets.xcassets */; };
 		E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */; };
 		E6DDD22922B4E703002BFA61 /* MusicAlbumsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDD22822B4E703002BFA61 /* MusicAlbumsTests.swift */; };
+		E6F6638422B8183D005CFAA1 /* LastFM+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F6638322B8183D005CFAA1 /* LastFM+Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		E6DDD22422B4E703002BFA61 /* MusicAlbumsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicAlbumsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DDD22822B4E703002BFA61 /* MusicAlbumsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAlbumsTests.swift; sourceTree = "<group>"; };
 		E6DDD22A22B4E703002BFA61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6F6638322B8183D005CFAA1 /* LastFM+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LastFM+Image.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			children = (
 				E6548C8B22B6440D00626B9C /* LastFM+Constants.swift */,
 				E6548C8822B6417100626B9C /* LastFM+Resource.swift */,
+				E6F6638322B8183D005CFAA1 /* LastFM+Image.swift */,
 				E6548C7C22B5867F00626B9C /* Album+Resource.swift */,
 				E6548C7622B5761100626B9C /* Artist+Resource.swift */,
 			);
@@ -355,6 +358,7 @@
 				E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */,
 				E6548C8922B6417100626B9C /* LastFM+Resource.swift in Sources */,
 				E6548C9222B6514E00626B9C /* AlbumTracksView.swift in Sources */,
+				E6F6638422B8183D005CFAA1 /* LastFM+Image.swift in Sources */,
 				E6548C7F22B622C300626B9C /* AlbumCell.swift in Sources */,
 				E6548C8C22B6440D00626B9C /* LastFM+Constants.swift in Sources */,
 				E6548C7D22B5867F00626B9C /* Album+Resource.swift in Sources */,

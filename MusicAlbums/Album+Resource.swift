@@ -20,7 +20,10 @@ extension Album {
             let wrapper = try decoder.decode(AlbumTopWrapper.self, from: data)
             
             return wrapper.topalbums.album.map {
-                Album(title: $0.name, artist: artist)
+                let title = $0.name
+                let image = $0.image?.first(where: { $0.size == .large }) ?? $0.image?.last
+                let imageURL = image?.url
+                return Album(title: title, artist: artist, image: nil, imageURL: imageURL, tracks: nil)
             }
         })
     }
@@ -53,6 +56,7 @@ fileprivate struct AlbumTopWrapper: Decodable {
         
         fileprivate struct Album: Decodable {
             let name: String
+            let image: [LastFM.Image]?
         }
     }
 }
