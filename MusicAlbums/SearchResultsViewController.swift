@@ -18,11 +18,7 @@ class SearchResultsViewController: UITableViewController {
     
     weak var delegate: SearchResultsDelegate?
     
-    var results: [Artist] = [] {
-        willSet {
-            cancelAllImageDownloads()
-        }
-    }
+    var results: [Artist] = []
     
     private var imageDownloadTokens: [IndexPath: CancelToken] = [:]
     
