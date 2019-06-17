@@ -30,7 +30,7 @@ final class ArtistCell: UITableViewCell {
         artistImageView.translatesAutoresizingMaskIntoConstraints = false
         artistImageView.contentMode = .scaleAspectFill
         artistImageView.backgroundColor = .darkGray
-        self.artistImageView = imageView
+        self.artistImageView = artistImageView
         
         let artistNameLabel = UILabel()
         artistNameLabel.translatesAutoresizingMaskIntoConstraints = false
