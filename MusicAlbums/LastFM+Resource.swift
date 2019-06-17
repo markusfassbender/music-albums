@@ -17,7 +17,7 @@ extension LastFM {
             super.init(baseURL: baseURL,
                        path: path,
                        queryItems: queryItems,
-                       parse: parse)
+                       parse: parse)!
         }
     }
 }

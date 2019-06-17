@@ -15,14 +15,14 @@ extension Album {
             URLQueryItem(name: "autocorrect", value: "0")
         ]
         
-        return LastFM.Resource(queryItems: queryItems) { data in
+        return LastFM.Resource(queryItems: queryItems, parse: { data in
             let decoder = JSONDecoder()
             let wrapper = try decoder.decode(AlbumTopWrapper.self, from: data)
             
             return wrapper.topalbums.album.map {
                 Album(title: $0.name, artist: artist)
             }
-        }
+        })
     }
     
     static func album(for albumName: String, of artist: Artist) -> Resource<Album> {
