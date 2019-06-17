@@ -20,6 +20,14 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
     
     private var albumsCancelToken: CancelToken?
     
+    private var imageDownloadTokens: [IndexPath: CancelToken] = [:]
+    
+    private func cancelAllImageDownloads() {
+        imageDownloadTokens.forEach {
+            $0.value.cancel()
+        }
+    }
+    
     init(artist: Artist) {
         self.artist = artist
         
@@ -37,6 +45,7 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
     
     deinit {
         albumsCancelToken?.cancel()
+        cancelAllImageDownloads()
     }
     
     override func viewDidLoad() {
@@ -85,18 +94,48 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.reuseIdentifier, for: indexPath)
         let album = albums[indexPath.row]
         
-        configureCell(cell, with: album)
+        configureCell(cell, at: indexPath, with: album)
         
         return cell
     }
     
-    private func configureCell(_ cell: UICollectionViewCell, with album: Album) {
+    private func configureCell(_ cell: UICollectionViewCell, at indexPath: IndexPath, with album: Album) {
         guard let cell = cell as? AlbumCell else {
             return
         }
         
-        let viewModel = AlbumCell.ViewModel(image: nil, title: album.title, artistName: album.artist.name)
+        let viewModel = AlbumCell.ViewModel(image: album.image, title: album.title, artistName: album.artist.name)
         cell.configure(with: viewModel)
+        
+        if album.image == nil, let url = album.imageURL {
+            downloadImage(from: url, for: indexPath)
+        }
+    }
+    
+    private func downloadImage(from url: URL, for indexPath: IndexPath) {
+        imageDownloadTokens[indexPath]?.cancel()
+        
+        let resource = UIImage.image(from: url)
+        let token = CancelToken()
+        imageDownloadTokens[indexPath] = token
+        
+        Webservice.shared.load(resource: resource, token: token) {
+            switch $0 {
+            case .success(let image):
+                let album = self.albums[indexPath.row].new(with: image)
+                self.albums[indexPath.row] = album
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadItems(at: [indexPath])
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        imageDownloadTokens[indexPath]?.cancel()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

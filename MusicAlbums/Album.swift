@@ -33,4 +33,12 @@ extension Album {
                      imageURL: imageURL,
                      tracks: tracks)
     }
+    
+    func new(with image: UIImage) -> Album {
+        return .init(title: title,
+                     artist: artist,
+                     image: image,
+                     imageURL: imageURL,
+                     tracks: tracks)
+    }
 }
