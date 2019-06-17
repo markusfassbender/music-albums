@@ -116,7 +116,7 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let album = albums[indexPath.row]
-        let viewController = AlbumDetailsViewController(albumName: album.title, artist: artist) // TODO: init with album
+        let viewController = AlbumDetailsViewController(album: album)
         
         navigationController?.pushViewController(viewController, animated: true)
     }

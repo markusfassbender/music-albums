@@ -25,11 +25,11 @@ extension Album {
         })
     }
     
-    static func album(for albumName: String, of artist: Artist) -> Resource<Album> {
+    static func allDetails(for album: Album) -> Resource<Album> {
         let queryItems = [
             URLQueryItem(name: "method", value: "album.getInfo"),
-            URLQueryItem(name: "artist", value: artist.name),
-            URLQueryItem(name: "album", value: albumName),
+            URLQueryItem(name: "artist", value: album.artist.name),
+            URLQueryItem(name: "album", value: album.title),
             URLQueryItem(name: "autocorrect", value: "0")
         ]
         
@@ -38,7 +38,7 @@ extension Album {
             let wrapper = try decoder.decode(AlbumDetailWrapper.self, from: data)
             let tracks: [Album.Track] = wrapper.album.tracks.track.map { $0.name }
             
-            return Album(title: albumName, artist: artist, image: nil, imageURL: nil, tracks: tracks)
+            return album.new(with: tracks)
         })
     }
 }

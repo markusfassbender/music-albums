@@ -24,3 +24,13 @@ struct Album {
         self.tracks = tracks
     }
 }
+
+extension Album {
+    func new(with tracks: [Track]) -> Album {
+        return .init(title: title,
+                     artist: artist,
+                     image: image,
+                     imageURL: imageURL,
+                     tracks: tracks)
+    }
+}

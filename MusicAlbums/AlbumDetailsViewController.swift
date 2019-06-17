@@ -8,17 +8,14 @@
 import UIKit
 
 class AlbumDetailsViewController: UIViewController {
-    private let albumName: String
-    private let artist: Artist
+    private let album: Album
     
     private weak var detailsView: AlbumDetailsView?
     
     private var cancelToken: CancelToken?
     
-    init(albumName: String, artist: Artist) {
-        self.albumName = albumName
-        self.artist = artist
-        
+    init(album: Album) {
+        self.album = album
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,7 +34,7 @@ class AlbumDetailsViewController: UIViewController {
     }
     
     private func setup() {
-        title = albumName
+        title = album.title
         view.backgroundColor = .white
         
         let scrollView = UIScrollView()
@@ -69,7 +66,7 @@ class AlbumDetailsViewController: UIViewController {
     private func loadDetails() {
         cancelToken?.cancel()
         
-        let resource = Album.album(for: albumName, of: artist)
+        let resource = Album.allDetails(for: album)
         let token = CancelToken()
         cancelToken = token
         
