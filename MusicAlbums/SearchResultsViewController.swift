@@ -16,8 +16,25 @@ class SearchResultsViewController: UITableViewController {
         static let reuseIdentifier = "SearchResultsViewController.reuseIdentifier"
     }
     
-    var results: [Artist] = []
     weak var delegate: SearchResultsDelegate?
+    
+    var results: [Artist] = [] {
+        willSet {
+            cancelAllImageDownloads()
+        }
+    }
+    
+    private var imageDownloadTokens: [IndexPath: CancelToken] = [:]
+    
+    private func cancelAllImageDownloads() {
+        imageDownloadTokens.forEach {
+            $0.value.cancel()
+        }
+    }
+    
+    deinit {
+        cancelAllImageDownloads()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +70,13 @@ class SearchResultsViewController: UITableViewController {
     }
     
     private func downloadImage(from url: URL, for indexPath: IndexPath) {
+        imageDownloadTokens[indexPath]?.cancel()
+        
         let resource = UIImage.image(from: url)
-        Webservice.shared.load(resource: resource, token: nil) {
+        let token = CancelToken()
+        imageDownloadTokens[indexPath] = token
+        
+        Webservice.shared.load(resource: resource, token: token) {
             switch $0 {
             case .success(let image):
                 let artist = self.results[indexPath.row].new(with: image)
@@ -67,6 +89,10 @@ class SearchResultsViewController: UITableViewController {
                 print(error)
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        imageDownloadTokens[indexPath]?.cancel()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
