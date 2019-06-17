@@ -57,20 +57,23 @@ final class AlbumDetailsView: UIView {
         tracksView.translatesAutoresizingMaskIntoConstraints = false
         self.tracksView = tracksView
         
+        addSubview(imageView)
         addSubview(stackView)
         
-        stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(artistLabel)
         stackView.addArrangedSubview(tracksView)
         
         let constraints: [NSLayoutConstraint] = [
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
             
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: systemSpacing),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: systemSpacing),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -systemSpacing),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -systemSpacing),
         ]
         
         NSLayoutConstraint.activate(constraints)
