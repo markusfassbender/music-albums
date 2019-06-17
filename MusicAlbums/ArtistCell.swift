@@ -29,13 +29,14 @@ final class ArtistCell: UITableViewCell {
         let artistImageView = UIImageView()
         artistImageView.translatesAutoresizingMaskIntoConstraints = false
         artistImageView.contentMode = .scaleAspectFill
-        artistImageView.backgroundColor = .darkGray
+        artistImageView.backgroundColor = Stylesheet.Color.imageBackground
         self.artistImageView = artistImageView
         
         let artistNameLabel = UILabel()
         artistNameLabel.translatesAutoresizingMaskIntoConstraints = false
         artistNameLabel.numberOfLines = 2
         artistNameLabel.font = .preferredFont(forTextStyle: .body)
+        artistNameLabel.textColor = Stylesheet.Color.title
         artistNameLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         self.artistNameLabel = artistNameLabel
         

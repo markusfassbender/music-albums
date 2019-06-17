@@ -26,17 +26,17 @@ final class AlbumCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .darkGray
+        imageView.backgroundColor = Stylesheet.Color.imageBackground
         self.imageView = imageView
         
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.textColor = .black
+        titleLabel.textColor = Stylesheet.Color.title
         self.titleLabel = titleLabel
         
         let artistLabel = UILabel()
         artistLabel.translatesAutoresizingMaskIntoConstraints = false
-        artistLabel.textColor = .darkGray
+        artistLabel.textColor = Stylesheet.Color.subTitle
         self.artistLabel = artistLabel
         
         let labelLayoutGuide = UILayoutGuide()

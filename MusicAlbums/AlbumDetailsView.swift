@@ -39,18 +39,19 @@ final class AlbumDetailsView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .darkGray
+        imageView.backgroundColor = Stylesheet.Color.imageBackground
         self.imageView = imageView
         
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = .preferredFont(forTextStyle: .title2)
+        titleLabel.textColor = Stylesheet.Color.title
         self.titleLabel = titleLabel
         
         let artistLabel = UILabel()
         artistLabel.translatesAutoresizingMaskIntoConstraints = false
         artistLabel.font = .preferredFont(forTextStyle: .title3)
-        artistLabel.textColor = .darkGray
+        artistLabel.textColor = Stylesheet.Color.subTitle
         self.artistLabel = artistLabel
         
         let tracksView = AlbumTracksView()

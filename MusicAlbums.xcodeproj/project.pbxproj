@@ -35,6 +35,7 @@
 		E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */; };
 		E6DDD22922B4E703002BFA61 /* MusicAlbumsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDD22822B4E703002BFA61 /* MusicAlbumsTests.swift */; };
 		E6F6638422B8183D005CFAA1 /* LastFM+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F6638322B8183D005CFAA1 /* LastFM+Image.swift */; };
+		E6F6638A22B82957005CFAA1 /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F6638922B82956005CFAA1 /* Stylesheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		E6DDD22822B4E703002BFA61 /* MusicAlbumsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAlbumsTests.swift; sourceTree = "<group>"; };
 		E6DDD22A22B4E703002BFA61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6F6638322B8183D005CFAA1 /* LastFM+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LastFM+Image.swift"; sourceTree = "<group>"; };
+		E6F6638922B82956005CFAA1 /* Stylesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 		E6548C8022B622C900626B9C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E6F6638922B82956005CFAA1 /* Stylesheet.swift */,
 				E6548C9322B6810500626B9C /* ArtistCell.swift */,
 				E6548C7E22B622C300626B9C /* AlbumCell.swift */,
 				E6548C8122B624EB00626B9C /* UIView+SystemSpacing.swift */,
@@ -348,6 +351,7 @@
 				E6548C7922B5782700626B9C /* NetworkConfig.swift in Sources */,
 				E618B25A22B4EAF10077D029 /* MainViewController.swift in Sources */,
 				E6548C8422B63A5500626B9C /* AlbumDetailsView.swift in Sources */,
+				E6F6638A22B82957005CFAA1 /* Stylesheet.swift in Sources */,
 				E6548C8222B624EB00626B9C /* UIView+SystemSpacing.swift in Sources */,
 				E6548C7122B5717100626B9C /* Webservice.swift in Sources */,
 				E6548C7322B5717100626B9C /* Resource.swift in Sources */,
