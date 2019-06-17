@@ -23,8 +23,11 @@ class SearchViewController: UITableViewController {
         view.backgroundColor = .white
         title = NSLocalizedString("title_search", comment: "")
         
+        tableView.separatorInset = .zero
+        
         let resultsViewcontroller = SearchResultsViewController()
         resultsViewcontroller.delegate = self
+        resultsViewcontroller.tableView.separatorInset = tableView.separatorInset
         
         let searchController = UISearchController(searchResultsController: resultsViewcontroller)
         searchController.searchResultsUpdater = self

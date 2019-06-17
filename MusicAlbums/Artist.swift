@@ -18,3 +18,9 @@ struct Artist {
         self.imageURL = imageURL
     }
 }
+
+extension Artist {
+    func new(with image: UIImage) -> Artist {
+        return .init(name: self.name, image: image, imageURL: self.imageURL)
+    }
+}

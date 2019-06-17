@@ -29,15 +29,44 @@ class SearchResultsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let artist = results[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.reuseIdentifier, for: indexPath)
+        let artist = results[indexPath.row]
         
-        if let cell = cell as? ArtistCell {
-            let viewModel = ArtistCell.ViewModel(image: nil, artistName: artist.name)
-            cell.configure(with: viewModel)
-        }
+        configureCell(cell, at: indexPath, with: artist)
         
         return cell
+    }
+    
+    private func configureCell(_ cell: UITableViewCell, at indexPath: IndexPath, with artist: Artist) {
+        guard let cell = cell as? ArtistCell else {
+            return
+        }
+        
+        let image = artist.image
+        let name = artist.name
+        let viewModel = ArtistCell.ViewModel(image: image, artistName: name)
+        cell.configure(with: viewModel)
+        
+        if image == nil, let imageURL = artist.imageURL {
+            downloadImage(from: imageURL, for: indexPath)
+        }
+    }
+    
+    private func downloadImage(from url: URL, for indexPath: IndexPath) {
+        let resource = UIImage.image(from: url)
+        Webservice.shared.load(resource: resource, token: nil) {
+            switch $0 {
+            case .success(let image):
+                let artist = self.results[indexPath.row].new(with: image)
+                self.results[indexPath.row] = artist
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadRows(at: [indexPath], with: .fade)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

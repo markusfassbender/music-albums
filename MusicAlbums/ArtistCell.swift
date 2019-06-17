@@ -47,7 +47,7 @@ final class ArtistCell: UITableViewCell {
             artistImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             artistImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             artistImageView.widthAnchor.constraint(equalTo: artistImageView.heightAnchor),
-            artistImageView.heightAnchor.constraint(greaterThanOrEqualToConstant: Constant.minimumHeight),
+            artistImageView.heightAnchor.constraint(equalToConstant: Constant.minimumHeight),
             
             artistNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             artistNameLabel.leadingAnchor.constraint(equalTo: artistImageView.trailingAnchor, constant: systemSpacing),
