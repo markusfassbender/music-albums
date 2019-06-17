@@ -83,16 +83,20 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.reuseIdentifier, for: indexPath)
+        let album = albums[indexPath.row]
         
-        guard let albumCell = cell as? AlbumCell else {
-            return cell
+        configureCell(cell, with: album)
+        
+        return cell
+    }
+    
+    private func configureCell(_ cell: UICollectionViewCell, with album: Album) {
+        guard let cell = cell as? AlbumCell else {
+            return
         }
         
-        let album = albums[indexPath.row]
         let viewModel = AlbumCell.ViewModel(image: nil, title: album.title, artistName: album.artist.name)
-        albumCell.configure(with: viewModel)
-        
-        return albumCell
+        cell.configure(with: viewModel)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
