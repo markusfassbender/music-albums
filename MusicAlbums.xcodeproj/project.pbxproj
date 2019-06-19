@@ -33,7 +33,6 @@
 		E6FE7F1D22BAB2BE005E1339 /* pixel.png in Resources */ = {isa = PBXBuildFile; fileRef = E6FE7F1C22BAB2BE005E1339 /* pixel.png */; };
 		E6FE7F1F22BABF18005E1339 /* AlbumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE7F1E22BABF18005E1339 /* AlbumTests.swift */; };
 		E6FE7F2E22BAC326005E1339 /* NetworkService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FE7F2522BAC326005E1339 /* NetworkService.framework */; };
-		E6FE7F3522BAC326005E1339 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE7F3422BAC326005E1339 /* NetworkServiceTests.swift */; };
 		E6FE7F3722BAC326005E1339 /* NetworkService.h in Headers */ = {isa = PBXBuildFile; fileRef = E6FE7F2722BAC326005E1339 /* NetworkService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6FE7F3A22BAC326005E1339 /* NetworkService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FE7F2522BAC326005E1339 /* NetworkService.framework */; };
 		E6FE7F3B22BAC326005E1339 /* NetworkService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E6FE7F2522BAC326005E1339 /* NetworkService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -49,6 +48,7 @@
 		E6FE7F5222BAC55C005E1339 /* Artist+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7622B5761100626B9C /* Artist+Resource.swift */; };
 		E6FE7F5822BAC666005E1339 /* UIImage+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE7F5722BAC666005E1339 /* UIImage+Resource.swift */; };
 		E6FE7F5B22BAC69C005E1339 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6FE7F5A22BAC69C005E1339 /* Keys.plist */; };
+		E6FE7F5D22BAC856005E1339 /* NetworkConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE7F5C22BAC856005E1339 /* NetworkConfigTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,10 +162,10 @@
 		E6FE7F2722BAC326005E1339 /* NetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
 		E6FE7F2822BAC326005E1339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6FE7F2D22BAC326005E1339 /* NetworkServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6FE7F3422BAC326005E1339 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		E6FE7F3622BAC326005E1339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6FE7F5722BAC666005E1339 /* UIImage+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resource.swift"; sourceTree = "<group>"; };
 		E6FE7F5A22BAC69C005E1339 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		E6FE7F5C22BAC856005E1339 /* NetworkConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,7 +396,7 @@
 		E6FE7F3322BAC326005E1339 /* NetworkServiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				E6FE7F3422BAC326005E1339 /* NetworkServiceTests.swift */,
+				E6FE7F5C22BAC856005E1339 /* NetworkConfigTests.swift */,
 				E6FE7F3622BAC326005E1339 /* Info.plist */,
 			);
 			path = NetworkServiceTests;
@@ -723,7 +723,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6FE7F3522BAC326005E1339 /* NetworkServiceTests.swift in Sources */,
+				E6FE7F5D22BAC856005E1339 /* NetworkConfigTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
