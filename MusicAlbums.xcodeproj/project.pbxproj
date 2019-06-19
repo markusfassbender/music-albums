@@ -43,6 +43,11 @@
 		E6FE7F1822BAB1C9005E1339 /* ArtistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE7F1722BAB1C9005E1339 /* ArtistTests.swift */; };
 		E6FE7F1D22BAB2BE005E1339 /* pixel.png in Resources */ = {isa = PBXBuildFile; fileRef = E6FE7F1C22BAB2BE005E1339 /* pixel.png */; };
 		E6FE7F1F22BABF18005E1339 /* AlbumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE7F1E22BABF18005E1339 /* AlbumTests.swift */; };
+		E6FE7F2E22BAC326005E1339 /* NetworkService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FE7F2522BAC326005E1339 /* NetworkService.framework */; };
+		E6FE7F3522BAC326005E1339 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE7F3422BAC326005E1339 /* NetworkServiceTests.swift */; };
+		E6FE7F3722BAC326005E1339 /* NetworkService.h in Headers */ = {isa = PBXBuildFile; fileRef = E6FE7F2722BAC326005E1339 /* NetworkService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6FE7F3A22BAC326005E1339 /* NetworkService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FE7F2522BAC326005E1339 /* NetworkService.framework */; };
+		E6FE7F3B22BAC326005E1339 /* NetworkService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E6FE7F2522BAC326005E1339 /* NetworkService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +79,27 @@
 			remoteGlobalIDString = E6FE7EF622BAB0E7005E1339;
 			remoteInfo = Models;
 		};
+		E6FE7F2F22BAC326005E1339 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6DDD20822B4E702002BFA61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6FE7F2422BAC326005E1339;
+			remoteInfo = NetworkService;
+		};
+		E6FE7F3122BAC326005E1339 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6DDD20822B4E702002BFA61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6DDD20F22B4E702002BFA61;
+			remoteInfo = MusicAlbums;
+		};
+		E6FE7F3822BAC326005E1339 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6DDD20822B4E702002BFA61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6FE7F2422BAC326005E1339;
+			remoteInfo = NetworkService;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +110,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				E6FE7F0D22BAB0E7005E1339 /* Models.framework in Embed Frameworks */,
+				E6FE7F3B22BAC326005E1339 /* NetworkService.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +159,12 @@
 		E6FE7F1722BAB1C9005E1339 /* ArtistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTests.swift; sourceTree = "<group>"; };
 		E6FE7F1C22BAB2BE005E1339 /* pixel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixel.png; sourceTree = "<group>"; };
 		E6FE7F1E22BABF18005E1339 /* AlbumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTests.swift; sourceTree = "<group>"; };
+		E6FE7F2522BAC326005E1339 /* NetworkService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6FE7F2722BAC326005E1339 /* NetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
+		E6FE7F2822BAC326005E1339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6FE7F2D22BAC326005E1339 /* NetworkServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6FE7F3422BAC326005E1339 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		E6FE7F3622BAC326005E1339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6FE7F0C22BAB0E7005E1339 /* Models.framework in Frameworks */,
+				E6FE7F3A22BAC326005E1339 /* NetworkService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +196,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6FE7F0022BAB0E7005E1339 /* Models.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FE7F2222BAC326005E1339 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FE7F2A22BAC326005E1339 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6FE7F2E22BAC326005E1339 /* NetworkService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +317,8 @@
 				E6DDD22722B4E703002BFA61 /* MusicAlbumsTests */,
 				E6FE7EF822BAB0E7005E1339 /* Models */,
 				E6FE7F0522BAB0E7005E1339 /* ModelsTests */,
+				E6FE7F2622BAC326005E1339 /* NetworkService */,
+				E6FE7F3322BAC326005E1339 /* NetworkServiceTests */,
 				E6DDD21122B4E702002BFA61 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -279,6 +330,8 @@
 				E6DDD22422B4E703002BFA61 /* MusicAlbumsTests.xctest */,
 				E6FE7EF722BAB0E7005E1339 /* Models.framework */,
 				E6FE7EFF22BAB0E7005E1339 /* ModelsTests.xctest */,
+				E6FE7F2522BAC326005E1339 /* NetworkService.framework */,
+				E6FE7F2D22BAC326005E1339 /* NetworkServiceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -335,6 +388,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		E6FE7F2622BAC326005E1339 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				E6FE7F2722BAC326005E1339 /* NetworkService.h */,
+				E6FE7F2822BAC326005E1339 /* Info.plist */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		E6FE7F3322BAC326005E1339 /* NetworkServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				E6FE7F3422BAC326005E1339 /* NetworkServiceTests.swift */,
+				E6FE7F3622BAC326005E1339 /* Info.plist */,
+			);
+			path = NetworkServiceTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -343,6 +414,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6FE7F0922BAB0E7005E1339 /* Models.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FE7F2022BAC326005E1339 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6FE7F3722BAC326005E1339 /* NetworkService.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +441,7 @@
 			);
 			dependencies = (
 				E6FE7F0B22BAB0E7005E1339 /* PBXTargetDependency */,
+				E6FE7F3922BAC326005E1339 /* PBXTargetDependency */,
 			);
 			name = MusicAlbums;
 			productName = MusicAlbums;
@@ -423,6 +503,43 @@
 			productReference = E6FE7EFF22BAB0E7005E1339 /* ModelsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E6FE7F2422BAC326005E1339 /* NetworkService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6FE7F3C22BAC326005E1339 /* Build configuration list for PBXNativeTarget "NetworkService" */;
+			buildPhases = (
+				E6FE7F2022BAC326005E1339 /* Headers */,
+				E6FE7F2122BAC326005E1339 /* Sources */,
+				E6FE7F2222BAC326005E1339 /* Frameworks */,
+				E6FE7F2322BAC326005E1339 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NetworkService;
+			productName = NetworkService;
+			productReference = E6FE7F2522BAC326005E1339 /* NetworkService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E6FE7F2C22BAC326005E1339 /* NetworkServiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6FE7F3F22BAC326005E1339 /* Build configuration list for PBXNativeTarget "NetworkServiceTests" */;
+			buildPhases = (
+				E6FE7F2922BAC326005E1339 /* Sources */,
+				E6FE7F2A22BAC326005E1339 /* Frameworks */,
+				E6FE7F2B22BAC326005E1339 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E6FE7F3022BAC326005E1339 /* PBXTargetDependency */,
+				E6FE7F3222BAC326005E1339 /* PBXTargetDependency */,
+			);
+			name = NetworkServiceTests;
+			productName = NetworkServiceTests;
+			productReference = E6FE7F2D22BAC326005E1339 /* NetworkServiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -446,6 +563,13 @@
 						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = E6DDD20F22B4E702002BFA61;
 					};
+					E6FE7F2422BAC326005E1339 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					E6FE7F2C22BAC326005E1339 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = E6DDD20F22B4E702002BFA61;
+					};
 				};
 			};
 			buildConfigurationList = E6DDD20B22B4E702002BFA61 /* Build configuration list for PBXProject "MusicAlbums" */;
@@ -465,6 +589,8 @@
 				E6DDD22322B4E703002BFA61 /* MusicAlbumsTests */,
 				E6FE7EF622BAB0E7005E1339 /* Models */,
 				E6FE7EFE22BAB0E7005E1339 /* ModelsTests */,
+				E6FE7F2422BAC326005E1339 /* NetworkService */,
+				E6FE7F2C22BAC326005E1339 /* NetworkServiceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -500,6 +626,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6FE7F1D22BAB2BE005E1339 /* pixel.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FE7F2322BAC326005E1339 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FE7F2B22BAC326005E1339 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +701,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E6FE7F2122BAC326005E1339 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FE7F2922BAC326005E1339 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6FE7F3522BAC326005E1339 /* NetworkServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -583,6 +738,21 @@
 			isa = PBXTargetDependency;
 			target = E6FE7EF622BAB0E7005E1339 /* Models */;
 			targetProxy = E6FE7F0A22BAB0E7005E1339 /* PBXContainerItemProxy */;
+		};
+		E6FE7F3022BAC326005E1339 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6FE7F2422BAC326005E1339 /* NetworkService */;
+			targetProxy = E6FE7F2F22BAC326005E1339 /* PBXContainerItemProxy */;
+		};
+		E6FE7F3222BAC326005E1339 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6DDD20F22B4E702002BFA61 /* MusicAlbums */;
+			targetProxy = E6FE7F3122BAC326005E1339 /* PBXContainerItemProxy */;
+		};
+		E6FE7F3922BAC326005E1339 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6FE7F2422BAC326005E1339 /* NetworkService */;
+			targetProxy = E6FE7F3822BAC326005E1339 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -904,6 +1074,102 @@
 			};
 			name = Release;
 		};
+		E6FE7F3D22BAC326005E1339 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V3GCB27K47;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = NetworkService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.markusfassbender.NetworkService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E6FE7F3E22BAC326005E1339 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V3GCB27K47;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = NetworkService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.markusfassbender.NetworkService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E6FE7F4022BAC326005E1339 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3GCB27K47;
+				INFOPLIST_FILE = NetworkServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.markusfassbender.NetworkServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicAlbums.app/MusicAlbums";
+			};
+			name = Debug;
+		};
+		E6FE7F4122BAC326005E1339 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3GCB27K47;
+				INFOPLIST_FILE = NetworkServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.markusfassbender.NetworkServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicAlbums.app/MusicAlbums";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -948,6 +1214,24 @@
 			buildConfigurations = (
 				E6FE7F1022BAB0E7005E1339 /* Debug */,
 				E6FE7F1122BAB0E7005E1339 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6FE7F3C22BAC326005E1339 /* Build configuration list for PBXNativeTarget "NetworkService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6FE7F3D22BAC326005E1339 /* Debug */,
+				E6FE7F3E22BAC326005E1339 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6FE7F3F22BAC326005E1339 /* Build configuration list for PBXNativeTarget "NetworkServiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6FE7F4022BAC326005E1339 /* Debug */,
+				E6FE7F4122BAC326005E1339 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
