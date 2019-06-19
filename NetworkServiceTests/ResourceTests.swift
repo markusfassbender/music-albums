@@ -1,5 +1,5 @@
 //
-//  NetworkResourceTests.swift
+//  ResourceTests.swift
 //  NetworkServiceTests
 //
 //  Created by Markus Faßbender on 19.06.19.
@@ -8,7 +8,7 @@
 import XCTest
 import NetworkService
 
-class NetworkResourceTests: XCTestCase {
+class ResourceTests: XCTestCase {
     
     // MARK: init url
     
