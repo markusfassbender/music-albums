@@ -11,9 +11,12 @@ public struct NetworkConfig: Decodable {
     public let APIKey: String
     
     public static let shared: NetworkConfig = {
-        let url = Bundle.main.url(forResource: "Keys", withExtension: "plist")!
+        let bundle = Bundle(for: BundleFinder.self)
+        let url = bundle.url(forResource: "Keys", withExtension: "plist")!
         let data = try! Data(contentsOf: url)
         let decoder = PropertyListDecoder()
         return try! decoder.decode(NetworkConfig.self, from: data)
     }()
 }
+
+private class BundleFinder {}
