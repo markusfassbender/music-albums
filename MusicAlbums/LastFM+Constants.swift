@@ -17,7 +17,7 @@ public extension LastFM {
         public static var defaultQueryItems: [URLQueryItem] = {
             return [
                 URLQueryItem(name: "format", value: "json"),
-                URLQueryItem(name: "api_key", value: NetworkConfig.shared.APIKey)
+                URLQueryItem(name: "api_key", value: Config.shared.APIKey)
             ]
         }()
     }

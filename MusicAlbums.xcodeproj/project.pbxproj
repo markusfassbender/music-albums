@@ -36,7 +36,7 @@
 		E6FE7F3722BAC326005E1339 /* NetworkService.h in Headers */ = {isa = PBXBuildFile; fileRef = E6FE7F2722BAC326005E1339 /* NetworkService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6FE7F3A22BAC326005E1339 /* NetworkService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FE7F2522BAC326005E1339 /* NetworkService.framework */; };
 		E6FE7F3B22BAC326005E1339 /* NetworkService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E6FE7F2522BAC326005E1339 /* NetworkService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E6FE7F4722BAC496005E1339 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7822B5782700626B9C /* NetworkConfig.swift */; };
+		E6FE7F4722BAC496005E1339 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7822B5782700626B9C /* Config.swift */; };
 		E6FE7F4822BAC496005E1339 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C6E22B5717100626B9C /* Webservice.swift */; };
 		E6FE7F4922BAC496005E1339 /* CancelToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C6F22B5717100626B9C /* CancelToken.swift */; };
 		E6FE7F4A22BAC496005E1339 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7022B5717100626B9C /* Resource.swift */; };
@@ -48,7 +48,7 @@
 		E6FE7F5222BAC55C005E1339 /* Artist+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7622B5761100626B9C /* Artist+Resource.swift */; };
 		E6FE7F5822BAC666005E1339 /* UIImage+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE7F5722BAC666005E1339 /* UIImage+Resource.swift */; };
 		E6FE7F5B22BAC69C005E1339 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6FE7F5A22BAC69C005E1339 /* Keys.plist */; };
-		E6FE7F5D22BAC856005E1339 /* NetworkConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE7F5C22BAC856005E1339 /* NetworkConfigTests.swift */; };
+		E6FE7F5D22BAC856005E1339 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE7F5C22BAC856005E1339 /* ConfigTests.swift */; };
 		E6FE7F5F22BAC993005E1339 /* ResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE7F5E22BAC993005E1339 /* ResourceTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -131,7 +131,7 @@
 		E6548C6F22B5717100626B9C /* CancelToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelToken.swift; sourceTree = "<group>"; };
 		E6548C7022B5717100626B9C /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		E6548C7622B5761100626B9C /* Artist+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+Resource.swift"; sourceTree = "<group>"; };
-		E6548C7822B5782700626B9C /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		E6548C7822B5782700626B9C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E6548C7A22B57FAD00626B9C /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		E6548C7C22B5867F00626B9C /* Album+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+Resource.swift"; sourceTree = "<group>"; };
 		E6548C7E22B622C300626B9C /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		E6FE7F3622BAC326005E1339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6FE7F5722BAC666005E1339 /* UIImage+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resource.swift"; sourceTree = "<group>"; };
 		E6FE7F5A22BAC69C005E1339 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
-		E6FE7F5C22BAC856005E1339 /* NetworkConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigTests.swift; sourceTree = "<group>"; };
+		E6FE7F5C22BAC856005E1339 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 		E6FE7F5E22BAC993005E1339 /* ResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -383,7 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				E6548C6F22B5717100626B9C /* CancelToken.swift */,
-				E6548C7822B5782700626B9C /* NetworkConfig.swift */,
+				E6548C7822B5782700626B9C /* Config.swift */,
 				E6548C7022B5717100626B9C /* Resource.swift */,
 				E6548C6E22B5717100626B9C /* Webservice.swift */,
 				E6FE7F5922BAC66F005E1339 /* Extensions */,
@@ -398,7 +398,7 @@
 		E6FE7F3322BAC326005E1339 /* NetworkServiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				E6FE7F5C22BAC856005E1339 /* NetworkConfigTests.swift */,
+				E6FE7F5C22BAC856005E1339 /* ConfigTests.swift */,
 				E6FE7F5E22BAC993005E1339 /* ResourceTests.swift */,
 				E6FE7F3622BAC326005E1339 /* Info.plist */,
 			);
@@ -718,7 +718,7 @@
 				E6FE7F4822BAC496005E1339 /* Webservice.swift in Sources */,
 				E6FE7F5822BAC666005E1339 /* UIImage+Resource.swift in Sources */,
 				E6FE7F5222BAC55C005E1339 /* Artist+Resource.swift in Sources */,
-				E6FE7F4722BAC496005E1339 /* NetworkConfig.swift in Sources */,
+				E6FE7F4722BAC496005E1339 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,7 +727,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6FE7F5F22BAC993005E1339 /* ResourceTests.swift in Sources */,
-				E6FE7F5D22BAC856005E1339 /* NetworkConfigTests.swift in Sources */,
+				E6FE7F5D22BAC856005E1339 /* ConfigTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
