@@ -7,16 +7,16 @@
 
 import UIKit
 
-struct Album {
-    typealias Track = String
+public struct Album {
+    public typealias Track = String
     
-    let title: String
-    let artist: Artist
-    let image: UIImage?
-    let imageURL: URL?
-    let tracks: [Track]?
+    public let title: String
+    public let artist: Artist
+    public let image: UIImage?
+    public let imageURL: URL?
+    public let tracks: [Track]?
     
-    init(title: String, artist: Artist, image: UIImage? = nil, imageURL: URL? = nil, tracks: [Track]? = nil) {
+    public init(title: String, artist: Artist, image: UIImage? = nil, imageURL: URL? = nil, tracks: [Track]? = nil) {
         self.title = title
         self.artist = artist
         self.image = image
@@ -25,7 +25,7 @@ struct Album {
     }
 }
 
-extension Album {
+public extension Album {
     func new(with tracks: [Track]) -> Album {
         return .init(title: title,
                      artist: artist,

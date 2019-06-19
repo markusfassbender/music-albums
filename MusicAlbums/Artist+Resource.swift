@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 extension Artist {
     static func all(for input: String) -> Resource<[Artist]> {

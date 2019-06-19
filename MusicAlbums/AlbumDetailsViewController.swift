@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Models
 
 class AlbumDetailsViewController: UIViewController {
     private let album: Album

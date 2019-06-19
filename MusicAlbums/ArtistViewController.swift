@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Models
 
 class ArtistViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private struct Constant {

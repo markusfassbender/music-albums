@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 extension Album {
     static func topAlbums(of artist: Artist) -> Resource<[Album]> {

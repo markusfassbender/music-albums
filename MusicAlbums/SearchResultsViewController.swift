@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Models
 
 protocol SearchResultsDelegate: class {
     func didSelectItem(_ item: Artist)
