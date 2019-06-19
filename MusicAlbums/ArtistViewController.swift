@@ -7,6 +7,7 @@
 
 import UIKit
 import Models
+import NetworkService
 
 class ArtistViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private struct Constant {

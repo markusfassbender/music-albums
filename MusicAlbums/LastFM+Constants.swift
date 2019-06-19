@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct LastFM { }
+public struct LastFM { }
 
-extension LastFM {
+public extension LastFM {
     struct Constants {
-        static let baseURL: URL = URL(string: "https://ws.audioscrobbler.com")!
-        static let path: String = "/2.0/"
+        public static let baseURL: URL = URL(string: "https://ws.audioscrobbler.com")!
+        public static let path: String = "/2.0/"
         
-        static var defaultQueryItems: [URLQueryItem] = {
+        public static var defaultQueryItems: [URLQueryItem] = {
             return [
                 URLQueryItem(name: "format", value: "json"),
                 URLQueryItem(name: "api_key", value: NetworkConfig.shared.APIKey)

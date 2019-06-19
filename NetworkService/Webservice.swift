@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class Webservice: NSObject {
-    static let shared = Webservice()
+public final class Webservice: NSObject {
+    public static let shared = Webservice()
     
     lazy private var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -21,14 +21,14 @@ final class Webservice: NSObject {
         session.invalidateAndCancel()
     }
     
-    func load<M>(resource: Resource<M>, token: CancelToken? = nil, completionHandler: @escaping (Result<M, Error>) -> Void) {
+    public func load<M>(resource: Resource<M>, token: CancelToken? = nil, completionHandler: @escaping (Result<M, Error>) -> Void) {
         let request = URLRequest(url: resource.url)
         let parse = resource.parse
         
         return load(request: request, parsingHandler: parse, token: token, completionHandler: completionHandler)
     }
     
-    func load<M>(request: URLRequest, parsingHandler: @escaping (Data) throws -> M, token: CancelToken? = nil, completionHandler: @escaping (Result<M, Webservice.Error>) -> Void) {
+    public func load<M>(request: URLRequest, parsingHandler: @escaping (Data) throws -> M, token: CancelToken? = nil, completionHandler: @escaping (Result<M, Webservice.Error>) -> Void) {
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
                 completionHandler(.failure(.other(error)))
@@ -56,7 +56,7 @@ final class Webservice: NSObject {
     }
 }
 
-extension Webservice {
+public extension Webservice {
     enum Error: Swift.Error {
         case parsed(Swift.Error)
         case data

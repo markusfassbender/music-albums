@@ -7,6 +7,7 @@
 
 import UIKit
 import Models
+import NetworkService
 
 class SearchViewController: UITableViewController {
     private var searchCancelToken: CancelToken?

@@ -7,6 +7,7 @@
 
 import UIKit
 import Models
+import NetworkService
 
 class AlbumDetailsViewController: UIViewController {
     private let album: Album

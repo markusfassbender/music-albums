@@ -8,7 +8,7 @@
 import Foundation
 import Models
 
-extension Artist {
+public extension Artist {
     static func all(for input: String) -> Resource<[Artist]> {
         let queryItems = [
             URLQueryItem(name: "method", value: "artist.search"),

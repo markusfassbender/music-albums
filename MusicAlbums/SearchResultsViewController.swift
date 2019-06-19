@@ -7,6 +7,7 @@
 
 import UIKit
 import Models
+import NetworkService
 
 protocol SearchResultsDelegate: class {
     func didSelectItem(_ item: Artist)

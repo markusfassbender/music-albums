@@ -7,9 +7,9 @@
 
 import Foundation
 
-extension LastFM {
-    class Resource<M>: MusicAlbums.Resource<M> {
-        init(queryItems: [URLQueryItem], parse: @escaping (Data) throws -> M) {
+public extension LastFM {
+    class Resource<M>: NetworkService.Resource<M> {
+        public init(queryItems: [URLQueryItem], parse: @escaping (Data) throws -> M) {
             let baseURL = Constants.baseURL
             let path = Constants.path
             let queryItems = queryItems + Constants.defaultQueryItems

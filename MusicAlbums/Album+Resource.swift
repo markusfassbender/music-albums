@@ -8,7 +8,7 @@
 import Foundation
 import Models
 
-extension Album {
+public extension Album {
     static func topAlbums(of artist: Artist) -> Resource<[Album]> {
         let queryItems = [
             URLQueryItem(name: "method", value: "artist.gettopalbums"),

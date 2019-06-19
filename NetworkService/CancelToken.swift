@@ -7,13 +7,13 @@
 
 import Foundation
 
-final class CancelToken {
-    var handler: (() -> Void)?
+public final class CancelToken {
+    public var handler: (() -> Void)?
     
-    func cancel() {
+    public func cancel() {
         handler?()
     }
     
-    init() {
+    public init() {
     }
 }

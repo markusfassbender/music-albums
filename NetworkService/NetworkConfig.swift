@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct NetworkConfig: Decodable {
-    let APIKey: String
+public struct NetworkConfig: Decodable {
+    public let APIKey: String
     
-    static let shared: NetworkConfig = {
+    public static let shared: NetworkConfig = {
         let url = Bundle.main.url(forResource: "Keys", withExtension: "plist")!
         let data = try! Data(contentsOf: url)
         let decoder = PropertyListDecoder()

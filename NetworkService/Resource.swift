@@ -7,11 +7,11 @@
 
 import Foundation
 
-class Resource<M> {
-    let parse: (Data) throws -> M
-    let url: URL
+public class Resource<M> {
+    public let parse: (Data) throws -> M
+    public let url: URL
     
-    init?(baseURL: URL, path: String, queryItems: [URLQueryItem], parse: @escaping (Data) throws -> M) {
+    public init?(baseURL: URL, path: String, queryItems: [URLQueryItem], parse: @escaping (Data) throws -> M) {
         self.parse = parse
         
         var components = URLComponents()
@@ -25,7 +25,7 @@ class Resource<M> {
         self.url = url
     }
     
-    init(url: URL, parse: @escaping (Data) throws -> M) {
+    public init(url: URL, parse: @escaping (Data) throws -> M) {
         self.url = url
         self.parse = parse
     }

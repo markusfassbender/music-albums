@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     enum Error: Swift.Error {
         case invalidData
     }

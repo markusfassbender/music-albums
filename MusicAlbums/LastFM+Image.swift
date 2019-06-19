@@ -7,23 +7,23 @@
 
 import Foundation
 
-extension LastFM {
+public extension LastFM {
     struct Image: Decodable {
-        let urlString: String
-        let size: Size
+        public let urlString: String
+        public let size: Size
         
         enum CodingKeys: String, CodingKey {
             case urlString = "#text"
             case size
         }
         
-        enum Size: String, Decodable {
+        public enum Size: String, Decodable {
             case small, medium, large, extralarge, mega
         }
     }
 }
 
-extension LastFM.Image {
+public extension LastFM.Image {
     var url: URL? {
         return URL(string: urlString)
     }
