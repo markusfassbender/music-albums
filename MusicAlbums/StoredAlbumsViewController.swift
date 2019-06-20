@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  StoredAlbumsViewController.swift
 //  MusicAlbums
 //
 //  Created by Markus Faßbender on 15.06.19.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class StoredAlbumsViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,6 +28,8 @@ class MainViewController: UIViewController {
         let item = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(openSearch))
         navigationItem.rightBarButtonItem = item
     }
+    
+    // MARK: Actions
     
     @objc
     private func openSearch() {
