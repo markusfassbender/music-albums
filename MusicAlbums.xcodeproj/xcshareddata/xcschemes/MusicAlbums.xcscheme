@@ -58,6 +58,16 @@
                ReferencedContainer = "container:MusicAlbums.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E6B59CDA22BB660A00F72E3A"
+               BuildableName = "DataStoreTests.xctest"
+               BlueprintName = "DataStoreTests"
+               ReferencedContainer = "container:MusicAlbums.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
