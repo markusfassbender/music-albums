@@ -112,16 +112,18 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
 }
 
 extension AlbumCollectionViewController: AlbumCollectionDelegate {
-    func saveAlbum(_ album: Album) {
+    func saveAlbum(at index: Int) {
         do {
+            let album = dataSource.albums[index]
             try DataStore.shared.saveAlbum(album)
         } catch {
             assertionFailure("save album did fail")
         }
     }
     
-    func deleteAlbum(_ album: Album) {
+    func deleteAlbum(at index: Int) {
         do {
+            let album = dataSource.albums[index]
             try DataStore.shared.deleteAlbum(album)
         } catch {
             assertionFailure("delete album did fail")

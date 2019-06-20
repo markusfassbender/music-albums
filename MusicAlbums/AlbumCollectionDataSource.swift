@@ -11,8 +11,8 @@ import NetworkService
 import DataStore
 
 protocol AlbumCollectionDelegate: class {
-    func saveAlbum(_ album: Album)
-    func deleteAlbum(_ album: Album)
+    func saveAlbum(at index: Int)
+    func deleteAlbum(at index: Int)
     
     func reloadItems(at indexPaths: [IndexPath])
 }
@@ -89,13 +89,13 @@ class AlbumCollectionDataSource: NSObject, UICollectionViewDataSource {
     
     @objc
     private func storeAlbum(_ button: UIButton) {
-        let album = albums[button.tag]
+        let index = button.tag
         let isStored = button.isSelected
         
         if isStored {
-            delegate?.deleteAlbum(album)
+            delegate?.deleteAlbum(at: index)
         } else {
-            delegate?.saveAlbum(album)
+            delegate?.saveAlbum(at: index)
         }
         
         button.isSelected = !button.isSelected

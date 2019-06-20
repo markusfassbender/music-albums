@@ -90,20 +90,29 @@ class StoredAlbumsViewController: UICollectionViewController, UICollectionViewDe
 }
 
 extension StoredAlbumsViewController: AlbumCollectionDelegate {
-    func saveAlbum(_ album: Album) {
-        do {
-            try DataStore.shared.saveAlbum(album)
-        } catch {
-            assertionFailure("save album did fail")
-        }
+    func saveAlbum(at index: Int) {
+        assertionFailure("save album is not supported")
     }
     
-    func deleteAlbum(_ album: Album) {
+    func deleteAlbum(at index: Int) {
         do {
+            let album = dataSource.albums[index]
             try DataStore.shared.deleteAlbum(album)
         } catch {
             assertionFailure("delete album did fail")
         }
+        
+        collectionView.performBatchUpdates({
+            var albums = dataSource.albums
+            albums.remove(at: index)
+            dataSource.albums = albums
+            
+            let indexPath = IndexPath(row: index, section: 0)
+            collectionView.deleteItems(at: [indexPath])
+        }, completion: { _ in
+            // Workaround to refresh all cell.tags to identify album objects in data source
+            self.collectionView.reloadItems(at: self.collectionView.indexPathsForVisibleItems)
+        })
     }
     
     func reloadItems(at indexPaths: [IndexPath]) {
