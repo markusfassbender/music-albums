@@ -8,6 +8,7 @@
 import UIKit
 import Models
 import NetworkService
+import DataStore
 
 protocol AlbumCollectionDelegate: class {
     func saveAlbum(_ album: Album)
@@ -46,10 +47,11 @@ class AlbumCollectionDataSource: NSObject, UICollectionViewDataSource {
     }
     
     private func configureCell(_ cell: AlbumCell, at indexPath: IndexPath, with album: Album) {
+        let isFavorite = DataStore.shared.containsAlbum(album)
         let viewModel = AlbumCell.ViewModel(image: album.image,
                                             title: album.title,
                                             artistName: album.artist.name,
-                                            isFavorite: true)
+                                            isFavorite: isFavorite)
         cell.configure(with: viewModel)
         
         cell.favoriteButton?.removeTarget(self, action: nil, for: .allEvents)
