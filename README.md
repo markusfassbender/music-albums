@@ -4,6 +4,12 @@ Example app to show some functionalities of the [Last.fm API](https://www.last.f
 
 ### Setup
 
+##### Pods
+
+It is required to run `pod install` first, because the pods themselves are not included in the repository.
+
+##### API Keys
+
 The Xcode projects refers a `Keys.plist` file, that contains your private Last.fm API Key. The file must be like this:
 
 ```
