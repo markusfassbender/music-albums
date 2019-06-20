@@ -33,7 +33,7 @@ public extension DataStore {
     }
     
     func containsAlbum(_ album: Models.Album) -> Bool {
-        let objects = realm.objects(Album.self).filter("title = '\(album.title)'")
+        let objects = realm.objects(Album.self).filter("title == %@", album.title)
         return !objects.isEmpty
     }
 }
