@@ -1,6 +1,6 @@
-# music-albums
+# Music Albums
 
-Example app to show some functionalities of the [Last.fm API](https://www.last.fm/api/intro).
+Example app to show find and store music albums using the [Last.fm API](https://www.last.fm/api/intro).
 
 ## Setup
 
@@ -8,11 +8,11 @@ Example app to show some functionalities of the [Last.fm API](https://www.last.f
 
 It is required to run `pod install` first, because the pods themselves are not included in the repository.
 
-### API Keys
+### Keys
 
-The NetworkService build target requires an API Key to access the Last.fm API to be able to load data.
+The NetworkService build target requires an API key to access the Last.fm API.
 
-The file must be at the path `./music-albums⁩/NetworkService⁩/Keys.plist` in this format:
+The file must be located at `./music-albums⁩/NetworkService⁩/Keys.plist` in this format:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -28,4 +28,4 @@ The file must be at the path `./music-albums⁩/NetworkService⁩/Keys.plist` in
 ## Licenses
 
 ### Icons8
-This project uses Icons from Icons8 https://icons8.com .
+The project uses icons from Icons8 https://icons8.com .
