@@ -11,5 +11,5 @@ import RealmSwift
 public struct DataStore {
     public static let shared = DataStore()
     
-    lazy var realm = try! Realm()
+    let realm: Realm = try! Realm()
 }
