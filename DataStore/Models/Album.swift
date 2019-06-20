@@ -14,12 +14,30 @@ class Album: Object {
     @objc dynamic var artist: Artist = Artist()
     @objc dynamic var imageURLString: String? = nil
     @objc dynamic var tracks: [String]? = nil
+}
+
+extension Album: ModelMappingProtocol {
+    typealias StoreType = Album
+    typealias ModelType = Models.Album
     
-    convenience init(album: Models.Album) {
-        self.init()
-        title = album.title
-        artist = Artist(artist: album.artist)
-        imageURLString = album.imageURL?.absoluteString
-        tracks = album.tracks
+    static func from(model: ModelType) -> StoreType {
+        let album = Album()
+        album.title = model.title
+        album.artist = Artist.from(model: model.artist)
+        album.imageURLString = model.imageURL?.absoluteString
+        album.tracks = model.tracks
+        
+        return album
+    }
+    
+    func toModel() -> ModelType {
+        let imageURL: URL? = imageURLString != nil ? URL(string: imageURLString!)! : nil
+        
+        return Models.Album(title: title,
+                            artist: artist.toModel(),
+                            image: nil,
+                            imageURL: imageURL,
+                            tracks: tracks)
     }
 }
+
