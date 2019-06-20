@@ -21,4 +21,10 @@ public struct DataStore {
     public init(realm: Realm) {
         self.realm = realm
     }
+    
+    public func deleteAll() throws {
+        try realm.write {
+            realm.deleteAll()
+        }
+    }
 }

@@ -14,6 +14,10 @@ class Album: Object {
     @objc dynamic var artist: Artist? = nil
     @objc dynamic var imageURLString: String? = nil
     dynamic var tracks: List<String>? = nil
+    
+    override static func primaryKey() -> String? {
+        return "title"
+    }
 }
 
 extension Album: ModelMappingProtocol {

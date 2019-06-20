@@ -17,12 +17,23 @@ public extension DataStore {
         }
     }
     
-    func deleteAlbum(_ album: Models.Album) {
-        // TODO: Implement
+    func deleteAlbum(_ album: Models.Album) throws {
+        guard let album = realm.object(ofType: Album.self, forPrimaryKey: album.title) else {
+            throw Error.objectNotFound
+        }
+        
+        try realm.write {
+            realm.delete(album)
+        }
     }
     
     func allAlbumsSortedByTitle() -> [Models.Album] {
         let albums = realm.objects(Album.self).sorted(byKeyPath: "title")
         return albums.map { $0.toModel() }
+    }
+    
+    func containsAlbum(_ album: Models.Album) -> Bool {
+        let objects = realm.objects(Album.self).filter("title = '\(album.title)'")
+        return !objects.isEmpty
     }
 }
