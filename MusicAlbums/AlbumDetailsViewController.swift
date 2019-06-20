@@ -8,6 +8,7 @@
 import UIKit
 import Models
 import NetworkService
+import DataStore
 
 class AlbumDetailsViewController: UIViewController {
     private let album: Album
@@ -54,6 +55,8 @@ class AlbumDetailsViewController: UIViewController {
         detailsView.translatesAutoresizingMaskIntoConstraints = false
         self.detailsView = detailsView
         
+        detailsView.favoriteButton?.addTarget(self, action: #selector(storeAlbum(_:)), for: .touchUpInside)
+        
         view.addSubview(scrollView)
         scrollView.addSubview(detailsView)
         
@@ -97,11 +100,30 @@ class AlbumDetailsViewController: UIViewController {
             let rank = index + 1
             return AlbumTracksView.ViewModel(rank: rank, title: title)
         }
+        let isFavorite = DataStore.shared.containsAlbum(album)
         
         let viewModel = AlbumDetailsView.ViewModel(image: album.image,
                                                    title: album.title,
                                                    artistName: album.artist.name,
-                                                   tracks: trackViewModels)
+                                                   tracks: trackViewModels,
+                                                   isFavorite: isFavorite)
         detailsView?.configure(with: viewModel)
+    }
+    
+    
+    @objc func storeAlbum(_ button: UIButton) {
+        let isStored = button.isSelected
+        
+        do {
+            if isStored {
+                try DataStore.shared.deleteAlbum(album)
+            } else {
+                try DataStore.shared.saveAlbum(album)
+            }
+        } catch {
+            fatalError("album can not be stored!")
+        }
+        
+        button.isSelected = !button.isSelected
     }
 }
