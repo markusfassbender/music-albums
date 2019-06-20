@@ -12,24 +12,19 @@ import DataStore
 
 class AlbumCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private struct Constant {
-        static let reuseIdentifier: String = "AlbumCollectionViewController.reuseIdentifier"
         static let layoutSpacing: CGFloat = 8
         static let numberOfCellsInRow: Int = 2
         static let additionalCellHeight: CGFloat = 100
     }
     
     private let artist: Artist
-    private var albums: [Album] = []
-    
     private var albumsCancelToken: CancelToken?
     
-    private var imageDownloadTokens: [IndexPath: CancelToken] = [:]
-    
-    private func cancelAllImageDownloads() {
-        imageDownloadTokens.forEach {
-            $0.value.cancel()
-        }
-    }
+    private lazy var dataSource: AlbumCollectionDataSource = {
+        let dataSource = AlbumCollectionDataSource()
+        dataSource.delegate = self
+        return dataSource
+    }()
     
     init(artist: Artist) {
         self.artist = artist
@@ -45,10 +40,8 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     deinit {
         albumsCancelToken?.cancel()
-        cancelAllImageDownloads()
     }
     
     override func viewDidLoad() {
@@ -66,7 +59,8 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
         collectionView.backgroundColor = .white
         title = artist.name
         
-        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: Constant.reuseIdentifier)
+        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumCollectionDataSource.cellReuseIdentifier)
+        collectionView.dataSource = dataSource
     }
     
     private func loadAlbums() {
@@ -79,7 +73,7 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
         Webservice.shared.load(resource: resource, token: token) { result in
             switch result {
             case .success(let albums):
-                self.albums = albums
+                self.dataSource.albums = albums
                 
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
@@ -92,66 +86,6 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return albums.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.reuseIdentifier, for: indexPath)
-        let album = albums[indexPath.row]
-        
-        configureCell(cell, at: indexPath, with: album)
-        
-        return cell
-    }
-    
-    private func configureCell(_ cell: UICollectionViewCell, at indexPath: IndexPath, with album: Album) {
-        guard let cell = cell as? AlbumCell else {
-            return
-        }
-        
-        let isFavorite = DataStore.shared.containsAlbum(album)
-        let viewModel = AlbumCell.ViewModel(image: album.image,
-                                            title: album.title,
-                                            artistName: album.artist.name,
-                                            isFavorite: isFavorite)
-        cell.configure(with: viewModel)
-        
-        cell.favoriteButton?.removeTarget(self, action: nil, for: .allEvents)
-        cell.favoriteButton?.tag = indexPath.row
-        cell.favoriteButton?.addTarget(self, action: #selector(storeAlbum(_:)), for: .touchUpInside)
-        
-        if album.image == nil, let url = album.imageURL {
-            downloadImage(from: url, for: indexPath)
-        }
-    }
-    
-    private func downloadImage(from url: URL, for indexPath: IndexPath) {
-        imageDownloadTokens[indexPath]?.cancel()
-        
-        let resource = UIImage.image(from: url)
-        let token = CancelToken()
-        imageDownloadTokens[indexPath] = token
-        
-        Webservice.shared.load(resource: resource, token: token) {
-            switch $0 {
-            case .success(let image):
-                let album = self.albums[indexPath.row].new(with: image)
-                self.albums[indexPath.row] = album
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadItems(at: [indexPath])
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        imageDownloadTokens[indexPath]?.cancel()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -170,28 +104,31 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let album = albums[indexPath.row]
+        let album = dataSource.album(at: indexPath)
         let viewController = AlbumDetailsViewController(album: album)
         
         navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    // MARK: Actions
-    
-    @objc private func storeAlbum(_ button: UIButton) {
-        let album = albums[button.tag]
-        let isStored = button.isSelected
-        
+}
+
+extension AlbumCollectionViewController: AlbumCollectionDelegate {
+    func saveAlbum(_ album: Album) {
         do {
-            if isStored {
-                try DataStore.shared.deleteAlbum(album)
-            } else {
-                try DataStore.shared.saveAlbum(album)
-            }
+            try DataStore.shared.saveAlbum(album)
         } catch {
-            fatalError("album can not be stored!")
+            assertionFailure("save album did fail")
         }
-        
-        button.isSelected = !button.isSelected
+    }
+    
+    func deleteAlbum(_ album: Album) {
+        do {
+            try DataStore.shared.deleteAlbum(album)
+        } catch {
+            assertionFailure("delete album did fail")
+        }
+    }
+    
+    func reloadItems(at indexPaths: [IndexPath]) {
+        collectionView.reloadItems(at: indexPaths)
     }
 }
