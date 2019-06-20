@@ -18,7 +18,7 @@
 		E618B26122B4EBFA0077D029 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E618B25F22B4EBFA0077D029 /* Localizable.strings */; };
 		E618B26522B4EF710077D029 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618B26422B4EF710077D029 /* SearchViewController.swift */; };
 		E618B26722B4F1E40077D029 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618B26622B4F1E40077D029 /* SearchResultsViewController.swift */; };
-		E618B26A22B4FAE60077D029 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618B26922B4FAE60077D029 /* ArtistViewController.swift */; };
+		E618B26A22B4FAE60077D029 /* AlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618B26922B4FAE60077D029 /* AlbumCollectionViewController.swift */; };
 		E618B27022B4FD4B0077D029 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618B26F22B4FD4B0077D029 /* AlbumDetailsViewController.swift */; };
 		E6548C7F22B622C300626B9C /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C7E22B622C300626B9C /* AlbumCell.swift */; };
 		E6548C8222B624EB00626B9C /* UIView+SystemSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6548C8122B624EB00626B9C /* UIView+SystemSpacing.swift */; };
@@ -189,7 +189,7 @@
 		E618B26022B4EBFA0077D029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = MusicAlbums/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E618B26422B4EF710077D029 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E618B26622B4F1E40077D029 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
-		E618B26922B4FAE60077D029 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
+		E618B26922B4FAE60077D029 /* AlbumCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewController.swift; sourceTree = "<group>"; };
 		E618B26C22B4FC930077D029 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E618B26F22B4FD4B0077D029 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
 		E6548C6E22B5717100626B9C /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
@@ -351,7 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				E618B26E22B4FD370077D029 /* AlbumDetails */,
-				E618B26822B4FAC90077D029 /* Artist */,
+				E618B26822B4FAC90077D029 /* AlbumCollection */,
 				E618B26322B4ED040077D029 /* Search */,
 				E618B25D22B4EB090077D029 /* Main */,
 			);
@@ -385,12 +385,12 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
-		E618B26822B4FAC90077D029 /* Artist */ = {
+		E618B26822B4FAC90077D029 /* AlbumCollection */ = {
 			isa = PBXGroup;
 			children = (
-				E618B26922B4FAE60077D029 /* ArtistViewController.swift */,
+				E618B26922B4FAE60077D029 /* AlbumCollectionViewController.swift */,
 			);
-			name = Artist;
+			name = AlbumCollection;
 			sourceTree = "<group>";
 		};
 		E618B26E22B4FD370077D029 /* AlbumDetails */ = {
@@ -1143,7 +1143,7 @@
 				E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */,
 				E6548C9222B6514E00626B9C /* AlbumTracksView.swift in Sources */,
 				E6548C7F22B622C300626B9C /* AlbumCell.swift in Sources */,
-				E618B26A22B4FAE60077D029 /* ArtistViewController.swift in Sources */,
+				E618B26A22B4FAE60077D029 /* AlbumCollectionViewController.swift in Sources */,
 				E618B27022B4FD4B0077D029 /* AlbumDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

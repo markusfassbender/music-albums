@@ -1,5 +1,5 @@
 //
-//  ArtistViewController.swift
+//  AlbumCollectionViewController.swift
 //  MusicAlbums
 //
 //  Created by Markus Faßbender on 15.06.19.
@@ -10,9 +10,9 @@ import Models
 import NetworkService
 import DataStore
 
-class ArtistViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class AlbumCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private struct Constant {
-        static let reuseIdentifier: String = "ArtistViewController.reuseIdentifier"
+        static let reuseIdentifier: String = "AlbumCollectionViewController.reuseIdentifier"
         static let layoutSpacing: CGFloat = 8
         static let numberOfCellsInRow: Int = 2
         static let additionalCellHeight: CGFloat = 100
