@@ -9,6 +9,7 @@ import UIKit
 
 final class AlbumDetailsView: UIView {
     private(set) weak var stackView: UIStackView?
+    private(set) weak var favoriteButton: UIButton?
     
     private weak var imageView: UIImageView?
     private weak var titleLabel: UILabel?
@@ -31,10 +32,16 @@ final class AlbumDetailsView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.alignment = .fill
+        stackView.alignment = .leading
         stackView.distribution = .equalSpacing
         stackView.spacing = systemSpacing
         self.stackView = stackView
+        
+        let favoriteButton = UIButton()
+        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
+        favoriteButton.setImage(UIImage(named: "heart_outline")!, for: .normal)
+        favoriteButton.setImage(UIImage(named: "heart_filled")!, for: .selected)
+        self.favoriteButton = favoriteButton
         
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,6 +70,7 @@ final class AlbumDetailsView: UIView {
         
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(artistLabel)
+        stackView.addArrangedSubview(favoriteButton)
         stackView.addArrangedSubview(tracksView)
         
         let constraints: [NSLayoutConstraint] = [
@@ -85,6 +93,7 @@ final class AlbumDetailsView: UIView {
         titleLabel?.text = viewModel.title
         artistLabel?.text = viewModel.artistName
         tracksView?.configure(with: viewModel.tracks)
+        favoriteButton?.isSelected = viewModel.isFavorite
     }
 }
 
@@ -95,6 +104,7 @@ protocol AlbumDetailsViewModel {
     var title: String { get }
     var artistName: String { get }
     var tracks: [AlbumTrackViewModel]? { get }
+    var isFavorite: Bool { get }
 }
 
 extension AlbumDetailsView {
@@ -103,5 +113,6 @@ extension AlbumDetailsView {
         let title: String
         let artistName: String
         let tracks: [AlbumTrackViewModel]?
+        let isFavorite: Bool
     }
 }
