@@ -56,7 +56,7 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     private func setup() {
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = Stylesheet.Color.viewBackground
         title = artist.name
         
         collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumCollectionDataSource.cellReuseIdentifier)

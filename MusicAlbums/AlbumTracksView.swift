@@ -22,7 +22,7 @@ final class AlbumTracksView: UIView {
     }
     
     private func setup() {
-        backgroundColor = .white
+        backgroundColor = Stylesheet.Color.viewBackground
         
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false

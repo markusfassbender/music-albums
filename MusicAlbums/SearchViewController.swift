@@ -22,7 +22,7 @@ class SearchViewController: UITableViewController {
     }
     
     private func setup() {
-        view.backgroundColor = .white
+        view.backgroundColor = Stylesheet.Color.viewBackground
         title = NSLocalizedString("title_search", comment: "")
         
         tableView.separatorInset = .zero

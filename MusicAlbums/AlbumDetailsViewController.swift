@@ -46,7 +46,7 @@ class AlbumDetailsViewController: UIViewController {
     
     private func setup() {
         title = album.title
-        view.backgroundColor = .white
+        view.backgroundColor = Stylesheet.Color.viewBackground
         
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false

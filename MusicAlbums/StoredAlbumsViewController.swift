@@ -46,7 +46,7 @@ class StoredAlbumsViewController: UICollectionViewController, UICollectionViewDe
     }
     
     private func setup() {
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = Stylesheet.Color.viewBackground
         title = NSLocalizedString("title_main", comment: "")
         
         let item = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(openSearch))

@@ -12,5 +12,6 @@ struct Stylesheet {
         static let title: UIColor = .black
         static let subTitle: UIColor = .darkGray
         static let imageBackground: UIColor = .darkGray
+        static let viewBackground: UIColor = .white
     }
 }

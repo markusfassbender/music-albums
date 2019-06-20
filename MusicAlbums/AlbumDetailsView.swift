@@ -27,7 +27,7 @@ final class AlbumDetailsView: UIView {
     }
     
     private func setup() {
-        backgroundColor = .white
+        backgroundColor = Stylesheet.Color.viewBackground
         
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
