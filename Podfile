@@ -2,7 +2,6 @@ platform :ios, '10.3'
 use_frameworks!
 
 target 'MusicAlbums' do
-  pod 'RealmSwift'
   
   target 'MusicAlbumsTests' do
     inherit! :search_paths
@@ -24,4 +23,13 @@ target 'NetworkService' do
     inherit! :search_paths
   end
 
+end
+
+target 'DataStore' do
+  pod 'RealmSwift'
+  
+  target 'DataStoreTests' do
+    inherit! :search_paths
+  end
+  
 end
