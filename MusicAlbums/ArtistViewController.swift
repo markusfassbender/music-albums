@@ -8,13 +8,14 @@
 import UIKit
 import Models
 import NetworkService
+import DataStore
 
 class ArtistViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private struct Constant {
         static let reuseIdentifier: String = "ArtistViewController.reuseIdentifier"
         static let layoutSpacing: CGFloat = 8
         static let numberOfCellsInRow: Int = 2
-        static let cellHeightRatio: CGFloat = 1.5
+        static let additionalCellHeight: CGFloat = 100
     }
     
     private let artist: Artist
@@ -53,6 +54,11 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
         loadAlbums()
     }
     
@@ -106,8 +112,16 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
             return
         }
         
-        let viewModel = AlbumCell.ViewModel(image: album.image, title: album.title, artistName: album.artist.name)
+        let isFavorite = DataStore.shared.containsAlbum(album)
+        let viewModel = AlbumCell.ViewModel(image: album.image,
+                                            title: album.title,
+                                            artistName: album.artist.name,
+                                            isFavorite: isFavorite)
         cell.configure(with: viewModel)
+        
+        cell.favoriteButton?.removeTarget(self, action: nil, for: .allEvents)
+        cell.favoriteButton?.tag = indexPath.row
+        cell.favoriteButton?.addTarget(self, action: #selector(storeAlbum(_:)), for: .touchUpInside)
         
         if album.image == nil, let url = album.imageURL {
             downloadImage(from: url, for: indexPath)
@@ -150,7 +164,7 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
         let layoutRowSpaces = layout.sectionInset.left + layout.sectionInset.right + layoutInteritemSpacing
         let collectionCellSize = collectionView.frame.size.width - layoutRowSpaces
         let width = collectionCellSize / CGFloat(Constant.numberOfCellsInRow)
-        let height = width * Constant.cellHeightRatio
+        let height = width + Constant.additionalCellHeight
         
         return CGSize(width: width, height: height)
     }
@@ -160,5 +174,24 @@ class ArtistViewController: UICollectionViewController, UICollectionViewDelegate
         let viewController = AlbumDetailsViewController(album: album)
         
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    // MARK: Actions
+    
+    @objc private func storeAlbum(_ button: UIButton) {
+        let album = albums[button.tag]
+        let isStored = button.isSelected
+        
+        do {
+            if isStored {
+                try DataStore.shared.deleteAlbum(album)
+            } else {
+                try DataStore.shared.saveAlbum(album)
+            }
+        } catch {
+            fatalError("album can not be stored!")
+        }
+        
+        button.isSelected = !button.isSelected
     }
 }

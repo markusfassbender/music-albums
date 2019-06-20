@@ -111,7 +111,7 @@ class AlbumDetailsViewController: UIViewController {
     }
     
     
-    @objc func storeAlbum(_ button: UIButton) {
+    @objc private func storeAlbum(_ button: UIButton) {
         let isStored = button.isSelected
         
         do {

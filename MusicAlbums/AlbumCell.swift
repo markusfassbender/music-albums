@@ -8,6 +8,15 @@
 import UIKit
 
 final class AlbumCell: UICollectionViewCell {
+    private struct Constant {
+        struct FavoriteButton {
+            static let size = CGSize(width: 40.0, height: 25.0)
+            static let imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15)
+        }
+    }
+    
+    private(set) weak var favoriteButton: UIButton?
+    
     private weak var imageView: UIImageView?
     private weak var titleLabel: UILabel?
     private weak var artistLabel: UILabel?
@@ -39,12 +48,26 @@ final class AlbumCell: UICollectionViewCell {
         artistLabel.textColor = Stylesheet.Color.subTitle
         self.artistLabel = artistLabel
         
-        let labelLayoutGuide = UILayoutGuide()
+        let favoriteButton = UIButton()
+        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
+        favoriteButton.setImage(UIImage(named: "heart_outline")!, for: .normal)
+        favoriteButton.setImage(UIImage(named: "heart_filled")!, for: .selected)
+        favoriteButton.imageEdgeInsets = Constant.FavoriteButton.imageInsets
+        self.favoriteButton = favoriteButton
+        
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.distribution = .equalSpacing
+        stackView.spacing = systemSpacing
         
         contentView.addSubview(imageView)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(artistLabel)
-        contentView.addLayoutGuide(labelLayoutGuide)
+        contentView.addSubview(stackView)
+        
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(artistLabel)
+        stackView.addArrangedSubview(favoriteButton)
         
         let constraints: [NSLayoutConstraint] = [
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -52,19 +75,13 @@ final class AlbumCell: UICollectionViewCell {
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
             
-            labelLayoutGuide.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: systemSpacing),
-            labelLayoutGuide.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: systemSpacing),
-            labelLayoutGuide.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -systemSpacing),
-            labelLayoutGuide.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -systemSpacing),
+            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: systemSpacing),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: systemSpacing),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -systemSpacing),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -systemSpacing),
             
-            titleLabel.topAnchor.constraint(equalTo: labelLayoutGuide.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: labelLayoutGuide.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: labelLayoutGuide.trailingAnchor),
-            
-            artistLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: systemSpacing),
-            artistLabel.leadingAnchor.constraint(equalTo: labelLayoutGuide.leadingAnchor),
-            artistLabel.trailingAnchor.constraint(equalTo: labelLayoutGuide.trailingAnchor),
-            artistLabel.bottomAnchor.constraint(equalTo: labelLayoutGuide.bottomAnchor)
+            favoriteButton.widthAnchor.constraint(equalToConstant: Constant.FavoriteButton.size.width),
+            favoriteButton.heightAnchor.constraint(equalToConstant: Constant.FavoriteButton.size.height),
         ]
         
         NSLayoutConstraint.activate(constraints)
@@ -74,6 +91,7 @@ final class AlbumCell: UICollectionViewCell {
         imageView?.image = viewModel.image
         titleLabel?.text = viewModel.title
         artistLabel?.text = viewModel.artistName
+        favoriteButton?.isSelected = viewModel.isFavorite
     }
 }
 
@@ -83,6 +101,7 @@ protocol AlbumCellViewModel {
     var image: UIImage? { get }
     var title: String { get }
     var artistName: String { get }
+    var isFavorite: Bool { get }
 }
 
 extension AlbumCell {
@@ -90,5 +109,6 @@ extension AlbumCell {
         let image: UIImage?
         let title: String
         let artistName: String
+        let isFavorite: Bool
     }
 }
