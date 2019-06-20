@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -267,7 +267,6 @@
 				3DEAB2D89EC5F7FE23B828FF /* Pods-NetworkServiceTests.debug.xcconfig */,
 				DCC13EB4438714725A40AB0F /* Pods-NetworkServiceTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -508,6 +507,7 @@
 				E6DDD20D22B4E702002BFA61 /* Frameworks */,
 				E6DDD20E22B4E702002BFA61 /* Resources */,
 				E6FE7F1322BAB0E7005E1339 /* Embed Frameworks */,
+				E15CF09BBE0A55A7BA5D8358 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -833,6 +833,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E15CF09BBE0A55A7BA5D8358 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MusicAlbums/Pods-MusicAlbums-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MusicAlbums/Pods-MusicAlbums-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MusicAlbums/Pods-MusicAlbums-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E6E5F4E9E95C3C69A181DACD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1111,7 +1128,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9FA2DDF7A8C4EB9E4CE5F19E /* Pods-MusicAlbums.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3GCB27K47;
@@ -1132,7 +1148,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22607D7DCDB4E70CECEC7127 /* Pods-MusicAlbums.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3GCB27K47;
