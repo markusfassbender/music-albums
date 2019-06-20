@@ -11,5 +11,14 @@ import RealmSwift
 public struct DataStore {
     public static let shared = DataStore()
     
-    let realm: Realm = try! Realm()
+    let realm: Realm
+    
+    public init() {
+        let realm = try! Realm()
+        self.init(realm: realm)
+    }
+    
+    public init(realm: Realm) {
+        self.realm = realm
+    }
 }

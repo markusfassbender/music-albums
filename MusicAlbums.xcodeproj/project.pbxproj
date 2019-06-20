@@ -35,6 +35,7 @@
 		E6D6E97022BB6B6B003D6152 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E96F22BB6B6B003D6152 /* Album.swift */; };
 		E6D6E97322BB6D67003D6152 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E97222BB6D67003D6152 /* Artist.swift */; };
 		E6D6E97522BB7497003D6152 /* ModelMappingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E97422BB7497003D6152 /* ModelMappingProtocol.swift */; };
+		E6D6E97722BB7B31003D6152 /* DataStoreAlbumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E97622BB7B31003D6152 /* DataStoreAlbumTests.swift */; };
 		E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDD21322B4E702002BFA61 /* AppDelegate.swift */; };
 		E6DDD21B22B4E703002BFA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21A22B4E703002BFA61 /* Assets.xcassets */; };
 		E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */; };
@@ -215,6 +216,7 @@
 		E6D6E96F22BB6B6B003D6152 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E6D6E97222BB6D67003D6152 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		E6D6E97422BB7497003D6152 /* ModelMappingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMappingProtocol.swift; sourceTree = "<group>"; };
+		E6D6E97622BB7B31003D6152 /* DataStoreAlbumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreAlbumTests.swift; sourceTree = "<group>"; };
 		E6DDD21022B4E702002BFA61 /* MusicAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DDD21322B4E702002BFA61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6DDD21A22B4E703002BFA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				E6B59CE222BB660A00F72E3A /* DataStoreTests.swift */,
+				E6D6E97622BB7B31003D6152 /* DataStoreAlbumTests.swift */,
 				E6B59CE422BB660A00F72E3A /* Info.plist */,
 			);
 			path = DataStoreTests;
@@ -1118,6 +1121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6B59CE322BB660A00F72E3A /* DataStoreTests.swift in Sources */,
+				E6D6E97722BB7B31003D6152 /* DataStoreAlbumTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

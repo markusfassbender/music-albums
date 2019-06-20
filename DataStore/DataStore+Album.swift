@@ -21,8 +21,8 @@ public extension DataStore {
         // TODO: Implement
     }
     
-    func allAlbums() -> [Models.Album] {
-        let albums = realm.objects(Album.self)
+    func allAlbumsSortedByTitle() -> [Models.Album] {
+        let albums = realm.objects(Album.self).sorted(byKeyPath: "title")
         return albums.map { $0.toModel() }
     }
 }
