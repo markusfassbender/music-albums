@@ -10,7 +10,9 @@ It is required to run `pod install` first, because the pods themselves are not i
 
 ##### API Keys
 
-The Xcode projects refers a `Keys.plist` file, that contains your private Last.fm API Key. The file must be like this:
+The NetworkService build target requires an API Key to access the Last.fm API to be able to load data.
+
+The file must be at the path `./music-albums⁩/NetworkService⁩/Keys.plist` in this format:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
