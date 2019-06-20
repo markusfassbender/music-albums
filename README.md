@@ -2,13 +2,13 @@
 
 Example app to show some functionalities of the [Last.fm API](https://www.last.fm/api/intro).
 
-### Setup
+## Setup
 
-##### Pods
+### Pods
 
 It is required to run `pod install` first, because the pods themselves are not included in the repository.
 
-##### API Keys
+### API Keys
 
 The NetworkService build target requires an API Key to access the Last.fm API to be able to load data.
 
@@ -24,3 +24,8 @@ The file must be at the path `./music-albums⁩/NetworkService⁩/Keys.plist` in
 </dict>
 </plist>
 ```
+
+## Licenses
+
+### Icons8
+This project uses Icons from Icons8 https://icons8.com .
