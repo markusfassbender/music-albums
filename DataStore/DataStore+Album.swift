@@ -9,15 +9,15 @@ import Foundation
 import Models
 
 public extension DataStore {
-    func saveAlbum(_ album: Album) {
+    func saveAlbum(_ album: Models.Album) {
         
     }
     
-    func deleteAlbum(_ album: Album) {
+    func deleteAlbum(_ album: Models.Album) {
         
     }
     
-    func allAlbums() -> [Album] {
+    func allAlbums() -> [Models.Album] {
         return []
     }
 }

@@ -33,6 +33,7 @@
 		E6D6E96C22BB6A58003D6152 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E96B22BB6A57003D6152 /* DataStore.swift */; };
 		E6D6E96E22BB6AA2003D6152 /* DataStore+Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E96D22BB6AA2003D6152 /* DataStore+Album.swift */; };
 		E6D6E97022BB6B6B003D6152 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E96F22BB6B6B003D6152 /* Album.swift */; };
+		E6D6E97322BB6D67003D6152 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D6E97222BB6D67003D6152 /* Artist.swift */; };
 		E6DDD21422B4E702002BFA61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDD21322B4E702002BFA61 /* AppDelegate.swift */; };
 		E6DDD21B22B4E703002BFA61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21A22B4E703002BFA61 /* Assets.xcassets */; };
 		E6DDD21E22B4E703002BFA61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDD21C22B4E703002BFA61 /* LaunchScreen.storyboard */; };
@@ -211,6 +212,7 @@
 		E6D6E96B22BB6A57003D6152 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		E6D6E96D22BB6AA2003D6152 /* DataStore+Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataStore+Album.swift"; sourceTree = "<group>"; };
 		E6D6E96F22BB6B6B003D6152 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		E6D6E97222BB6D67003D6152 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		E6DDD21022B4E702002BFA61 /* MusicAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DDD21322B4E702002BFA61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6DDD21A22B4E703002BFA61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				E6D6E96F22BB6B6B003D6152 /* Album.swift */,
+				E6D6E97222BB6D67003D6152 /* Artist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1101,6 +1104,7 @@
 			files = (
 				E6D6E96E22BB6AA2003D6152 /* DataStore+Album.swift in Sources */,
 				E6D6E96C22BB6A58003D6152 /* DataStore.swift in Sources */,
+				E6D6E97322BB6D67003D6152 /* Artist.swift in Sources */,
 				E6D6E97022BB6B6B003D6152 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1484,7 +1488,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9FA2DDF7A8C4EB9E4CE5F19E /* Pods-MusicAlbums.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3GCB27K47;
@@ -1505,7 +1508,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22607D7DCDB4E70CECEC7127 /* Pods-MusicAlbums.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3GCB27K47;
