@@ -26,7 +26,7 @@ target 'NetworkService' do
 end
 
 target 'DataStore' do
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 3.0'
   
   target 'DataStoreTests' do
     inherit! :search_paths
