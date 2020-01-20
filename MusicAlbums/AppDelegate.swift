@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [storedAlbumsViewController(), searchViewController()]
+        tabBarController.tabBar.tintColor = .black
         
         window?.rootViewController = tabBarController
         
