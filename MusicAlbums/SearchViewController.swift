@@ -30,6 +30,7 @@ class SearchViewController: UIViewController {
         
         let searchController = UISearchController(searchResultsController: resultsViewcontroller)
         searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = NSLocalizedString("search_placeholder", comment: "")
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
