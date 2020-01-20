@@ -49,9 +49,6 @@ class StoredAlbumsViewController: UICollectionViewController, UICollectionViewDe
         collectionView.backgroundColor = Stylesheet.Color.viewBackground
         title = NSLocalizedString("title_main", comment: "")
         
-        let item = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(openSearch))
-        navigationItem.rightBarButtonItem = item
-        
         collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumCollectionDataSource.cellReuseIdentifier)
         collectionView.dataSource = dataSource
     }
@@ -77,14 +74,6 @@ class StoredAlbumsViewController: UICollectionViewController, UICollectionViewDe
         let album = dataSource.album(at: indexPath)
         let viewController = AlbumDetailsViewController(album: album)
         
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    // MARK: Actions
-    
-    @objc
-    private func openSearch() {
-        let viewController = SearchViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
