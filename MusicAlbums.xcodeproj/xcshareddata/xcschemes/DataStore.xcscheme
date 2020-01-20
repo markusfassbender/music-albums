@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1130"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E6FE7EF622BAB0E7005E1339"
-               BuildableName = "Models.framework"
-               BlueprintName = "Models"
+               BlueprintIdentifier = "E6B59CD222BB660A00F72E3A"
+               BuildableName = "DataStore.framework"
+               BlueprintName = "DataStore"
                ReferencedContainer = "container:MusicAlbums.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,15 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E6FE7EF622BAB0E7005E1339"
-            BuildableName = "Models.framework"
-            BlueprintName = "Models"
-            ReferencedContainer = "container:MusicAlbums.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -59,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E6FE7EF622BAB0E7005E1339"
-            BuildableName = "Models.framework"
-            BlueprintName = "Models"
+            BlueprintIdentifier = "E6B59CD222BB660A00F72E3A"
+            BuildableName = "DataStore.framework"
+            BlueprintName = "DataStore"
             ReferencedContainer = "container:MusicAlbums.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

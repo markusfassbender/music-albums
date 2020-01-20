@@ -9,7 +9,7 @@ import UIKit
 import Models
 import NetworkService
 
-class SearchViewController: UITableViewController {
+class SearchViewController: UIViewController {
     private var searchCancelToken: CancelToken?
     
     deinit {
@@ -25,21 +25,14 @@ class SearchViewController: UITableViewController {
         view.backgroundColor = Stylesheet.Color.viewBackground
         title = NSLocalizedString("title_search", comment: "")
         
-        tableView.separatorInset = .zero
-        
         let resultsViewcontroller = SearchResultsViewController()
         resultsViewcontroller.delegate = self
-        resultsViewcontroller.tableView.separatorInset = tableView.separatorInset
         
         let searchController = UISearchController(searchResultsController: resultsViewcontroller)
         searchController.searchResultsUpdater = self
         
-        if #available(iOS 11.0, *) {
-            navigationItem.searchController = searchController
-            navigationItem.hidesSearchBarWhenScrolling = false
-        } else {
-            tableView.tableHeaderView = searchController.searchBar
-        }
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         
         definesPresentationContext = true
     }

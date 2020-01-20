@@ -36,6 +36,8 @@ class SearchResultsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.separatorInset = .zero
         tableView.register(ArtistCell.self, forCellReuseIdentifier: Constant.reuseIdentifier)
     }
     
