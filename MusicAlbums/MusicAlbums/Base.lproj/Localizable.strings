@@ -9,3 +9,5 @@
 "title_main" = "Stored Albums";
 "title_search" = "Search";
 "tracks" = "Track List";
+
+"search_placeholder" = "Search for artists...";
