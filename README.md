@@ -24,8 +24,3 @@ The file must be located at `./music-albums⁩/NetworkService⁩/Keys.plist` in 
 </dict>
 </plist>
 ```
-
-## Licenses
-
-### Icons8
-The project uses icons from Icons8 https://icons8.com .

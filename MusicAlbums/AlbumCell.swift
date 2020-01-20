@@ -11,7 +11,6 @@ final class AlbumCell: UICollectionViewCell {
     private struct Constant {
         struct FavoriteButton {
             static let size = CGSize(width: 40.0, height: 25.0)
-            static let imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15)
         }
     }
     
@@ -50,9 +49,10 @@ final class AlbumCell: UICollectionViewCell {
         
         let favoriteButton = UIButton()
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        favoriteButton.setImage(UIImage(named: "heart_outline")!, for: .normal)
-        favoriteButton.setImage(UIImage(named: "heart_filled")!, for: .selected)
-        favoriteButton.imageEdgeInsets = Constant.FavoriteButton.imageInsets
+        favoriteButton.setImage(UIImage(systemName: "heart")!, for: .normal)
+        favoriteButton.setImage(UIImage(systemName: "heart.fill")!, for: .selected)
+        favoriteButton.contentHorizontalAlignment = .leading
+        favoriteButton.tintColor = .black
         self.favoriteButton = favoriteButton
         
         let stackView = UIStackView()
