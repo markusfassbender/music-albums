@@ -1,5 +1,5 @@
 //
-//  AlbumCollectionViewController.swift
+//  CollectionViewController.swift
 //  MusicAlbums
 //
 //  Created by Markus Faßbender on 15.06.19.
@@ -7,41 +7,31 @@
 
 import UIKit
 import Models
-import NetworkService
 import DataStore
 
-class AlbumCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private struct Constant {
+        static let reuseIdentifier: String = "CollectionViewController.reuseIdentifier"
         static let layoutSpacing: CGFloat = 8
-        static let numberOfCellsInRow: Int = 2
+        static let numberOfCellsInRow: Int = 1
         static let additionalCellHeight: CGFloat = 100
     }
     
-    private let artist: Artist
-    private var albumsCancelToken: CancelToken?
-    
-    private lazy var dataSource: AlbumCollectionDataSource = {
-        let dataSource = AlbumCollectionDataSource()
+    private lazy var dataSource: AlbumSelectionDataSource = {
+        let dataSource = AlbumSelectionDataSource()
         dataSource.delegate = self
         return dataSource
     }()
     
-    init(artist: Artist) {
-        self.artist = artist
-        
+    init() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = Constant.layoutSpacing
         layout.minimumLineSpacing = Constant.layoutSpacing
-        layout.sectionInset = UIEdgeInsets(top: Constant.layoutSpacing, left: Constant.layoutSpacing, bottom: Constant.layoutSpacing, right: Constant.layoutSpacing)
         super.init(collectionViewLayout: layout)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        albumsCancelToken?.cancel()
+        fatalError("not implemented")
     }
     
     override func viewDidLoad() {
@@ -51,42 +41,19 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
-        loadAlbums()
+        dataSource.albums = DataStore.shared.allAlbumsSortedByTitle()
+        collectionView.reloadData()
     }
     
     private func setup() {
         collectionView.backgroundColor = Stylesheet.Color.viewBackground
-        title = artist.name
+        title = NSLocalizedString("title_collection", comment: "")
         
-        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumCollectionDataSource.cellReuseIdentifier)
+        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumSelectionDataSource.cellReuseIdentifier)
         collectionView.dataSource = dataSource
     }
     
-    private func loadAlbums() {
-        albumsCancelToken?.cancel()
-        
-        let resource = Album.topAlbums(of: artist)
-        let token = CancelToken()
-        albumsCancelToken = token
-        
-        Webservice.shared.load(resource: resource, token: token) { result in
-            switch result {
-            case .success(let albums):
-                self.dataSource.albums = albums
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
+    // MARK: Collection View
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else {
@@ -111,14 +78,9 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
     }
 }
 
-extension AlbumCollectionViewController: AlbumCollectionDelegate {
+extension CollectionViewController: AlbumSelectionDelegate {
     func saveAlbum(at index: Int) {
-        do {
-            let album = dataSource.albums[index]
-            try DataStore.shared.saveAlbum(album)
-        } catch {
-            assertionFailure("save album did fail")
-        }
+        assertionFailure("save album is not supported")
     }
     
     func deleteAlbum(at index: Int) {
@@ -128,6 +90,18 @@ extension AlbumCollectionViewController: AlbumCollectionDelegate {
         } catch {
             assertionFailure("delete album did fail")
         }
+        
+        collectionView.performBatchUpdates({
+            var albums = dataSource.albums
+            albums.remove(at: index)
+            dataSource.albums = albums
+            
+            let indexPath = IndexPath(row: index, section: 0)
+            collectionView.deleteItems(at: [indexPath])
+        }, completion: { _ in
+            // Workaround to refresh all cell.tags to identify album objects in data source
+            self.collectionView.reloadItems(at: self.collectionView.indexPathsForVisibleItems)
+        })
     }
     
     func reloadItems(at indexPaths: [IndexPath]) {

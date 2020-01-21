@@ -1,5 +1,5 @@
 //
-//  AlbumCollectionDataSource.swift
+//  AlbumSelectionDataSource.swift
 //  MusicAlbums
 //
 //  Created by Markus Faßbender on 20.06.19.
@@ -10,18 +10,18 @@ import Models
 import NetworkService
 import DataStore
 
-protocol AlbumCollectionDelegate: class {
+protocol AlbumSelectionDelegate: class {
     func saveAlbum(at index: Int)
     func deleteAlbum(at index: Int)
     
     func reloadItems(at indexPaths: [IndexPath])
 }
 
-class AlbumCollectionDataSource: NSObject, UICollectionViewDataSource {
-    static let cellReuseIdentifier: String = "AlbumCollectionDataSource.reuseIdentifier"
+class AlbumSelectionDataSource: NSObject, UICollectionViewDataSource {
+    static let cellReuseIdentifier: String = "AlbumSelectionDataSource.reuseIdentifier"
     
     var albums: [Album] = []
-    weak var delegate: AlbumCollectionDelegate?
+    weak var delegate: AlbumSelectionDelegate?
     
     private var imageDownloadTokens: [IndexPath: CancelToken] = [:]
     
@@ -36,7 +36,7 @@ class AlbumCollectionDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumCollectionDataSource.cellReuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumSelectionDataSource.cellReuseIdentifier, for: indexPath)
         
         if let cell = cell as? AlbumCell {
             let album = self.album(at: indexPath)
