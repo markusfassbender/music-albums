@@ -6,8 +6,8 @@
   
 */
 
-"title_main" = "Stored Albums";
-"title_search" = "Search";
+"title_collection" = "Collection";
+"title_search" = "Explore";
 "tracks" = "Track List";
 
 "search_placeholder" = "Search for artists...";

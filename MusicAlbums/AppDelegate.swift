@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func storedAlbumsViewController() -> UIViewController {
-        let item = UITabBarItem(title: NSLocalizedString("title_main", comment: ""),
+        let item = UITabBarItem(title: NSLocalizedString("title_collection", comment: ""),
                      image: UIImage(systemName: "heart.fill"),
                      tag: 0)
         let viewController = StoredAlbumsViewController()

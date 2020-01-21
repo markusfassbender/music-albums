@@ -47,7 +47,7 @@ class StoredAlbumsViewController: UICollectionViewController, UICollectionViewDe
     
     private func setup() {
         collectionView.backgroundColor = Stylesheet.Color.viewBackground
-        title = NSLocalizedString("title_main", comment: "")
+        title = NSLocalizedString("title_collection", comment: "")
         
         collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumCollectionDataSource.cellReuseIdentifier)
         collectionView.dataSource = dataSource
