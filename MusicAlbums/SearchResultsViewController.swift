@@ -16,6 +16,7 @@ protocol SearchResultsDelegate: class {
 class SearchResultsViewController: UITableViewController {
     private struct Constant {
         static let reuseIdentifier = "SearchResultsViewController.reuseIdentifier"
+        static let cellHeight: CGFloat = 60
     }
     
     weak var delegate: SearchResultsDelegate?
@@ -38,6 +39,7 @@ class SearchResultsViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.separatorInset = .zero
+        tableView.rowHeight = Constant.cellHeight
         tableView.register(ArtistCell.self, forCellReuseIdentifier: Constant.reuseIdentifier)
     }
     

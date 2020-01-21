@@ -8,10 +8,6 @@
 import UIKit
 
 final class ArtistCell: UITableViewCell {
-    private struct Constant {
-        static let minimumHeight: CGFloat = 60
-    }
-    
     private weak var artistImageView: UIImageView?
     private weak var artistNameLabel: UILabel?
     
@@ -48,7 +44,6 @@ final class ArtistCell: UITableViewCell {
             artistImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             artistImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             artistImageView.widthAnchor.constraint(equalTo: artistImageView.heightAnchor),
-            artistImageView.heightAnchor.constraint(equalToConstant: Constant.minimumHeight),
             
             artistNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             artistNameLabel.leadingAnchor.constraint(equalTo: artistImageView.trailingAnchor, constant: systemSpacing),
