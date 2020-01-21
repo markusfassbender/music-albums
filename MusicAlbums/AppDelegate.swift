@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             itemInstantiator.viewController(of: .collection),
             itemInstantiator.viewController(of: .search)
         ]
-        tabBarController.tabBar.tintColor = .black
+        tabBarController.tabBar.tintColor = Stylesheet.Color.defaultTint
         
         window?.rootViewController = tabBarController
         
