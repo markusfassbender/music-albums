@@ -52,7 +52,7 @@ final class AlbumCell: UICollectionViewCell {
         favoriteButton.setImage(UIImage(systemName: "heart")!, for: .normal)
         favoriteButton.setImage(UIImage(systemName: "heart.fill")!, for: .selected)
         favoriteButton.contentHorizontalAlignment = .leading
-        favoriteButton.tintColor = .black
+        favoriteButton.tintColor = Stylesheet.Color.defaultTint
         self.favoriteButton = favoriteButton
         
         let stackView = UIStackView()

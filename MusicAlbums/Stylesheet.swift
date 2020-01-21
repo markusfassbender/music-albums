@@ -9,9 +9,12 @@ import UIKit
 
 struct Stylesheet {
     struct Color {
-        static let title: UIColor = .black
-        static let subTitle: UIColor = .darkGray
-        static let imageBackground: UIColor = .darkGray
-        static let viewBackground: UIColor = .white
+        static let title: UIColor = .label
+        static let subTitle: UIColor = .secondaryLabel
+        
+        static let imageBackground: UIColor = .tertiarySystemFill
+        static let viewBackground: UIColor = .systemBackground
+        
+        static let defaultTint: UIColor = .label
     }
 }
