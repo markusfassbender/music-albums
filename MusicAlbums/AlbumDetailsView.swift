@@ -39,8 +39,9 @@ final class AlbumDetailsView: UIView {
         
         let favoriteButton = UIButton()
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        favoriteButton.setImage(UIImage(named: "heart_outline")!, for: .normal)
-        favoriteButton.setImage(UIImage(named: "heart_filled")!, for: .selected)
+        favoriteButton.setImage(UIImage(systemName: "heart")!, for: .normal)
+        favoriteButton.setImage(UIImage(systemName: "heart.fill")!, for: .selected)
+        favoriteButton.tintColor = .black
         self.favoriteButton = favoriteButton
         
         let imageView = UIImageView()
