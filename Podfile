@@ -1,4 +1,4 @@
-platform :ios, '11.4'
+platform :ios, '13.2'
 use_frameworks!
 
 target 'MusicAlbums' do
@@ -26,7 +26,7 @@ target 'NetworkService' do
 end
 
 target 'DataStore' do
-  pod 'RealmSwift', '~> 3.0'
+  pod 'RealmSwift', '~> 4.0'
   
   target 'DataStoreTests' do
     inherit! :search_paths
