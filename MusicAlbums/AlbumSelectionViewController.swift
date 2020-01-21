@@ -1,5 +1,5 @@
 //
-//  AlbumCollectionViewController.swift
+//  AlbumSelectionViewController.swift
 //  MusicAlbums
 //
 //  Created by Markus Faßbender on 15.06.19.
@@ -10,7 +10,7 @@ import Models
 import NetworkService
 import DataStore
 
-class AlbumCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class AlbumSelectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private struct Constant {
         static let layoutSpacing: CGFloat = 8
         static let numberOfCellsInRow: Int = 2
@@ -20,8 +20,8 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
     private let artist: Artist
     private var albumsCancelToken: CancelToken?
     
-    private lazy var dataSource: AlbumCollectionDataSource = {
-        let dataSource = AlbumCollectionDataSource()
+    private lazy var dataSource: AlbumSelectionDataSource = {
+        let dataSource = AlbumSelectionDataSource()
         dataSource.delegate = self
         return dataSource
     }()
@@ -59,7 +59,7 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
         collectionView.backgroundColor = Stylesheet.Color.viewBackground
         title = artist.name
         
-        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumCollectionDataSource.cellReuseIdentifier)
+        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumSelectionDataSource.cellReuseIdentifier)
         collectionView.dataSource = dataSource
     }
     
@@ -111,7 +111,7 @@ class AlbumCollectionViewController: UICollectionViewController, UICollectionVie
     }
 }
 
-extension AlbumCollectionViewController: AlbumCollectionDelegate {
+extension AlbumSelectionViewController: AlbumSelectionDelegate {
     func saveAlbum(at index: Int) {
         do {
             let album = dataSource.albums[index]

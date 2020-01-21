@@ -17,8 +17,8 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         static let additionalCellHeight: CGFloat = 100
     }
     
-    private lazy var dataSource: AlbumCollectionDataSource = {
-        let dataSource = AlbumCollectionDataSource()
+    private lazy var dataSource: AlbumSelectionDataSource = {
+        let dataSource = AlbumSelectionDataSource()
         dataSource.delegate = self
         return dataSource
     }()
@@ -49,7 +49,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         collectionView.backgroundColor = Stylesheet.Color.viewBackground
         title = NSLocalizedString("title_collection", comment: "")
         
-        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumCollectionDataSource.cellReuseIdentifier)
+        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumSelectionDataSource.cellReuseIdentifier)
         collectionView.dataSource = dataSource
     }
     
@@ -78,7 +78,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
 }
 
-extension CollectionViewController: AlbumCollectionDelegate {
+extension CollectionViewController: AlbumSelectionDelegate {
     func saveAlbum(at index: Int) {
         assertionFailure("save album is not supported")
     }

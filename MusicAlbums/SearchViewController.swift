@@ -77,7 +77,7 @@ extension SearchViewController: UISearchResultsUpdating {
 
 extension SearchViewController: SearchResultsDelegate {
     func didSelectItem(_ item: Artist) {
-        let albumCollectionViewController = AlbumCollectionViewController(artist: item)
-        navigationController?.pushViewController(albumCollectionViewController, animated: true)
+        let albumSelectionViewController = AlbumSelectionViewController(artist: item)
+        navigationController?.pushViewController(albumSelectionViewController, animated: true)
     }
 }
