@@ -1,5 +1,5 @@
 //
-//  StoredAlbumsViewController.swift
+//  CollectionViewController.swift
 //  MusicAlbums
 //
 //  Created by Markus Faßbender on 15.06.19.
@@ -9,9 +9,9 @@ import UIKit
 import Models
 import DataStore
 
-class StoredAlbumsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private struct Constant {
-        static let reuseIdentifier: String = "StoredAlbumsViewController.reuseIdentifier"
+        static let reuseIdentifier: String = "CollectionViewController.reuseIdentifier"
         static let layoutSpacing: CGFloat = 8
         static let numberOfCellsInRow: Int = 1
         static let additionalCellHeight: CGFloat = 100
@@ -78,7 +78,7 @@ class StoredAlbumsViewController: UICollectionViewController, UICollectionViewDe
     }
 }
 
-extension StoredAlbumsViewController: AlbumCollectionDelegate {
+extension CollectionViewController: AlbumCollectionDelegate {
     func saveAlbum(at index: Int) {
         assertionFailure("save album is not supported")
     }

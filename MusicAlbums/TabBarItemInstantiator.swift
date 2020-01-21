@@ -27,7 +27,7 @@ final class TabBarItemInstantiator {
         let item = UITabBarItem(title: NSLocalizedString("title_collection", comment: ""),
                                 image: UIImage(systemName: "heart.fill"),
                                 tag: itemTag)
-        let viewController = StoredAlbumsViewController()
+        let viewController = CollectionViewController()
         viewController.tabBarItem = item
         
         return viewController
