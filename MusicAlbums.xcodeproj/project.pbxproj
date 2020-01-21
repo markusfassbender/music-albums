@@ -330,9 +330,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28BAE16F23D6FBC600408164 /* Utility */ = {
+		28BAE17423D7029D00408164 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				E6F6638922B82956005CFAA1 /* Stylesheet.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -363,12 +364,12 @@
 		E618B25B22B4EAF90077D029 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				28BAE17223D6FED600408164 /* Tab.swift */,
-				28BAE17023D6FD0700408164 /* TabBarItemInstantiator.swift */,
 				E618B26E22B4FD370077D029 /* Album Details */,
 				E618B26822B4FAC90077D029 /* Album Selection */,
-				E618B26322B4ED040077D029 /* Search */,
 				E618B25D22B4EB090077D029 /* Collection */,
+				E618B26322B4ED040077D029 /* Search */,
+				28BAE17223D6FED600408164 /* Tab.swift */,
+				28BAE17023D6FD0700408164 /* TabBarItemInstantiator.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -422,7 +423,6 @@
 		E6548C8022B622C900626B9C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E6F6638922B82956005CFAA1 /* Stylesheet.swift */,
 				E6548C9322B6810500626B9C /* ArtistCell.swift */,
 				E6548C7E22B622C300626B9C /* AlbumCell.swift */,
 				E6548C8122B624EB00626B9C /* UIView+SystemSpacing.swift */,
@@ -515,7 +515,7 @@
 				E6DDD21A22B4E703002BFA61 /* Assets.xcassets */,
 				E618B25B22B4EAF90077D029 /* Scenes */,
 				E618B26222B4EC0E0077D029 /* Support */,
-				28BAE16F23D6FBC600408164 /* Utility */,
+				28BAE17423D7029D00408164 /* Utility */,
 				E6548C8022B622C900626B9C /* Views */,
 			);
 			path = MusicAlbums;
