@@ -11,3 +11,5 @@
 "tracks" = "Track List";
 
 "search_placeholder" = "Search for artists...";
+
+"collection_is_empty" = "Collection is empty...";
