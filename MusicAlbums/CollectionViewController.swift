@@ -46,11 +46,29 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
     
     private func setup() {
-        collectionView.backgroundColor = Stylesheet.Color.viewBackground
         title = NSLocalizedString("title_collection", comment: "")
         
+        setupCollectionView()
+    }
+    
+    private func setupCollectionView() {
+        collectionView.backgroundColor = Stylesheet.Color.viewBackground
         collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumSelectionDataSource.cellReuseIdentifier)
         collectionView.dataSource = dataSource
+        
+        let emptyView = loadEmptyView()
+        emptyView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundView = emptyView
+    }
+    
+    private func loadEmptyView() -> UILabel {
+        let label = UILabel()
+        label.text = NSLocalizedString("collection_is_empty", comment: "")
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .secondaryLabel
+        
+        return label
     }
     
     // MARK: Collection View
