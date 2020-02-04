@@ -52,4 +52,22 @@ class ArtistTests: XCTestCase {
         
         XCTAssertEqual(artistWithImage.image, image, "After creating new artist object with image the image should be equal but is not")
     }
+    
+    func testNewKeepsName() {
+        let artist = Artist(name: "John Lennon",
+                            image: nil,
+                            imageURL: nil)
+        let artistWithImage = artist.new(with: image)
+        
+        XCTAssertEqual(artistWithImage.name, "John Lennon", "After creating new artist object the name should be kept, but is not")
+    }
+    
+    func testNewKeepsImageURL() {
+        let artist = Artist(name: "John Lennon",
+                            image: nil,
+                            imageURL: url)
+        let artistWithImage = artist.new(with: image)
+        
+        XCTAssertEqual(artistWithImage.imageURL, url, "After creating new artist object the url should be kept, but is not")
+    }
 }
