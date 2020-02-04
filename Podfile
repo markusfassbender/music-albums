@@ -21,6 +21,8 @@ target 'NetworkService' do
   
   target 'NetworkServiceTests' do
     inherit! :search_paths
+    
+    pod 'OHHTTPStubs/Swift'
   end
 
 end
