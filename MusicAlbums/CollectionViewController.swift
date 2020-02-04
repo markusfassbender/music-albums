@@ -17,11 +17,17 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         static let additionalCellHeight: CGFloat = 100
     }
     
+    // MARK: Properties
+    
     private lazy var dataSource: AlbumSelectionDataSource = {
         let dataSource = AlbumSelectionDataSource()
         dataSource.delegate = self
         return dataSource
     }()
+    
+    private weak var emptyViewLabel: UILabel?
+    
+    // MARK: Initializer
     
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -34,6 +40,8 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         fatalError("not implemented")
     }
     
+    // MARK: Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -41,7 +49,8 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dataSource.albums = DataStore.shared.allAlbumsSortedByTitle()
+        
+        updateAlbums(DataStore.shared.allAlbumsSortedByTitle())
         collectionView.reloadData()
     }
     
@@ -56,9 +65,11 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumSelectionDataSource.cellReuseIdentifier)
         collectionView.dataSource = dataSource
         
-        let emptyView = loadEmptyView()
-        emptyView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundView = emptyView
+        let emptyViewLabel = loadEmptyView()
+        emptyViewLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.emptyViewLabel = emptyViewLabel
+        
+        collectionView.backgroundView = emptyViewLabel
     }
     
     private func loadEmptyView() -> UILabel {
@@ -69,6 +80,13 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         label.textColor = .secondaryLabel
         
         return label
+    }
+    
+    // MARK: Data logic
+    
+    private func updateAlbums(_ albums: [Album]) {
+        dataSource.albums = albums
+        emptyViewLabel?.isHidden = !albums.isEmpty
     }
     
     // MARK: Collection View
@@ -112,7 +130,7 @@ extension CollectionViewController: AlbumSelectionDelegate {
         collectionView.performBatchUpdates({
             var albums = dataSource.albums
             albums.remove(at: index)
-            dataSource.albums = albums
+            updateAlbums(albums)
             
             let indexPath = IndexPath(row: index, section: 0)
             collectionView.deleteItems(at: [indexPath])
