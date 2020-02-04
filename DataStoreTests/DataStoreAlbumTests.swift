@@ -94,4 +94,35 @@ class DataStoreAlbumTests: XCTestCase {
             XCTFail("test all albums should never call catch closure")
         }
     }
+    
+    // MARK: Contains
+    
+    func testContainsAlbumNotAdded() {
+        let dataStore = temporaryDataStore()
+        let artist = Models.Artist(name: "John Lennon")
+        let album = Models.Album(title: "Welcome", artist: artist)
+        
+        XCTAssertFalse(dataStore.containsAlbum(album), "data store should not contain not added album")
+    }
+    
+    func testContainsAlbumOtherAdded() throws {
+        let dataStore = temporaryDataStore()
+        let artist = Models.Artist(name: "John Lennon")
+        let welcomeAlbum = Models.Album(title: "Welcome", artist: artist)
+        let byeAlbum = Models.Album(title: "Bye", artist: artist)
+        
+        try dataStore.saveAlbum(welcomeAlbum)
+        
+        XCTAssertFalse(dataStore.containsAlbum(byeAlbum), "data store should not contain bye album after adding welcome album")
+    }
+    
+    func testContainsAlbumHasBeenAdded() throws {
+        let dataStore = temporaryDataStore()
+        let artist = Models.Artist(name: "John Lennon")
+        let album = Models.Album(title: "Welcome", artist: artist)
+        
+        try dataStore.saveAlbum(album)
+        
+        XCTAssert(dataStore.containsAlbum(album), "data store should contain added album")
+    }
 }
