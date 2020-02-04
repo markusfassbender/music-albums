@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		275EED72CE39E5BAA3D32949 /* Pods_NetworkServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD2F969E8F58340FBC72B16 /* Pods_NetworkServiceTests.framework */; };
+		286E11EA23E97D5500B98A1C /* DataStoreModelAlbumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E11E923E97D5500B98A1C /* DataStoreModelAlbumTests.swift */; };
 		28BAE17123D6FD0700408164 /* TabBarItemInstantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BAE17023D6FD0700408164 /* TabBarItemInstantiator.swift */; };
 		28BAE17323D6FED600408164 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BAE17223D6FED600408164 /* Tab.swift */; };
 		558FFFA4DAEE4F3F308773FD /* Pods_MusicAlbumsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520C39B2B2EECDED44F9DA7C /* Pods_MusicAlbumsTests.framework */; };
@@ -171,6 +172,7 @@
 		205D29118CC3A93AF62DF93D /* Pods_ModelsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModelsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22607D7DCDB4E70CECEC7127 /* Pods-MusicAlbums.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicAlbums.release.xcconfig"; path = "Target Support Files/Pods-MusicAlbums/Pods-MusicAlbums.release.xcconfig"; sourceTree = "<group>"; };
 		242AC7B41EB9CD1B302ADCDF /* Pods-ModelsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelsTests.debug.xcconfig"; path = "Target Support Files/Pods-ModelsTests/Pods-ModelsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		286E11E923E97D5500B98A1C /* DataStoreModelAlbumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreModelAlbumTests.swift; sourceTree = "<group>"; };
 		28BAE17023D6FD0700408164 /* TabBarItemInstantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemInstantiator.swift; sourceTree = "<group>"; };
 		28BAE17223D6FED600408164 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		35A3B0F074FFAABA3713BE41 /* Pods-MusicAlbumsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicAlbumsTests.debug.xcconfig"; path = "Target Support Files/Pods-MusicAlbumsTests/Pods-MusicAlbumsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -459,8 +461,9 @@
 		E6B59CE122BB660A00F72E3A /* DataStoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				E6B59CE222BB660A00F72E3A /* DataStoreTests.swift */,
 				E6D6E97622BB7B31003D6152 /* DataStoreAlbumTests.swift */,
+				286E11E923E97D5500B98A1C /* DataStoreModelAlbumTests.swift */,
+				E6B59CE222BB660A00F72E3A /* DataStoreTests.swift */,
 				E6B59CE422BB660A00F72E3A /* Info.plist */,
 			);
 			path = DataStoreTests;
@@ -1142,6 +1145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6B59CE322BB660A00F72E3A /* DataStoreTests.swift in Sources */,
+				286E11EA23E97D5500B98A1C /* DataStoreModelAlbumTests.swift in Sources */,
 				E6D6E97722BB7B31003D6152 /* DataStoreAlbumTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
