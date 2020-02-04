@@ -13,7 +13,7 @@ import RealmSwift
 
 class DataStoreAlbumTests: XCTestCase {
     private func temporaryDataStore(identifier: String) -> DataStore {
-        let configuration = Realm.Configuration(inMemoryIdentifier: "testSaveAlbum")
+        let configuration = Realm.Configuration(inMemoryIdentifier: identifier)
         let realm = try! Realm(configuration: configuration)
         return DataStore(realm: realm)
     }
