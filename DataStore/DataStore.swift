@@ -9,12 +9,12 @@ import Foundation
 import RealmSwift
 
 public struct DataStore {
-    public static let shared = DataStore()
+    public static let shared = try! DataStore()
     
     let realm: Realm
     
-    public init() {
-        let realm = try! Realm()
+    public init() throws {
+        let realm = try Realm()
         self.init(realm: realm)
     }
     
