@@ -31,11 +31,17 @@ public final class Webservice: NSObject {
     public func load<M>(request: URLRequest, parsingHandler: @escaping (Data) throws -> M, token: CancelToken? = nil, completionHandler: @escaping (Result<M, Webservice.Error>) -> Void) {
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
-                completionHandler(.failure(.other(error)))
+                if let error = error as? Webservice.Error {
+                    completionHandler(.failure(error))
+                } else {
+                    completionHandler(.failure(.other(error)))
+                }
+                
                 return
             }
             
             guard let data = data else {
+                assertionFailure("data should never be nil without describing error object")
                 completionHandler(.failure(.data))
                 return
             }
