@@ -12,8 +12,8 @@ import RealmSwift
 @testable import DataStore
 
 class DataStoreAlbumTests: XCTestCase {
-    private func temporaryDataStore(identifier: String) -> DataStore {
-        let configuration = Realm.Configuration(inMemoryIdentifier: identifier)
+    private func temporaryDataStore() -> DataStore {
+        let configuration = Realm.Configuration(inMemoryIdentifier: "temporaryDataStore")
         let realm = try! Realm(configuration: configuration)
         return DataStore(realm: realm)
     }
@@ -23,7 +23,7 @@ class DataStoreAlbumTests: XCTestCase {
     func testSaveAlbum() {
         let artist = Models.Artist(name: "John Lennon")
         let album = Models.Album(title: "Welcome", artist: artist)
-        let dataStore = temporaryDataStore(identifier: "testSaveAlbum")
+        let dataStore = temporaryDataStore()
         
         XCTAssertNoThrow(try dataStore.saveAlbum(album))
     }
@@ -33,7 +33,7 @@ class DataStoreAlbumTests: XCTestCase {
     func testDeleteNotExistingAlbum() {
         let artist = Models.Artist(name: "John Lennon")
         let album = Models.Album(title: "Welcome", artist: artist)
-        let dataStore = temporaryDataStore(identifier: "testDeleteNotExistingAlbum")
+        let dataStore = temporaryDataStore()
         
         XCTAssertThrowsError(try dataStore.deleteAlbum(album)) {
             XCTAssertEqual($0 as? DataStore.Error, DataStore.Error.objectNotFound)
@@ -43,7 +43,7 @@ class DataStoreAlbumTests: XCTestCase {
     func testDeleteExistingAlbum() throws {
         let artist = Models.Artist(name: "John Lennon")
         let album = Models.Album(title: "Welcome", artist: artist)
-        let dataStore = temporaryDataStore(identifier: "testDeleteExistingAlbum")
+        let dataStore = temporaryDataStore()
         
         try dataStore.saveAlbum(album)
         
@@ -53,13 +53,13 @@ class DataStoreAlbumTests: XCTestCase {
     // MARK: Fetch and Sort
     
     func testAllAlbumsEmpty() {
-        let dataStore = temporaryDataStore(identifier: "testAllAlbumsEmpty")
+        let dataStore = temporaryDataStore()
         
         XCTAssertTrue(dataStore.allAlbumsSortedByTitle().isEmpty)
     }
     
     func testAllAlbumsCount() {
-        let dataStore = temporaryDataStore(identifier: "testAllAlbumsCount")
+        let dataStore = temporaryDataStore()
         
         let artist = Models.Artist(name: "John Lennon")
         let welcomeAlbum = Models.Album(title: "Welcome", artist: artist)
@@ -77,7 +77,7 @@ class DataStoreAlbumTests: XCTestCase {
     }
     
     func testAllAlbumsSortedByTitle() {
-        let dataStore = temporaryDataStore(identifier: "testAllAlbumsSortedByTitle")
+        let dataStore = temporaryDataStore()
         
         let artist = Models.Artist(name: "John Lennon")
         let welcomeAlbum = Models.Album(title: "Welcome", artist: artist)
