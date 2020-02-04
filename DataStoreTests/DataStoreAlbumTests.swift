@@ -18,13 +18,39 @@ class DataStoreAlbumTests: XCTestCase {
         return DataStore(realm: realm)
     }
     
+    // MARK: Save
+    
     func testSaveAlbum() {
         let artist = Models.Artist(name: "John Lennon")
         let album = Models.Album(title: "Welcome", artist: artist)
-        
         let dataStore = temporaryDataStore(identifier: "testSaveAlbum")
+        
         XCTAssertNoThrow(try dataStore.saveAlbum(album))
     }
+    
+    // MARK: Delete
+    
+    func testDeleteNotExistingAlbum() {
+        let artist = Models.Artist(name: "John Lennon")
+        let album = Models.Album(title: "Welcome", artist: artist)
+        let dataStore = temporaryDataStore(identifier: "testDeleteNotExistingAlbum")
+        
+        XCTAssertThrowsError(try dataStore.deleteAlbum(album)) {
+            XCTAssertEqual($0 as? DataStore.Error, DataStore.Error.objectNotFound)
+        }
+    }
+    
+    func testDeleteExistingAlbum() throws {
+        let artist = Models.Artist(name: "John Lennon")
+        let album = Models.Album(title: "Welcome", artist: artist)
+        let dataStore = temporaryDataStore(identifier: "testDeleteExistingAlbum")
+        
+        try dataStore.saveAlbum(album)
+        
+        XCTAssertNoThrow(try dataStore.deleteAlbum(album))
+    }
+    
+    // MARK: Fetch and Sort
     
     func testAllAlbumsEmpty() {
         let dataStore = temporaryDataStore(identifier: "testAllAlbumsEmpty")
