@@ -13,12 +13,14 @@ class ArtistTests: XCTestCase {
         return .init(for: type(of: self))
     }
     
+    lazy var image = UIImage(named: "pixel.png", in: bundle, compatibleWith: nil)!
+    lazy var url = URL(string: "http://google.de")!
     // MARK: Init
     
     func testInitName() {
         let artist = Artist(name: "John Lennon",
-                            image: UIImage(named: "pixel.png", in: bundle, compatibleWith: nil)!,
-                            imageURL: URL(string: "http://google.de")!)
+                            image: nil,
+                            imageURL: nil)
         
         XCTAssertEqual(artist.name, "John Lennon",
                        "After init with name 'John Lennon' the name should be 'John Lennon' but is '\(artist.name)'")
@@ -26,20 +28,18 @@ class ArtistTests: XCTestCase {
     
     func testInitImage() {
         let artist = Artist(name: "John Lennon",
-                            image: UIImage(named: "pixel.png", in: bundle, compatibleWith: nil)!,
-                            imageURL: URL(string: "http://google.de")!)
+                            image: image,
+                            imageURL: nil)
         
-        XCTAssertEqual(artist.image, UIImage(named: "pixel.png", in: bundle, compatibleWith: nil)!,
-                       "After init with image the image should be equal but is not")
+        XCTAssertEqual(artist.image, image, "After init with image the image should be equal but is not")
     }
     
     func testInitImageURL() {
         let artist = Artist(name: "John Lennon",
-                            image: UIImage(named: "pixel.png", in: bundle, compatibleWith: nil)!,
-                            imageURL: URL(string: "http://google.de")!)
+                            image: nil,
+                            imageURL: url)
         
-        XCTAssertEqual(artist.imageURL, URL(string: "http://google.de")!,
-                       "After init with image the image should be equal but is not")
+        XCTAssertEqual(artist.imageURL, url, "After init with image the image should be equal but is not")
     }
     
     // MARK: New Image
@@ -47,10 +47,9 @@ class ArtistTests: XCTestCase {
     func testNewImage() {
         let artist = Artist(name: "John Lennon",
                             image: nil,
-                            imageURL: URL(string: "http://google.de")!)
-        let artistWithImage = artist.new(with: UIImage(named: "pixel.png", in: bundle, compatibleWith: nil)!)
+                            imageURL: nil)
+        let artistWithImage = artist.new(with: image)
         
-        XCTAssertEqual(artistWithImage.image, UIImage(named: "pixel.png", in: bundle, compatibleWith: nil)!,
-                       "After creating new artist object with image the image should be equal but is not")
+        XCTAssertEqual(artistWithImage.image, image, "After creating new artist object with image the image should be equal but is not")
     }
 }
