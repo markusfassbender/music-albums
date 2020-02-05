@@ -114,7 +114,7 @@ class WebserviceTests: XCTestCase {
         let expectation = XCTestExpectation(description: funcName)
         
         stub(condition: isPath("/\(funcName)")) { _ in
-            OHHTTPStubsResponse(data: Data(), statusCode: 200, headers: nil)
+            OHHTTPStubsResponse(data: Data(), statusCode: 200, headers: nil).requestTime(0, responseTime: 1)
         }
         
         Webservice.shared.load(resource: resource, token: cancelToken) {
@@ -127,6 +127,33 @@ class WebserviceTests: XCTestCase {
         }
         
         cancelToken.cancel()
+        
+        wait(for: [expectation], timeout: 0.1)
+    }
+    
+    // MARK: Webservice session
+    
+    func testDeallocateWebserviceCancelsRequest() {
+        let funcName = "testDeallocateWebserviceCancelsRequest"
+        var webservice: Webservice? = Webservice()
+        let resource = Resource(url: URL(string: "https://apple.com/\(funcName)")!, parse: { $0 })
+        let cancelToken = CancelToken()
+        let expectation = XCTestExpectation(description: funcName)
+        
+        stub(condition: isPath("/\(funcName)")) { _ in
+            OHHTTPStubsResponse(data: Data(), statusCode: 200, headers: nil).requestTime(0, responseTime: 1)
+        }
+        
+        webservice?.load(resource: resource, token: cancelToken) {
+            switch $0 {
+            case .success:
+                XCTFail("expected failure")
+            case .failure:
+                expectation.fulfill()
+            }
+        }
+        
+        webservice = nil // dealloc webservice
         
         wait(for: [expectation], timeout: 0.1)
     }
