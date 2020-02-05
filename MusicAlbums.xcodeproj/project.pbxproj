@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		275EED72CE39E5BAA3D32949 /* Pods_NetworkServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD2F969E8F58340FBC72B16 /* Pods_NetworkServiceTests.framework */; };
+		285CEE0823EAC6BB00AD63BE /* ArtistResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285CEE0723EAC6BB00AD63BE /* ArtistResourceTests.swift */; };
+		285CEE0B23EACB9700AD63BE /* mock_artist.json in Resources */ = {isa = PBXBuildFile; fileRef = 285CEE0A23EACB9700AD63BE /* mock_artist.json */; };
 		286E11EA23E97D5500B98A1C /* DataStoreModelAlbumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E11E923E97D5500B98A1C /* DataStoreModelAlbumTests.swift */; };
 		28A3EBD423E982F000D44FE7 /* DataStoreModelArtistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A3EBD323E982F000D44FE7 /* DataStoreModelArtistTests.swift */; };
 		28A3EBD623E9954500D44FE7 /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A3EBD523E9954500D44FE7 /* WebserviceTests.swift */; };
@@ -176,6 +178,8 @@
 		205D29118CC3A93AF62DF93D /* Pods_ModelsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModelsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22607D7DCDB4E70CECEC7127 /* Pods-MusicAlbums.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicAlbums.release.xcconfig"; path = "Target Support Files/Pods-MusicAlbums/Pods-MusicAlbums.release.xcconfig"; sourceTree = "<group>"; };
 		242AC7B41EB9CD1B302ADCDF /* Pods-ModelsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelsTests.debug.xcconfig"; path = "Target Support Files/Pods-ModelsTests/Pods-ModelsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		285CEE0723EAC6BB00AD63BE /* ArtistResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistResourceTests.swift; sourceTree = "<group>"; };
+		285CEE0A23EACB9700AD63BE /* mock_artist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_artist.json; sourceTree = "<group>"; };
 		286E11E923E97D5500B98A1C /* DataStoreModelAlbumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreModelAlbumTests.swift; sourceTree = "<group>"; };
 		28A3EBD323E982F000D44FE7 /* DataStoreModelArtistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreModelArtistTests.swift; sourceTree = "<group>"; };
 		28A3EBD523E9954500D44FE7 /* WebserviceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceTests.swift; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 		28A3EBD723E9A37800D44FE7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				285CEE0A23EACB9700AD63BE /* mock_artist.json */,
 				28A3EBD823E9A39A00D44FE7 /* pixel.png */,
 			);
 			path = Resources;
@@ -599,12 +604,13 @@
 		E6FE7F3322BAC326005E1339 /* NetworkServiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				28A3EBD723E9A37800D44FE7 /* Resources */,
+				285CEE0723EAC6BB00AD63BE /* ArtistResourceTests.swift */,
 				E6FE7F5C22BAC856005E1339 /* ConfigTests.swift */,
 				E6FE7F3622BAC326005E1339 /* Info.plist */,
+				28A3EBD723E9A37800D44FE7 /* Resources */,
 				E6FE7F5E22BAC993005E1339 /* ResourceTests.swift */,
-				28A3EBD523E9954500D44FE7 /* WebserviceTests.swift */,
 				28A3EBDA23E9A3FF00D44FE7 /* UIImageResourceTests.swift */,
+				28A3EBD523E9954500D44FE7 /* WebserviceTests.swift */,
 			);
 			path = NetworkServiceTests;
 			sourceTree = "<group>";
@@ -946,6 +952,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285CEE0B23EACB9700AD63BE /* mock_artist.json in Resources */,
 				28A3EBD923E9A39A00D44FE7 /* pixel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1260,6 +1267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28A3EBD623E9954500D44FE7 /* WebserviceTests.swift in Sources */,
+				285CEE0823EAC6BB00AD63BE /* ArtistResourceTests.swift in Sources */,
 				28A3EBDB23E9A3FF00D44FE7 /* UIImageResourceTests.swift in Sources */,
 				E6FE7F5F22BAC993005E1339 /* ResourceTests.swift in Sources */,
 				E6FE7F5D22BAC856005E1339 /* ConfigTests.swift in Sources */,
