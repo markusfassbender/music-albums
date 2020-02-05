@@ -11,6 +11,8 @@
 		286E11EA23E97D5500B98A1C /* DataStoreModelAlbumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E11E923E97D5500B98A1C /* DataStoreModelAlbumTests.swift */; };
 		28A3EBD423E982F000D44FE7 /* DataStoreModelArtistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A3EBD323E982F000D44FE7 /* DataStoreModelArtistTests.swift */; };
 		28A3EBD623E9954500D44FE7 /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A3EBD523E9954500D44FE7 /* WebserviceTests.swift */; };
+		28A3EBD923E9A39A00D44FE7 /* pixel.png in Resources */ = {isa = PBXBuildFile; fileRef = 28A3EBD823E9A39A00D44FE7 /* pixel.png */; };
+		28A3EBDB23E9A3FF00D44FE7 /* UIImageResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A3EBDA23E9A3FF00D44FE7 /* UIImageResourceTests.swift */; };
 		28BAE17123D6FD0700408164 /* TabBarItemInstantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BAE17023D6FD0700408164 /* TabBarItemInstantiator.swift */; };
 		28BAE17323D6FED600408164 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BAE17223D6FED600408164 /* Tab.swift */; };
 		558FFFA4DAEE4F3F308773FD /* Pods_MusicAlbumsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520C39B2B2EECDED44F9DA7C /* Pods_MusicAlbumsTests.framework */; };
@@ -177,6 +179,8 @@
 		286E11E923E97D5500B98A1C /* DataStoreModelAlbumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreModelAlbumTests.swift; sourceTree = "<group>"; };
 		28A3EBD323E982F000D44FE7 /* DataStoreModelArtistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreModelArtistTests.swift; sourceTree = "<group>"; };
 		28A3EBD523E9954500D44FE7 /* WebserviceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceTests.swift; sourceTree = "<group>"; };
+		28A3EBD823E9A39A00D44FE7 /* pixel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixel.png; sourceTree = "<group>"; };
+		28A3EBDA23E9A3FF00D44FE7 /* UIImageResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageResourceTests.swift; sourceTree = "<group>"; };
 		28BAE17023D6FD0700408164 /* TabBarItemInstantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemInstantiator.swift; sourceTree = "<group>"; };
 		28BAE17223D6FED600408164 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		35A3B0F074FFAABA3713BE41 /* Pods-MusicAlbumsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicAlbumsTests.debug.xcconfig"; path = "Target Support Files/Pods-MusicAlbumsTests/Pods-MusicAlbumsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -336,6 +340,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28A3EBD723E9A37800D44FE7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28A3EBD823E9A39A00D44FE7 /* pixel.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		28BAE17423D7029D00408164 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,10 +599,12 @@
 		E6FE7F3322BAC326005E1339 /* NetworkServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				28A3EBD723E9A37800D44FE7 /* Resources */,
 				E6FE7F5C22BAC856005E1339 /* ConfigTests.swift */,
 				E6FE7F3622BAC326005E1339 /* Info.plist */,
 				E6FE7F5E22BAC993005E1339 /* ResourceTests.swift */,
 				28A3EBD523E9954500D44FE7 /* WebserviceTests.swift */,
+				28A3EBDA23E9A3FF00D44FE7 /* UIImageResourceTests.swift */,
 			);
 			path = NetworkServiceTests;
 			sourceTree = "<group>";
@@ -932,6 +946,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A3EBD923E9A39A00D44FE7 /* pixel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1245,6 +1260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28A3EBD623E9954500D44FE7 /* WebserviceTests.swift in Sources */,
+				28A3EBDB23E9A3FF00D44FE7 /* UIImageResourceTests.swift in Sources */,
 				E6FE7F5F22BAC993005E1339 /* ResourceTests.swift in Sources */,
 				E6FE7F5D22BAC856005E1339 /* ConfigTests.swift in Sources */,
 			);
