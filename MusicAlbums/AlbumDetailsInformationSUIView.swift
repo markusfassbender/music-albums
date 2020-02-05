@@ -16,7 +16,7 @@ struct AlbumDetailsInformationSUIView: View {
     @State private var isFavoriteAlbum: Bool = false
     
     init(album: Album) {
-        self.album = album
+        self.album = album.new(with: ["1", "2", "3", "4"])
     }
     
     var body: some View {

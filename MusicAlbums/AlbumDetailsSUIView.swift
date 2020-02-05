@@ -29,6 +29,8 @@ struct AlbumDetailsSUIView: View {
                 .aspectRatio(1, contentMode: .fill)
                 AlbumDetailsInformationSUIView(album: album)
                     .padding()
+                AlbumDetailsTracksSUIView(tracks: album.tracks)
+                    .padding()
             }
         }
     }
