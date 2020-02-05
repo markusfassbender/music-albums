@@ -1,0 +1,238 @@
+{
+   "album":{
+      "name":"Imagine",
+      "artist":"John Lennon",
+      "mbid":"dbeb851b-ad68-43ab-9706-7f1ecd2bf59d",
+      "url":"https://www.last.fm/music/John+Lennon/Imagine",
+      "image":[
+         {
+            "#text":"https://lastfm.freetls.fastly.net/i/u/34s/f6158cdf848e49ceb9bbbae2e2394ecd.png",
+            "size":"small"
+         },
+         {
+            "#text":"https://lastfm.freetls.fastly.net/i/u/64s/f6158cdf848e49ceb9bbbae2e2394ecd.png",
+            "size":"medium"
+         },
+         {
+            "#text":"https://lastfm.freetls.fastly.net/i/u/174s/f6158cdf848e49ceb9bbbae2e2394ecd.png",
+            "size":"large"
+         },
+         {
+            "#text":"https://lastfm.freetls.fastly.net/i/u/300x300/f6158cdf848e49ceb9bbbae2e2394ecd.png",
+            "size":"extralarge"
+         },
+         {
+            "#text":"https://lastfm.freetls.fastly.net/i/u/300x300/f6158cdf848e49ceb9bbbae2e2394ecd.png",
+            "size":"mega"
+         },
+         {
+            "#text":"https://lastfm.freetls.fastly.net/i/u/300x300/f6158cdf848e49ceb9bbbae2e2394ecd.png",
+            "size":""
+         }
+      ],
+      "listeners":"486596",
+      "playcount":"5951573",
+      "tracks":{
+         "track":[
+            {
+               "name":"Imagine",
+               "url":"https://www.last.fm/music/John+Lennon/_/Imagine",
+               "duration":"179",
+               "@attr":{
+                  "rank":"1"
+               },
+               "streamable":{
+                  "#text":"0",
+                  "fulltrack":"0"
+               },
+               "artist":{
+                  "name":"John Lennon",
+                  "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+                  "url":"https://www.last.fm/music/John+Lennon"
+               }
+            },
+            {
+               "name":"Crippled Inside",
+               "url":"https://www.last.fm/music/John+Lennon/_/Crippled+Inside",
+               "duration":"223",
+               "@attr":{
+                  "rank":"2"
+               },
+               "streamable":{
+                  "#text":"0",
+                  "fulltrack":"0"
+               },
+               "artist":{
+                  "name":"John Lennon",
+                  "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+                  "url":"https://www.last.fm/music/John+Lennon"
+               }
+            },
+            {
+               "name":"Jealous Guy",
+               "url":"https://www.last.fm/music/John+Lennon/_/Jealous+Guy",
+               "duration":"250",
+               "@attr":{
+                  "rank":"3"
+               },
+               "streamable":{
+                  "#text":"0",
+                  "fulltrack":"0"
+               },
+               "artist":{
+                  "name":"John Lennon",
+                  "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+                  "url":"https://www.last.fm/music/John+Lennon"
+               }
+            },
+            {
+               "name":"It\\'s So Hard",
+               "url":"https://www.last.fm/music/John+Lennon/_/It%27s+So+Hard",
+               "duration":"142",
+               "@attr":{
+                  "rank":"4"
+               },
+               "streamable":{
+                  "#text":"0",
+                  "fulltrack":"0"
+               },
+               "artist":{
+                  "name":"John Lennon",
+                  "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+                  "url":"https://www.last.fm/music/John+Lennon"
+               }
+            },
+            {
+               "name":"I Don\\'t Wanna Be a Soldier Mama",
+               "url":"https://www.last.fm/music/John+Lennon/_/I+Don%27t+Wanna+Be+a+Soldier+Mama",
+               "duration":"361",
+               "@attr":{
+                  "rank":"5"
+               },
+               "streamable":{
+                  "#text":"0",
+                  "fulltrack":"0"
+               },
+               "artist":{
+                  "name":"John Lennon",
+                  "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+                  "url":"https://www.last.fm/music/John+Lennon"
+               }
+            },
+            {
+               "name":"Gimme Some Truth",
+               "url":"https://www.last.fm/music/John+Lennon/_/Gimme+Some+Truth",
+               "duration":"191",
+               "@attr":{
+                  "rank":"6"
+               },
+               "streamable":{
+                  "#text":"0",
+                  "fulltrack":"0"
+               },
+               "artist":{
+                  "name":"John Lennon",
+                  "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+                  "url":"https://www.last.fm/music/John+Lennon"
+               }
+            },
+            {
+               "name":"Oh My Love",
+               "url":"https://www.last.fm/music/John+Lennon/_/Oh+My+Love",
+               "duration":"160",
+               "@attr":{
+                  "rank":"7"
+               },
+               "streamable":{
+                  "#text":"0",
+                  "fulltrack":"0"
+               },
+               "artist":{
+                  "name":"John Lennon",
+                  "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+                  "url":"https://www.last.fm/music/John+Lennon"
+               }
+            },
+            {
+               "name":"How Do You Sleep?",
+               "url":"https://www.last.fm/music/John+Lennon/_/How+Do+You+Sleep%3F",
+               "duration":"329",
+               "@attr":{
+                  "rank":"8"
+               },
+               "streamable":{
+                  "#text":"0",
+                  "fulltrack":"0"
+               },
+               "artist":{
+                  "name":"John Lennon",
+                  "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+                  "url":"https://www.last.fm/music/John+Lennon"
+               }
+            },
+            {
+               "name":"How?",
+               "url":"https://www.last.fm/music/John+Lennon/_/How%3F",
+               "duration":"217",
+               "@attr":{
+                  "rank":"9"
+               },
+               "streamable":{
+                  "#text":"0",
+                  "fulltrack":"0"
+               },
+               "artist":{
+                  "name":"John Lennon",
+                  "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+                  "url":"https://www.last.fm/music/John+Lennon"
+               }
+            },
+            {
+               "name":"Oh Yoko!",
+               "url":"https://www.last.fm/music/John+Lennon/_/Oh+Yoko%21",
+               "duration":"258",
+               "@attr":{
+                  "rank":"10"
+               },
+               "streamable":{
+                  "#text":"0",
+                  "fulltrack":"0"
+               },
+               "artist":{
+                  "name":"John Lennon",
+                  "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+                  "url":"https://www.last.fm/music/John+Lennon"
+               }
+            }
+         ]
+      },
+      "tags":{
+         "tag":[
+            {
+               "name":"classic rock",
+               "url":"https://www.last.fm/tag/classic+rock"
+            },
+            {
+               "name":"70s",
+               "url":"https://www.last.fm/tag/70s"
+            },
+            {
+               "name":"albums I own",
+               "url":"https://www.last.fm/tag/albums+I+own"
+            },
+            {
+               "name":"1971",
+               "url":"https://www.last.fm/tag/1971"
+            },
+            {
+               "name":"rock",
+               "url":"https://www.last.fm/tag/rock"
+            }
+         ]
+      },
+      "wiki":{
+         "published":"09 Aug 2009, 17:53",
+         "summary":"Imagine"
+      }
+   }
+}
