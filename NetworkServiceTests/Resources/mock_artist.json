@@ -1,0 +1,61 @@
+{"results":{
+      "opensearch:Query":{
+         "#text":"",
+         "role":"request",
+         "searchTerms":"John Lennon",
+         "startPage":"1"
+      },
+      "opensearch:totalResults":"9216",
+      "opensearch:startIndex":"0",
+      "opensearch:itemsPerPage":"30",
+      "artistmatches":{
+         "artist":[
+            {
+               "name":"John Lennon",
+               "listeners":"2256473",
+               "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+               "url":"https://www.last.fm/music/John+Lennon",
+               "streamable":"0",
+               "image":[
+                  {
+                     "#text":"https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                     "size":"small"
+                  },
+                  {
+                     "#text":"https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                     "size":"medium"
+                  },
+                  {
+                     "#text":"https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                     "size":"large"
+                  },
+                  {
+                     "#text":"https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                     "size":"extralarge"
+                  },
+                  {
+                     "#text":"https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                     "size":"mega"
+                  }
+               ]
+            },
+            {
+               "name":"John Lennon & Yoko Ono",
+               "listeners":"313444",
+               "mbid":"4d5447d7-c61c-4120-ba1b-d7f471d385b9",
+               "url":"https://www.last.fm/music/John+Lennon+&+Yoko+Ono",
+               "streamable":"0",
+               "image":[
+                  {
+                     "#text":"https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                     "size":"extralarge"
+                  }
+               ]
+            }
+         ]
+      },
+      "@attr":{
+         "for":"John Lennon"
+      }
+   }
+}
