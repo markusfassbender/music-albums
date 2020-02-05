@@ -20,6 +20,8 @@
 		28A3EBD623E9954500D44FE7 /* WebserviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A3EBD523E9954500D44FE7 /* WebserviceTests.swift */; };
 		28A3EBD923E9A39A00D44FE7 /* pixel.png in Resources */ = {isa = PBXBuildFile; fileRef = 28A3EBD823E9A39A00D44FE7 /* pixel.png */; };
 		28A3EBDB23E9A3FF00D44FE7 /* UIImageResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A3EBDA23E9A3FF00D44FE7 /* UIImageResourceTests.swift */; };
+		28A61AB723EB1415003015A2 /* AlbumDetailsInformationSUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A61AB623EB1415003015A2 /* AlbumDetailsInformationSUIView.swift */; };
+		28A61AB923EB1466003015A2 /* ScalePressedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A61AB823EB1466003015A2 /* ScalePressedButtonStyle.swift */; };
 		28BAE17123D6FD0700408164 /* TabBarItemInstantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BAE17023D6FD0700408164 /* TabBarItemInstantiator.swift */; };
 		28BAE17323D6FED600408164 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BAE17223D6FED600408164 /* Tab.swift */; };
 		558FFFA4DAEE4F3F308773FD /* Pods_MusicAlbumsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520C39B2B2EECDED44F9DA7C /* Pods_MusicAlbumsTests.framework */; };
@@ -194,6 +196,8 @@
 		28A3EBD523E9954500D44FE7 /* WebserviceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceTests.swift; sourceTree = "<group>"; };
 		28A3EBD823E9A39A00D44FE7 /* pixel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixel.png; sourceTree = "<group>"; };
 		28A3EBDA23E9A3FF00D44FE7 /* UIImageResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageResourceTests.swift; sourceTree = "<group>"; };
+		28A61AB623EB1415003015A2 /* AlbumDetailsInformationSUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsInformationSUIView.swift; sourceTree = "<group>"; };
+		28A61AB823EB1466003015A2 /* ScalePressedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalePressedButtonStyle.swift; sourceTree = "<group>"; };
 		28BAE17023D6FD0700408164 /* TabBarItemInstantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemInstantiator.swift; sourceTree = "<group>"; };
 		28BAE17223D6FED600408164 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		35A3B0F074FFAABA3713BE41 /* Pods-MusicAlbumsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicAlbumsTests.debug.xcconfig"; path = "Target Support Files/Pods-MusicAlbumsTests/Pods-MusicAlbumsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -363,6 +367,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		28A61AB523EB13CA003015A2 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				28A61AB623EB1415003015A2 /* AlbumDetailsInformationSUIView.swift */,
+				285CEE1723EAF32F00AD63BE /* AlbumDetailsSUIView.swift */,
+				28A61AB823EB1466003015A2 /* ScalePressedButtonStyle.swift */,
+			);
+			name = SwiftUI;
+			sourceTree = "<group>";
+		};
 		28BAE17423D7029D00408164 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,10 +460,10 @@
 		E618B26E22B4FD370077D029 /* Album Details */ = {
 			isa = PBXGroup;
 			children = (
+				28A61AB523EB13CA003015A2 /* SwiftUI */,
 				E618B26F22B4FD4B0077D029 /* AlbumDetailsViewController.swift */,
 				E6548C8322B63A5500626B9C /* AlbumDetailsView.swift */,
 				E6548C9122B6514E00626B9C /* AlbumTracksView.swift */,
-				285CEE1723EAF32F00AD63BE /* AlbumDetailsSUIView.swift */,
 			);
 			name = "Album Details";
 			sourceTree = "<group>";
@@ -1229,8 +1243,10 @@
 				E6548C9222B6514E00626B9C /* AlbumTracksView.swift in Sources */,
 				E6548C7F22B622C300626B9C /* AlbumCell.swift in Sources */,
 				28BAE17323D6FED600408164 /* Tab.swift in Sources */,
+				28A61AB723EB1415003015A2 /* AlbumDetailsInformationSUIView.swift in Sources */,
 				E618B26A22B4FAE60077D029 /* AlbumSelectionViewController.swift in Sources */,
 				E618B27022B4FD4B0077D029 /* AlbumDetailsViewController.swift in Sources */,
+				28A61AB923EB1466003015A2 /* ScalePressedButtonStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

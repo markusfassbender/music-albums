@@ -6,37 +6,30 @@
 //
 
 import SwiftUI
+import Models
 
 struct AlbumDetailsSUIView: View {
+    
+    @State private var isFavoriteAlbum: Bool = false
+    
+    let album: Album
+    
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .leading) {
-                Rectangle()
-                    .fill(Color.gray)
-                    .aspectRatio(1, contentMode: .fill)
-                VStack(alignment: .leading) {
-                    Text("Title")
-                        .foregroundColor(Color(Stylesheet.Color.title))
-                    Text("Artist")
-                        .foregroundColor(Color(Stylesheet.Color.subTitle))
-                    Button(action: callButton) {
-                        Image(systemName: "heart")
+                ZStack {
+                    Rectangle()
+                        .fill(Color.gray)
+                    
+                    if album.image != nil {
+                        Image(uiImage: album.image!)
+                        .resizable()
                     }
                 }
-                .padding()
+                .aspectRatio(1, contentMode: .fill)
+                AlbumDetailsInformationSUIView(album: album)
+                    .padding()
             }
         }
-    }
-}
-
-extension AlbumDetailsSUIView {
-    func callButton() {
-        print("call button")
-    }
-}
-
-struct AlbumDetailsSUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        AlbumDetailsSUIView()
     }
 }
