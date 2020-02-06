@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftUI
+
 import Models
 import NetworkService
 import DataStore
@@ -105,7 +107,8 @@ class AlbumSelectionViewController: UICollectionViewController, UICollectionView
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let album = dataSource.album(at: indexPath)
-        let viewController = AlbumDetailsViewController(album: album)
+        let viewController = UIHostingController(rootView: AlbumDetailsView(album: album))
+        viewController.title = album.title
         
         navigationController?.pushViewController(viewController, animated: true)
     }

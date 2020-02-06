@@ -8,6 +8,7 @@
 import UIKit
 import Models
 import DataStore
+import SwiftUI
 
 class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private struct Constant {
@@ -108,7 +109,9 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let album = dataSource.album(at: indexPath)
-        let viewController = AlbumDetailsViewController(album: album)
+        
+        let viewController = UIHostingController(rootView: AlbumDetailsView(album: album))
+        viewController.title = album.title
         
         navigationController?.pushViewController(viewController, animated: true)
     }
