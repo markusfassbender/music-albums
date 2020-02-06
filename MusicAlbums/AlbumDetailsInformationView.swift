@@ -1,5 +1,5 @@
 //
-//  AlbumDetailsInformationSUIView.swift
+//  AlbumDetailsInformationView.swift
 //  MusicAlbums
 //
 //  Created by Markus Faßbender on 05.02.20.
@@ -9,7 +9,7 @@ import SwiftUI
 import Models
 import DataStore
 
-struct AlbumDetailsInformationSUIView: View {
+struct AlbumDetailsInformationView: View {
     
     let album: Album
     
@@ -32,7 +32,7 @@ struct AlbumDetailsInformationSUIView: View {
     }
 }
 
-extension AlbumDetailsInformationSUIView {
+extension AlbumDetailsInformationView {
     
     func updateAlbum() {
         do {

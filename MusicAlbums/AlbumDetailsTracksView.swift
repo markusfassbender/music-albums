@@ -1,5 +1,5 @@
 //
-//  AlbumDetailsTracksSUIView.swift
+//  AlbumDetailsTracksView.swift
 //  MusicAlbums
 //
 //  Created by Markus Faßbender on 05.02.20.
@@ -13,7 +13,7 @@ struct OrderedTrack {
     let title: String
 }
 
-struct AlbumDetailsTracksSUIView: View {
+struct AlbumDetailsTracksView: View {
     
     let orderedTracks: [OrderedTrack]
     

@@ -2,118 +2,67 @@
 //  AlbumDetailsView.swift
 //  MusicAlbums
 //
-//  Created by Markus Faßbender on 16.06.19.
+//  Created by Markus Faßbender on 05.02.20.
 //
 
-import UIKit
+import SwiftUI
+import Models
+import NetworkService
 
-final class AlbumDetailsView: UIView {
-    private(set) weak var stackView: UIStackView?
-    private(set) weak var favoriteButton: UIButton?
+struct AlbumDetailsView: View {
     
-    private weak var imageView: UIImageView?
-    private weak var titleLabel: UILabel?
-    private weak var artistLabel: UILabel?
-    private weak var tracksView: AlbumTracksView?
+    @State var album: Album
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
+    @State private var cancelToken: CancelToken?
+    @State private var isFavoriteAlbum: Bool = false
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
-        backgroundColor = Stylesheet.Color.viewBackground
-        
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .leading
-        stackView.distribution = .equalSpacing
-        stackView.spacing = systemSpacing
-        self.stackView = stackView
-        
-        let favoriteButton = UIButton()
-        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        favoriteButton.setImage(UIImage(systemName: "heart")!, for: .normal)
-        favoriteButton.setImage(UIImage(systemName: "heart.fill")!, for: .selected)
-        favoriteButton.tintColor = Stylesheet.Color.defaultTint
-        self.favoriteButton = favoriteButton
-        
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = Stylesheet.Color.imageBackground
-        self.imageView = imageView
-        
-        let titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = .preferredFont(forTextStyle: .title2)
-        titleLabel.textColor = Stylesheet.Color.title
-        self.titleLabel = titleLabel
-        
-        let artistLabel = UILabel()
-        artistLabel.translatesAutoresizingMaskIntoConstraints = false
-        artistLabel.font = .preferredFont(forTextStyle: .title3)
-        artistLabel.textColor = Stylesheet.Color.subTitle
-        self.artistLabel = artistLabel
-        
-        let tracksView = AlbumTracksView()
-        tracksView.translatesAutoresizingMaskIntoConstraints = false
-        self.tracksView = tracksView
-        
-        addSubview(imageView)
-        addSubview(stackView)
-        
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(artistLabel)
-        stackView.addArrangedSubview(favoriteButton)
-        stackView.addArrangedSubview(tracksView)
-        
-        let constraints: [NSLayoutConstraint] = [
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
-            
-            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: systemSpacing),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: systemSpacing),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -systemSpacing),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -systemSpacing),
-        ]
-        
-        NSLayoutConstraint.activate(constraints)
-    }
-    
-    func configure(with viewModel: AlbumDetailsViewModel) {
-        imageView?.image = viewModel.image
-        titleLabel?.text = viewModel.title
-        artistLabel?.text = viewModel.artistName
-        tracksView?.configure(with: viewModel.tracks)
-        favoriteButton?.isSelected = viewModel.isFavorite
-    }
-}
+    var body: some View {
+        ScrollView(.vertical) {
+            VStack(alignment: .leading) {
+                ZStack {
+                    Rectangle()
+                        .fill(Color.gray)
 
-// MARK: View Model
-
-protocol AlbumDetailsViewModel {
-    var image: UIImage? { get }
-    var title: String { get }
-    var artistName: String { get }
-    var tracks: [AlbumTrackViewModel]? { get }
-    var isFavorite: Bool { get }
+                    if album.image != nil {
+                        Image(uiImage: album.image!)
+                        .resizable()
+                    }
+                }
+                .aspectRatio(1, contentMode: .fill)
+                
+                VStack(alignment: .leading) {
+                    AlbumDetailsInformationView(album: album)
+                    AlbumDetailsTracksView(tracks: album.tracks)
+                }
+                .padding([.leading, .trailing, .bottom])
+            }
+            .scaledToFit()
+        }
+        .onAppear {
+            self.loadDetails()
+        }.onDisappear() {
+            self.cancelToken?.cancel()
+        }
+    }
 }
 
 extension AlbumDetailsView {
-    struct ViewModel: AlbumDetailsViewModel {
-        let image: UIImage?
-        let title: String
-        let artistName: String
-        let tracks: [AlbumTrackViewModel]?
-        let isFavorite: Bool
+    private func loadDetails() {
+        cancelToken?.cancel()
+        
+        let resource = Album.allDetails(for: album)
+        let token = CancelToken()
+        cancelToken = token
+        
+        Webservice.shared.load(resource: resource, token: token) {
+            switch $0 {
+            case .success(let album):
+                DispatchQueue.main.async {
+                    self.album = album
+                }
+            case .failure(let error):
+                print(error) // just don't update interface for now
+            }
+        }
     }
 }
