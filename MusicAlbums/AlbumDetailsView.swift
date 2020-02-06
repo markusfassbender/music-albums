@@ -25,10 +25,10 @@ struct AlbumDetailsView: View {
 
                     if album.image != nil {
                         Image(uiImage: album.image!)
-                        .resizable()
+                            .resizable()
                     }
                 }
-                .aspectRatio(1, contentMode: .fill)
+                .aspectRatio(1, contentMode: .fit)
                 
                 VStack(alignment: .leading) {
                     AlbumDetailsInformationView(album: album)
@@ -36,7 +36,6 @@ struct AlbumDetailsView: View {
                 }
                 .padding([.leading, .trailing, .bottom])
             }
-            .scaledToFit()
         }
         .onAppear {
             self.loadDetails()
