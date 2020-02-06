@@ -52,7 +52,7 @@ extension AlbumDetailsInformationView {
                 try DataStore.shared.saveAlbum(album)
             }
         } catch {
-            fatalError("album can not be stored!")
+            assertionFailure("album can not be stored!")
         }
         
         isFavoriteAlbum.toggle()

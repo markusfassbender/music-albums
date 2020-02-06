@@ -19,7 +19,8 @@ struct AlbumDetailsTracksView: View {
     
     init(tracks: [String]?) {
         if let tracks = tracks, !tracks.isEmpty {
-            orderedTracks = zip(1...tracks.count, tracks).map { OrderedTrack(rank: $0, title: $1) }
+            orderedTracks = zip(1...tracks.count, tracks)
+                .map { OrderedTrack(rank: $0, title: $1) }
         } else {
             orderedTracks = []
         }
@@ -30,7 +31,7 @@ struct AlbumDetailsTracksView: View {
             Text("tracks")
                 .font(.title)
                 .padding(.bottom)
-
+            
             ForEach(orderedTracks, id: \.rank) { track in
                 Text("\(track.rank) \(track.title)")
             }

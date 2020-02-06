@@ -14,7 +14,6 @@ struct AlbumDetailsView: View {
     @State var album: Album
     
     @State private var cancelToken: CancelToken?
-    @State private var isFavoriteAlbum: Bool = false
     
     var body: some View {
         ScrollView(.vertical) {
@@ -39,7 +38,8 @@ struct AlbumDetailsView: View {
         }
         .onAppear {
             self.loadDetails()
-        }.onDisappear() {
+        }
+        .onDisappear() {
             self.cancelToken?.cancel()
         }
     }
@@ -56,9 +56,7 @@ extension AlbumDetailsView {
         Webservice.shared.load(resource: resource, token: token) {
             switch $0 {
             case .success(let album):
-                DispatchQueue.main.async {
-                    self.album = album
-                }
+                self.album = album
             case .failure(let error):
                 print(error) // just don't update interface for now
             }
