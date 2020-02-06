@@ -11,6 +11,10 @@ import DataStore
 
 struct AlbumDetailsInformationView: View {
     
+    private struct Constants {
+        static let minimumButtonSize = CGSize(width: 40, height: 40)
+    }
+    
     let album: Album
     
     @State private var isFavoriteAlbum: Bool = false
@@ -22,10 +26,12 @@ struct AlbumDetailsInformationView: View {
             Text(album.artist.name)
                 .foregroundColor(Color(Stylesheet.Color.subTitle))
             Button(action: updateAlbum) {
-                Image(systemName: isFavoriteAlbum ? "heart.fill" : "heart")
+                Image(systemName: buttonImageName)
             }
             .buttonStyle(ScalePressedButtonStyle())
-            .frame(minWidth: 40, minHeight: 40, alignment: .topLeading)
+            .frame(minWidth: Constants.minimumButtonSize.width,
+                   minHeight: Constants.minimumButtonSize.height,
+                   alignment: .topLeading)
         }.onAppear {
             self.isFavoriteAlbum = DataStore.shared.containsAlbum(self.album)
         }
@@ -33,6 +39,10 @@ struct AlbumDetailsInformationView: View {
 }
 
 extension AlbumDetailsInformationView {
+    
+    var buttonImageName: String {
+        isFavoriteAlbum ? "heart.fill" : "heart"
+    }
     
     func updateAlbum() {
         do {
