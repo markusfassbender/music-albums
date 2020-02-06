@@ -21,7 +21,7 @@ struct AlbumDetailsView: View {
             VStack(alignment: .leading) {
                 ZStack {
                     Rectangle()
-                        .fill(Color.gray)
+                        .fill(Color(Stylesheet.Color.imageBackground))
 
                     if album.image != nil {
                         Image(uiImage: album.image!)
