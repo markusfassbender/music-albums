@@ -11,8 +11,10 @@ import NetworkService
 
 struct AlbumDetailsSUIView: View {
     
-    @State private var isFavoriteAlbum: Bool = false
     @State var album: Album
+    
+    @State private var cancelToken: CancelToken?
+    @State private var isFavoriteAlbum: Bool = false
     
     var body: some View {
         ScrollView(.vertical) {
@@ -27,36 +29,39 @@ struct AlbumDetailsSUIView: View {
                     }
                 }
                 .aspectRatio(1, contentMode: .fill)
+                
                 VStack(alignment: .leading) {
                     AlbumDetailsInformationSUIView(album: album)
                     AlbumDetailsTracksSUIView(tracks: album.tracks)
-                }.padding([.leading, .trailing, .bottom])
+                }
+                .padding([.leading, .trailing, .bottom])
             }
             .scaledToFit()
         }
         .onAppear {
             self.loadDetails()
+        }.onDisappear() {
+            self.cancelToken?.cancel()
         }
     }
 }
 
 extension AlbumDetailsSUIView {
     private func loadDetails() {
-//        cancelToken?.cancel()
+        cancelToken?.cancel()
         
         let resource = Album.allDetails(for: album)
-//        let token = CancelToken()
-//        cancelToken = token
+        let token = CancelToken()
+        cancelToken = token
         
-//        Webservice.shared.load(resource: resource, token: token) {
-        Webservice.shared.load(resource: resource) {
+        Webservice.shared.load(resource: resource, token: token) {
             switch $0 {
             case .success(let album):
                 DispatchQueue.main.async {
                     self.album = album
                 }
             case .failure(let error):
-                print(error)
+                print(error) // just don't update interface for now
             }
         }
     }
