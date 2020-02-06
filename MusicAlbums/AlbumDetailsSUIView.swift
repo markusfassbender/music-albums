@@ -30,9 +30,11 @@ struct AlbumDetailsSUIView: View {
                 VStack(alignment: .leading) {
                     AlbumDetailsInformationSUIView(album: album)
                     AlbumDetailsTracksSUIView(tracks: album.tracks)
-                }.padding([.leading, .trailing])
+                }.padding([.leading, .trailing, .bottom])
             }
-        }.onAppear {
+            .scaledToFit()
+        }
+        .onAppear {
             self.loadDetails()
         }
     }
