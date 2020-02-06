@@ -15,10 +15,6 @@ struct AlbumDetailsInformationSUIView: View {
     
     @State private var isFavoriteAlbum: Bool = false
     
-    init(album: Album) {
-        self.album = album.new(with: ["1", "2", "3", "4"])
-    }
-    
     var body: some View {
         VStack(alignment: .leading) {
             Text(album.title)
